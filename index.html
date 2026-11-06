@@ -1,0 +1,580 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kevin Ribeiro · Governança de TI e IA</title>
+<meta name="description" content="Kevin Ribeiro, governança de TI e IA em Fortaleza. Estruturo como a IA entra nos processos de uma empresa, com regra, dono e métrica.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Kevin Ribeiro · IA com regra, dono e métrica">
+<meta property="og:description" content="Kevin Ribeiro, governança de TI e IA em Fortaleza. Estruturo como a IA entra nos processos de uma empresa, com regra, dono e métrica.">
+<meta property="og:image" content="og.png">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0B1730">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-0.5 -0.5 4 4'%3E%3Crect x='-0.5' y='-0.5' width='4' height='4' fill='%230B1730'/%3E%3Crect width='1' height='3' fill='%23fff'/%3E%3Cpath d='M1 1 2 0h1L1 2z' fill='%23fff'/%3E%3Crect x='2' y='2' width='1' height='1' fill='%23FFB020'/%3E%3C/svg%3E">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Person", "name": "Kevin Ribeiro", "jobTitle": "Governança de TI e IA", "address": {"@type": "PostalAddress", "addressLocality": "Fortaleza", "addressRegion": "CE", "addressCountry": "BR"}, "sameAs": ["https://www.linkedin.com/in/johnkevinribeiro"]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Você é desenvolvedor de IA?", "acceptedAnswer": {"@type": "Answer", "text": "Não. Não treino modelos. Meu trabalho é decidir onde a IA entra no processo, desenhar o agente a partir da regra de negócio e garantir que ele tenha dono, métrica e trilha de auditoria."}}, {"@type": "Question", "name": "Que tipo de empresa se beneficia desse trabalho?", "acceptedAnswer": {"@type": "Answer", "text": "Operações de serviço com contrato, nível de serviço e indicador: serviços gerenciados de TI, áreas de governança e setores regulados como energia, saúde e financeiro."}}, {"@type": "Question", "name": "Com quais ferramentas você trabalha?", "acceptedAnswer": {"@type": "Answer", "text": "ServiceNow, Power BI, Copilot Studio, ChatGPT Enterprise, Claude e Microsoft 365. A ferramenta vem depois do processo, nunca antes."}}, {"@type": "Question", "name": "Os números deste site são reais?", "acceptedAnswer": {"@type": "Answer", "text": "Sim. Cada número leva um selo: Fato quando é verificável, Estimativa quando é aproximado. A tabela do agente no topo é um exemplo ilustrativo, sem dado de cliente."}}, {"@type": "Question", "name": "Você presta consultoria?", "acceptedAnswer": {"@type": "Answer", "text": "Hoje atuo na NTT DATA. Estou aberto a conversas sobre oportunidades, mentoria e projetos, sempre respeitando meu contrato atual e a confidencialidade dos clientes."}}, {"@type": "Question", "name": "Você usa IA no próprio conteúdo?", "acceptedAnswer": {"@type": "Answer", "text": "Uso, e declaro. Peças feitas com IA levam o selo “Feito com IA, revisado por mim”. A revisão e a responsabilidade são minhas."}}, {"@type": "Question", "name": "Onde você está?", "acceptedAnswer": {"@type": "Answer", "text": "Em Fortaleza, Ceará, trabalhando de forma remota com times no Brasil, na Austrália e na África do Sul."}}]}</script>
+<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: planta técnica em navy. Nav flutuante, hero com a interface do agente, faixas de seção em grade de 40px, tudo em Geist com cantos retos. */
+:root{
+  --bg:#0B1730; --surface:#13254D; --surface-2:#0F1E3F; --fg:#FFFFFF; --muted:#AFC1DD; --line:#26385F;
+  --accent:#FFB020; --accent-fg:#0B1730; --accent-text:#FFB020; --action:#1F4FE0; --action-fg:#FFFFFF; --link:#8EA8F5;
+  --hero-a:#FFFFFF; --hero-b:#9B9B9B; --grid:rgba(124,156,203,.10); --nav:rgba(11,23,48,.72);
+  --ok:#8EA8F5; --warn:#FFB020; --dev:#FF8A5C;
+  --font:"Geist",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"Geist Mono",ui-monospace,Consolas,monospace;
+  --ease:cubic-bezier(0.22,1,0.36,1);
+  color-scheme:dark;
+}
+@media (prefers-color-scheme: light){:root:not([data-theme="dark"]){
+  --bg:#F4F4F0; --surface:#FFFFFF; --surface-2:#E3E7EE; --fg:#0E1117; --muted:#5A6272; --line:#DADDE3;
+  --accent:#FFB020; --accent-fg:#0B1730; --accent-text:#7A4E00; --action:#1F4FE0; --action-fg:#FFFFFF; --link:#1F4FE0;
+  --hero-a:#000000; --hero-b:#666666; --grid:rgba(31,79,224,.07); --nav:rgba(244,244,240,.78);
+  --ok:#1F4FE0; --warn:#7A4E00; --dev:#C2410C; color-scheme:light}}
+:root[data-theme="light"]{
+  --bg:#F4F4F0; --surface:#FFFFFF; --surface-2:#E3E7EE; --fg:#0E1117; --muted:#5A6272; --line:#DADDE3;
+  --accent:#FFB020; --accent-fg:#0B1730; --accent-text:#7A4E00; --action:#1F4FE0; --action-fg:#FFFFFF; --link:#1F4FE0;
+  --hero-a:#000000; --hero-b:#666666; --grid:rgba(31,79,224,.07); --nav:rgba(244,244,240,.78);
+  --ok:#1F4FE0; --warn:#7A4E00; --dev:#C2410C; color-scheme:light}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:96px}
+body{background:var(--bg);color:var(--fg);font-family:var(--font);font-size:16px;line-height:24px;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4,p,ul,ol,figure,dl,dd{margin:0}
+ul,ol{padding:0;list-style:none}
+a{color:var(--link)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+.ic{width:20px;height:20px;flex:none}
+
+/* text styles (landing-page-design B1) */
+.heading-1{font-size:60px;line-height:60px;font-weight:600;letter-spacing:-.03em;text-wrap:balance}
+.heading-2{font-size:48px;line-height:48px;font-weight:600;letter-spacing:-.025em;text-wrap:balance}
+.heading-3{font-size:36px;line-height:40px;font-weight:600;letter-spacing:-.02em;text-wrap:balance}
+.heading-5{font-size:24px;line-height:32px;font-weight:600;letter-spacing:-.01em;text-wrap:balance}
+.heading-6{font-size:20px;line-height:28px;font-weight:600;text-wrap:balance}
+.title-2{font-size:18px;line-height:28px;font-weight:500}
+.title-3{font-size:16px;line-height:24px;font-weight:500}
+.title-4{font-size:14px;line-height:20px;font-weight:500}
+.body-2{font-size:16px;line-height:24px;font-weight:500;text-wrap:pretty}
+.body-3{font-size:16px;line-height:24px;font-weight:400;text-wrap:pretty}
+.body-6{font-size:14px;line-height:20px;font-weight:400;text-wrap:pretty}
+.title-1{font-size:20px;line-height:28px;font-weight:500;text-wrap:pretty}
+.button-lg{font-size:18px;line-height:28px;font-weight:600}
+.button-sm{font-size:14px;line-height:20px;font-weight:600}
+.caption-3{font-size:12px;line-height:16px;font-weight:600;letter-spacing:.08em;text-transform:uppercase}
+.caption-4{font-size:12px;line-height:16px;font-weight:500}
+.caption-5{font-size:12px;line-height:16px;font-weight:400}
+.mono{font-family:var(--mono)}
+.muted{color:var(--muted)}
+
+.wrap{max-width:1200px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.grid-bg{background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:40px 40px}
+
+.skip{position:absolute;left:16px;top:-64px;z-index:30;background:var(--accent);color:var(--accent-fg);padding:8px 12px;text-decoration:none}
+.skip:focus{top:calc(16px + env(safe-area-inset-top,0px))}
+
+/* buttons (B2: 8px x 12px) */
+.btn{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;text-decoration:none;border:1px solid transparent;cursor:pointer;font-family:var(--font);transition:transform 300ms var(--ease),background-color 300ms var(--ease),opacity 300ms var(--ease)}
+.btn:hover{transform:translateY(-2px)}
+.btn:active{transform:translateY(1px) scale(.98)}
+.btn-primary{background:var(--accent);color:var(--accent-fg)}
+.btn-primary:hover{background:#FFC24D}
+.btn-ghost{background:transparent;color:var(--fg);border-color:var(--line)}
+.btn-ghost:hover{background:var(--surface)}
+.btn-dark{background:var(--action);color:var(--action-fg)}
+.btn-dark:hover{background:#3A66EC}
+
+/* nav (B7 navigation) */
+.nav{position:fixed;z-index:20;left:0;right:0;top:calc(16px + env(safe-area-inset-top,0px));display:flex;justify-content:center;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));pointer-events:none}
+.nav-bar{pointer-events:auto;display:flex;align-items:center;gap:24px;padding:8px 8px 8px 16px;background:var(--nav);border:1px solid var(--line);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px)}
+.brand{display:flex;align-items:center;gap:8px;color:var(--fg);text-decoration:none}
+.brand svg{width:24px;height:24px}
+.links{display:flex;gap:4px}
+.links a{display:inline-block;padding:8px 12px;color:var(--muted);text-decoration:none;transition:color 300ms var(--ease)}
+.links a:hover,.links a[aria-current="true"]{color:var(--fg)}
+.links a[aria-current="true"]{box-shadow:inset 0 -2px 0 var(--accent)}
+.menu-btn{display:none;width:44px;height:44px;align-items:center;justify-content:center;background:transparent;border:1px solid var(--line);color:var(--fg);cursor:pointer;position:relative}
+.menu-btn i{position:absolute;left:12px;right:12px;height:2px;background:currentColor;transition:transform 500ms var(--ease)}
+.menu-btn i:first-child{transform:translateY(-4px)}
+.menu-btn i:last-child{transform:translateY(4px)}
+.menu-btn[aria-expanded="true"] i:first-child{transform:rotate(45deg)}
+.menu-btn[aria-expanded="true"] i:last-child{transform:rotate(-45deg)}
+.panel{position:fixed;inset:0;z-index:19;background:var(--nav);-webkit-backdrop-filter:blur(24px);backdrop-filter:blur(24px);padding:calc(96px + env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) 48px max(16px,env(safe-area-inset-left,0px));display:flex;flex-direction:column;gap:8px}
+.panel a{color:var(--fg);text-decoration:none;padding:12px 0;border-bottom:1px solid var(--line)}
+.panel .btn{margin-top:24px;align-self:flex-start;border-bottom:1px solid transparent;padding:8px 12px}
+.panel.open a{animation:linkIn 500ms var(--ease) both}
+
+/* hero */
+.hero{padding-top:calc(160px + env(safe-area-inset-top,0px));padding-bottom:96px;border-bottom:1px solid var(--line)}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,480px);gap:64px;align-items:center}
+.hero-copy{display:flex;flex-direction:column;gap:24px;min-width:0}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;color:var(--accent-text)}
+.eyebrow::before{content:"";width:8px;height:8px;background:var(--accent)}
+.hero h1{max-width:680px;background:linear-gradient(90deg,var(--hero-a),var(--hero-b));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero .sub{max-width:680px;color:var(--muted)}
+.proof{display:flex;flex-wrap:wrap;gap:8px 24px;padding-top:8px}
+.proof li{display:flex;align-items:center;gap:8px;color:var(--muted)}
+.proof b{color:var(--fg);font-weight:600}
+.proof .ic{color:var(--accent-text)}
+
+.agent{background:var(--surface);border:1px solid var(--line);min-width:0}
+.agent-head{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 16px;border:1px solid var(--line);margin:-1px -1px 0;background:var(--surface-2)}
+.agent-id{display:flex;align-items:center;gap:12px}
+.agent-av{width:32px;height:32px;display:flex;align-items:center;justify-content:center;border:2px solid var(--link)}
+.agent-av svg{width:18px;height:18px}
+.agent-body{padding:16px;display:flex;flex-direction:column;gap:12px}
+.ask{align-self:flex-end;background:var(--surface-2);padding:8px 12px;max-width:85%}
+.tbl{width:100%;border-collapse:collapse}
+.tbl th{text-align:left;padding:8px 8px 8px 0;border-bottom:1px solid var(--fg)}
+.tbl td{padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top}
+.tbl tr.flag td{color:var(--accent-text)}
+.seal{display:inline-block;padding:2px 8px;font-family:var(--mono)}
+.seal-fato{background:var(--action);color:var(--action-fg)}
+.seal-inf{border:1px dashed var(--muted);color:var(--muted)}
+.agent-foot{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 16px;border-top:1px solid var(--line)}
+
+/* sections */
+section{padding-block:96px;border-bottom:1px solid var(--line)}
+.sec-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px 64px;align-items:end;margin-bottom:48px}
+.sec-head .caption-3{grid-column:1/-1;color:var(--accent-text)}
+.sec-head h2{max-width:680px}
+.sec-head p{color:var(--muted);max-width:560px}
+
+.split{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.box{background:var(--surface);border:1px solid var(--line);padding:32px;display:flex;flex-direction:column;gap:16px}
+.box li{display:flex;gap:12px;align-items:flex-start;padding-block:12px;border-bottom:1px solid var(--line)}
+.box li:last-child{border-bottom:0}
+.box li .ic{margin-top:2px}
+.box.before .ic{color:var(--dev)}
+.box.after{border-color:var(--link)}
+.box.after .ic{color:var(--link)}
+
+.benefits{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.benefit{background:var(--surface);border:1px solid var(--line);padding:24px;display:flex;flex-direction:column;gap:12px;transition:transform 500ms var(--ease),border-color 300ms var(--ease)}
+.benefit:hover{transform:translateY(-4px);border-color:var(--link)}
+.benefit .ic{width:32px;height:32px;color:var(--link)}
+
+.tagline{padding-block:96px}
+.tagline p{max-width:880px}
+.tagline .w{opacity:.3;transition:opacity 500ms var(--ease)}
+.tagline .w.on{opacity:1}
+.tagline .w.hl.on{color:var(--accent-text)}
+
+.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;counter-reset:s}
+.step{border:1px solid var(--line);padding:32px;display:flex;flex-direction:column;gap:16px;background:var(--surface-2)}
+.step-n{width:48px;height:48px;display:flex;align-items:center;justify-content:center;border:2px solid var(--fg);font-family:var(--mono);font-weight:500}
+.step:nth-child(2) .step-n{background:var(--action);border-color:var(--action);color:var(--action-fg)}
+.step:nth-child(3) .step-n{background:var(--accent);border-color:var(--accent);color:var(--accent-fg)}
+
+.cases{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.case{background:var(--surface);border:1px solid var(--line);padding:24px;display:flex;flex-direction:column;gap:16px}
+.case dl{display:flex;flex-direction:column;gap:12px;border-top:1px solid var(--line);padding-top:16px}
+.case dt{color:var(--muted)}
+.chip{align-self:flex-start;display:inline-flex;align-items:center;gap:8px;padding:4px 8px;border:1px solid var(--line)}
+.chip::before{content:"";width:8px;height:8px}
+.chip.prod::before{background:var(--accent)}
+.chip.ent::before{background:var(--link)}
+.chip.rec::before{background:var(--muted)}
+.case.wide{grid-column:span 2;background:var(--action);border-color:var(--action);color:var(--action-fg)}
+.case.wide .muted,.case.wide dt{color:#DCE6FF}
+.case.wide dl{border-color:rgba(255,255,255,.3)}
+.case.wide .chip{border-color:rgba(255,255,255,.4)}
+
+.nums{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:16px}
+.num{border:1px solid var(--line);padding:24px;display:flex;flex-direction:column;gap:8px}
+.num b{font-size:48px;line-height:48px;font-weight:600;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+
+.tl{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));border-top:1px solid var(--fg)}
+.tl li{padding:16px 12px 0 0;display:flex;flex-direction:column;gap:4px}
+.tl li.now{box-shadow:inset 0 3px 0 var(--accent)}
+.creds{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:48px}
+.cred{border:1px solid var(--line);padding:24px;display:flex;flex-direction:column;gap:12px}
+.cred li{padding-block:8px;border-bottom:1px solid var(--line)}
+.cred li:last-child{border-bottom:0}
+
+.faq{max-width:880px;border-top:1px solid var(--fg)}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:24px;align-items:center;padding-block:24px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary .ic{transition:transform 500ms var(--ease);color:var(--link)}
+.faq details[open] summary .ic{transform:rotate(45deg)}
+.faq .ans{padding-bottom:24px;color:var(--muted);max-width:680px}
+
+.final{text-align:left}
+.final-box{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,400px);gap:48px;align-items:end}
+.contact{background:var(--surface);border:1px solid var(--line);padding:24px;display:flex;flex-direction:column;gap:12px}
+.addr{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.addr code{font-family:var(--mono);font-size:14px;line-height:20px;background:var(--bg);border:1px solid var(--line);padding:8px 12px;user-select:all;overflow-wrap:anywhere}
+.status{min-height:20px}
+.reassure{display:flex;align-items:center;gap:8px;color:var(--muted)}
+
+footer{padding-block:48px}
+.foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:24px;align-items:flex-start}
+.foot nav{display:flex;flex-wrap:wrap;gap:16px}
+.foot a{color:var(--muted)}
+.foot details{max-width:420px}
+.foot summary{cursor:pointer;color:var(--muted)}
+.foot details p{margin-top:8px}
+
+/* reveal (B7) */
+.reveal-ready .reveal{opacity:0;transform:translateY(32px)}
+.reveal-ready .reveal.in{opacity:1;transform:none;transition:opacity 700ms var(--ease),transform 700ms var(--ease)}
+@keyframes linkIn{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+
+@media (max-width:1024px){
+  .hero-grid,.final-box,.sec-head{grid-template-columns:minmax(0,1fr)}
+  .hero-grid{gap:48px}
+  .benefits,.nums{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .cases{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .tl{grid-template-columns:repeat(3,minmax(0,1fr));row-gap:16px}
+}
+@media (max-width:760px){
+  .links,.nav-bar>.btn{display:none}
+  .menu-btn{display:inline-flex}
+  .nav-bar{width:100%;justify-content:space-between}
+  .heading-1{font-size:36px;line-height:40px}
+  .heading-2{font-size:30px;line-height:36px}
+  .heading-3{font-size:30px;line-height:36px}
+  .hero{padding-top:calc(128px + env(safe-area-inset-top,0px));padding-bottom:64px}
+  section,.tagline{padding-block:64px}
+  .sec-head{margin-bottom:32px}
+  .split,.benefits,.steps,.cases,.nums,.creds{grid-template-columns:minmax(0,1fr)}
+  .case.wide{grid-column:auto}
+  .box,.step{padding:24px}
+  .tl{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .tbl .hide-sm{display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{transition-duration:200ms!important;animation:none!important}
+  .reveal-ready .reveal{transform:none}
+  .tagline .w{opacity:1}
+  .btn:hover,.benefit:hover{transform:none}
+}
+</style>
+</head>
+<body>
+
+
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+
+<header class="nav">
+  <div class="nav-bar">
+    <a class="brand title-3" href="#topo" aria-label="Kevin Ribeiro, início">
+      <svg aria-hidden="true" viewBox="0 0 3 3"><rect width="1" height="3" fill="currentColor"></rect><path d="M1 1 2 0h1L1 2z" fill="currentColor"></path><rect x="2" y="2" width="1" height="1" fill="#FFB020"></rect></svg>
+      Kevin Ribeiro
+    </a>
+    <nav class="links title-4" aria-label="Seções">
+      <a href="#metodo">Método</a>
+      <a href="#casos">Casos</a>
+      <a href="#trajetoria">Trajetória</a>
+      <a href="#faq">Perguntas</a>
+    </nav>
+    <a class="btn btn-primary button-sm" href="#contato">Conversar</a>
+    <button class="menu-btn" id="menu-btn" type="button" aria-expanded="false" aria-controls="panel" aria-label="Abrir menu"><i></i><i></i></button>
+  </div>
+</header>
+<div class="panel heading-5" id="panel" hidden>
+  <a href="#metodo">Método</a>
+  <a href="#casos">Casos</a>
+  <a href="#trajetoria">Trajetória</a>
+  <a href="#faq">Perguntas</a>
+  <a class="btn btn-primary button-lg" href="#contato">Conversar no LinkedIn</a>
+</div>
+
+<main id="conteudo">
+  <div id="topo" class="hero grid-bg">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow caption-3">Governança de TI e IA</p>
+        <h1 class="heading-1">IA com regra,<br>dono e métrica.</h1>
+        <p class="sub title-1">Estruturo como a IA entra nos processos de uma empresa.<br>Do contrato ao agente em produção, com evidência no fim.</p>
+        <div><a class="btn btn-primary button-lg" href="https://www.linkedin.com/in/johnkevinribeiro" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true" focusable="false" viewBox="0 0 256 256" fill="currentColor"><path d="M216,24H40A16,16,0,0,0,24,40V216a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V40A16,16,0,0,0,216,24Zm0,192H40V40H216V216ZM96,112v64a8,8,0,0,1-16,0V112a8,8,0,0,1,16,0Zm88,28v36a8,8,0,0,1-16,0V140a20,20,0,0,0-40,0v36a8,8,0,0,1-16,0V112a8,8,0,0,1,15.79-1.78A36,36,0,0,1,184,140ZM100,84A12,12,0,1,1,88,72,12,12,0,0,1,100,84Z"/></svg>Conversar no LinkedIn</a></div>
+        <ul class="proof body-6">
+          <li><svg class="ic" aria-hidden="true" focusable="false" viewBox="0 0 256 256" fill="currentColor"><path d="M224,200h-8V40a8,8,0,0,0-8-8H152a8,8,0,0,0-8,8V80H96a8,8,0,0,0-8,8v40H48a8,8,0,0,0-8,8v64H32a8,8,0,0,0,0,16H224a8,8,0,0,0,0-16ZM160,48h40V200H160ZM104,96h40V200H104ZM56,144H88v56H56Z"/></svg><span><b>420</b> KPIs catalogados</span></li>
+          <li><svg class="ic" aria-hidden="true" focusable="false" viewBox="0 0 256 256" fill="currentColor"><path d="M160,112h48a16,16,0,0,0,16-16V48a16,16,0,0,0-16-16H160a16,16,0,0,0-16,16V64H128a24,24,0,0,0-24,24v32H72v-8A16,16,0,0,0,56,96H24A16,16,0,0,0,8,112v32a16,16,0,0,0,16,16H56a16,16,0,0,0,16-16v-8h32v32a24,24,0,0,0,24,24h16v16a16,16,0,0,0,16,16h48a16,16,0,0,0,16-16V160a16,16,0,0,0-16-16H160a16,16,0,0,0-16,16v16H128a8,8,0,0,1-8-8V88a8,8,0,0,1,8-8h16V96A16,16,0,0,0,160,112ZM56,144H24V112H56v32Zm104,16h48v48H160Zm0-112h48V96H160Z"/></svg><span><b>3</b> agentes de IA em produção</span></li>
+          <li><svg class="ic" aria-hidden="true" focusable="false" viewBox="0 0 256 256" fill="currentColor"><path d="M225.86,102.82c-3.77-3.94-7.67-8-9.14-11.57-1.36-3.27-1.44-8.69-1.52-13.94-.15-9.76-.31-20.82-8-28.51s-18.75-7.85-28.51-8c-5.25-.08-10.67-.16-13.94-1.52-3.56-1.47-7.63-5.37-11.57-9.14C146.28,23.51,138.44,16,128,16s-18.27,7.51-25.18,14.14c-3.94,3.77-8,7.67-11.57,9.14C88,40.64,82.56,40.72,77.31,40.8c-9.76.15-20.82.31-28.51,8S41,67.55,40.8,77.31c-.08,5.25-.16,10.67-1.52,13.94-1.47,3.56-5.37,7.63-9.14,11.57C23.51,109.72,16,117.56,16,128s7.51,18.27,14.14,25.18c3.77,3.94,7.67,8,9.14,11.57,1.36,3.27,1.44,8.69,1.52,13.94.15,9.76.31,20.82,8,28.51s18.75,7.85,28.51,8c5.25.08,10.67.16,13.94,1.52,3.56,1.47,7.63,5.37,11.57,9.14C109.72,232.49,117.56,240,128,240s18.27-7.51,25.18-14.14c3.94-3.77,8-7.67,11.57-9.14,3.27-1.36,8.69-1.44,13.94-1.52,9.76-.15,20.82-.31,28.51-8s7.85-18.75,8-28.51c.08-5.25.16-10.67,1.52-13.94,1.47-3.56,5.37-7.63,9.14-11.57C232.49,146.28,240,138.44,240,128S232.49,109.73,225.86,102.82Zm-11.55,39.29c-4.79,5-9.75,10.17-12.38,16.52-2.52,6.1-2.63,13.07-2.73,19.82-.1,7-.21,14.33-3.32,17.43s-10.39,3.22-17.43,3.32c-6.75.1-13.72.21-19.82,2.73-6.35,2.63-11.52,7.59-16.52,12.38S132,224,128,224s-9.15-4.92-14.11-9.69-10.17-9.75-16.52-12.38c-6.1-2.52-13.07-2.63-19.82-2.73-7-.1-14.33-.21-17.43-3.32s-3.22-10.39-3.32-17.43c-.1-6.75-.21-13.72-2.73-19.82-2.63-6.35-7.59-11.52-12.38-16.52S32,132,32,128s4.92-9.15,9.69-14.11,9.75-10.17,12.38-16.52c2.52-6.1,2.63-13.07,2.73-19.82.1-7,.21-14.33,3.32-17.43S70.51,56.9,77.55,56.8c6.75-.1,13.72-.21,19.82-2.73,6.35-2.63,11.52-7.59,16.52-12.38S124,32,128,32s9.15,4.92,14.11,9.69,10.17,9.75,16.52,12.38c6.1,2.52,13.07,2.63,19.82,2.73,7,.1,14.33.21,17.43,3.32s3.22,10.39,3.32,17.43c.1,6.75.21,13.72,2.73,19.82,2.63,6.35,7.59,11.52,12.38,16.52S224,124,224,128,219.08,137.15,214.31,142.11ZM173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34Z"/></svg><span>ITIL® 4 Foundation</span></li>
+        </ul>
+      </div>
+      <figure class="agent" aria-label="Exemplo ilustrativo da interface de um agente leitor de contrato">
+        <div class="agent-head">
+          <div class="agent-id">
+            <span class="agent-av"><svg aria-hidden="true" viewBox="0 0 3 3"><rect width="1" height="3" fill="currentColor"></rect><path d="M1 1 2 0h1L1 2z" fill="currentColor"></path><rect x="2" y="2" width=".42" height=".42" fill="#6E95FF"></rect><rect x="2.58" y="2" width=".42" height=".42" fill="#6E95FF"></rect><rect x="2" y="2.58" width=".42" height=".42" fill="#6E95FF"></rect><rect x="2.58" y="2.58" width=".42" height=".42" fill="#FFB020"></rect></svg></span>
+            <div><p class="title-4">Agente leitor de contrato</p><p class="caption-5 muted">Dono definido · prompt versionado</p></div>
+          </div>
+          <span class="caption-4 muted">Exemplo ilustrativo</span>
+        </div>
+        <div class="agent-body">
+          <p class="ask body-6">Gere os KPIs do contrato anexo.</p>
+          <p class="body-6">Encontrei 3 cláusulas de nível de serviço. Uma não tem fonte de dado.</p>
+          <div style="overflow-x:auto">
+            <table class="tbl caption-5">
+              <thead><tr class="caption-4"><th>Cláusula</th><th>KPI sugerido</th><th class="hide-sm">Fonte</th><th>Evidência</th></tr></thead>
+              <tbody>
+                <tr><td>Resposta P1 em 30 min</td><td>Tempo médio de resposta P1</td><td class="hide-sm">Incidentes</td><td><span class="seal seal-fato">Fato</span></td></tr>
+                <tr><td>Reincidência abaixo de 5%</td><td>Taxa de reincidência</td><td class="hide-sm">Problemas</td><td><span class="seal seal-fato">Fato</span></td></tr>
+                <tr class="flag"><td>Satisfação “adequada”</td><td>CSAT pós atendimento</td><td class="hide-sm">Não definida</td><td><span class="seal seal-inf">Inferência</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="caption-4" style="color:var(--accent-text);display:flex;gap:8px;align-items:center"><svg class="ic" aria-hidden="true" focusable="false" viewBox="0 0 256 256" fill="currentColor"><path d="M236.8,188.09,149.35,36.22h0a24.76,24.76,0,0,0-42.7,0L19.2,188.09a23.51,23.51,0,0,0,0,23.72A24.35,24.35,0,0,0,40.55,224h174.9a24.35,24.35,0,0,0,21.33-12.19A23.51,23.51,0,0,0,236.8,188.09ZM222.93,203.8a8.5,8.5,0,0,1-7.48,4.2H40.55a8.5,8.5,0,0,1-7.48-4.2,7.59,7.59,0,0,1,0-7.72L120.52,44.21a8.75,8.75,0,0,1,15,0l87.45,151.87A7.59,7.59,0,0,1,222.93,203.8ZM120,144V104a8,8,0,0,1,16,0v40a8,8,0,0,1-16,0Zm20,36a12,12,0,1,1-12-12A12,12,0,0,1,140,180Z"/></svg>Divergência registrada: meta sem medida.</p>
+        </div>
+        <div class="agent-foot"><span class="caption-5 muted">Feito com IA · revisão humana obrigatória</span><span class="btn btn-primary button-sm" aria-hidden="true">Validar</span></div>
+      </figure>
+    </div>
+  </div>
+
+  <section aria-labelledby="t-prob">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="caption-3">O problema</p>
+        <h2 class="heading-3" id="t-prob">Muita IA em uso.<br>Pouca IA que prova o que entrega.</h2>
+        <p class="body-3">A maioria das empresas já tem pilotos, licenças e agentes. Poucas sabem dizer quem responde por eles e quanto valor geram.</p>
+      </div>
+      <div class="split">
+        <div class="box before reveal">
+          <p class="title-2">Sem governança</p>
+          <ul class="body-3">
+            <li><svg class="ic" aria-hidden="true" focusable="false" viewBox="0 0 256 256" fill="currentColor"><path d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"/></svg><span>Quando o agente erra, a culpa é “da IA”.</span></li>
+            <li><svg class="ic" aria-hidden="true" focusable="false" viewBox="0 0 256 256" fill="currentColor"><path d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"/></svg><span>O contrato promete um nível de serviço que nenhum dado acompanha.</span></li>
+            <li><svg class="ic" aria-hidden="true" focusable="false" viewBox="0 0 256 256" fill="currentColor"><path d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"/></svg><span>Ferramentas grátis fora dos canais aprovados, sem trilha.</span></li>
+          </ul>
+        </div>
+        <div class="box after reveal">
+          <p class="title-2">Com a planta</p>
+          <ul class="body-3">
+            <li><svg class="ic" aria-hidden="true" focusable="false" viewBox="0 0 256 256" fill="currentColor"><path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"/></svg><span>Cada agente tem dono, versão e limite.</span></li>
+            <li><svg class="ic" aria-hidden="true" focusable="false" viewBox="0 0 256 256" fill="currentColor"><path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"/></svg><span>Cada promessa do contrato vira KPI com fonte.</span></li>
+            <li><svg class="ic" aria-hidden="true" focusable="false" viewBox="0 0 256 256" fill="currentColor"><path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"/></svg><span>Toda divergência vira registro auditável.</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="t-ben">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="caption-3">O que muda</p>
+        <h2 class="heading-3" id="t-ben">Quatro resultados que a diretoria consegue ver.</h2>
+      </div>
+      <ul class="benefits">
+        <li class="benefit reveal"><svg class="ic" aria-hidden="true" focusable="false" viewBox="0 0 256 256" fill="currentColor"><path d="M213.66,82.34l-56-56A8,8,0,0,0,152,24H56A16,16,0,0,0,40,40V216a16,16,0,0,0,16,16H200a16,16,0,0,0,16-16V88A8,8,0,0,0,213.66,82.34ZM160,51.31,188.69,80H160ZM200,216H56V40h88V88a8,8,0,0,0,8,8h48V216Zm-32-80a8,8,0,0,1-8,8H96a8,8,0,0,1,0-16h64A8,8,0,0,1,168,136Zm0,32a8,8,0,0,1-8,8H96a8,8,0,0,1,0-16h64A8,8,0,0,1,168,168Z"/></svg><p class="heading-6">Contrato que vira métrica</p><p class="body-6 muted">Cada cláusula de nível de serviço ganha KPI com fórmula, fonte e meta.</p></li>
+        <li class="benefit reveal"><svg class="ic" aria-hidden="true" focusable="false" viewBox="0 0 256 256" fill="currentColor"><path d="M160,112h48a16,16,0,0,0,16-16V48a16,16,0,0,0-16-16H160a16,16,0,0,0-16,16V64H128a24,24,0,0,0-24,24v32H72v-8A16,16,0,0,0,56,96H24A16,16,0,0,0,8,112v32a16,16,0,0,0,16,16H56a16,16,0,0,0,16-16v-8h32v32a24,24,0,0,0,24,24h16v16a16,16,0,0,0,16,16h48a16,16,0,0,0,16-16V160a16,16,0,0,0-16-16H160a16,16,0,0,0-16,16v16H128a8,8,0,0,1-8-8V88a8,8,0,0,1,8-8h16V96A16,16,0,0,0,160,112ZM56,144H24V112H56v32Zm104,16h48v48H160Zm0-112h48V96H160Z"/></svg><p class="heading-6">Agente com dono</p><p class="body-6 muted">Responsável nomeado, prompt versionado e limite claro do que o agente faz.</p></li>
+        <li class="benefit reveal"><svg class="ic" aria-hidden="true" focusable="false" viewBox="0 0 256 256" fill="currentColor"><path d="M225.86,102.82c-3.77-3.94-7.67-8-9.14-11.57-1.36-3.27-1.44-8.69-1.52-13.94-.15-9.76-.31-20.82-8-28.51s-18.75-7.85-28.51-8c-5.25-.08-10.67-.16-13.94-1.52-3.56-1.47-7.63-5.37-11.57-9.14C146.28,23.51,138.44,16,128,16s-18.27,7.51-25.18,14.14c-3.94,3.77-8,7.67-11.57,9.14C88,40.64,82.56,40.72,77.31,40.8c-9.76.15-20.82.31-28.51,8S41,67.55,40.8,77.31c-.08,5.25-.16,10.67-1.52,13.94-1.47,3.56-5.37,7.63-9.14,11.57C23.51,109.72,16,117.56,16,128s7.51,18.27,14.14,25.18c3.77,3.94,7.67,8,9.14,11.57,1.36,3.27,1.44,8.69,1.52,13.94.15,9.76.31,20.82,8,28.51s18.75,7.85,28.51,8c5.25.08,10.67.16,13.94,1.52,3.56,1.47,7.63,5.37,11.57,9.14C109.72,232.49,117.56,240,128,240s18.27-7.51,25.18-14.14c3.94-3.77,8-7.67,11.57-9.14,3.27-1.36,8.69-1.44,13.94-1.52,9.76-.15,20.82-.31,28.51-8s7.85-18.75,8-28.51c.08-5.25.16-10.67,1.52-13.94,1.47-3.56,5.37-7.63,9.14-11.57C232.49,146.28,240,138.44,240,128S232.49,109.73,225.86,102.82Zm-11.55,39.29c-4.79,5-9.75,10.17-12.38,16.52-2.52,6.1-2.63,13.07-2.73,19.82-.1,7-.21,14.33-3.32,17.43s-10.39,3.22-17.43,3.32c-6.75.1-13.72.21-19.82,2.73-6.35,2.63-11.52,7.59-16.52,12.38S132,224,128,224s-9.15-4.92-14.11-9.69-10.17-9.75-16.52-12.38c-6.1-2.52-13.07-2.63-19.82-2.73-7-.1-14.33-.21-17.43-3.32s-3.22-10.39-3.32-17.43c-.1-6.75-.21-13.72-2.73-19.82-2.63-6.35-7.59-11.52-12.38-16.52S32,132,32,128s4.92-9.15,9.69-14.11,9.75-10.17,12.38-16.52c2.52-6.1,2.63-13.07,2.73-19.82.1-7,.21-14.33,3.32-17.43S70.51,56.9,77.55,56.8c6.75-.1,13.72-.21,19.82-2.73,6.35-2.63,11.52-7.59,16.52-12.38S124,32,128,32s9.15,4.92,14.11,9.69,10.17,9.75,16.52,12.38c6.1,2.52,13.07,2.63,19.82,2.73,7,.1,14.33.21,17.43,3.32s3.22,10.39,3.32,17.43c.1,6.75.21,13.72,2.73,19.82,2.63,6.35,7.59,11.52,12.38,16.52S224,124,224,128,219.08,137.15,214.31,142.11ZM173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34Z"/></svg><p class="heading-6">Divergência registrada</p><p class="body-6 muted">O que o contrato promete e o dado não mostra vira registro, não conversa de corredor.</p></li>
+        <li class="benefit reveal"><svg class="ic" aria-hidden="true" focusable="false" viewBox="0 0 256 256" fill="currentColor"><path d="M208,40H48A16,16,0,0,0,32,56v56c0,52.72,25.52,84.67,46.93,102.19,23.06,18.86,46,25.26,47,25.53a8,8,0,0,0,4.2,0c1-.27,23.91-6.67,47-25.53C198.48,196.67,224,164.72,224,112V56A16,16,0,0,0,208,40Zm0,72c0,37.07-13.66,67.16-40.6,89.42A129.3,129.3,0,0,1,128,223.62a128.25,128.25,0,0,1-38.92-21.81C61.82,179.51,48,149.3,48,112l0-56,160,0ZM82.34,141.66a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35a8,8,0,0,1,11.32,11.32l-56,56a8,8,0,0,1-11.32,0Z"/></svg><p class="heading-6">Adoção sem shadow AI</p><p class="body-6 muted">Times usam IA nos canais aprovados, com trilhas por perfil de pessoa.</p></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="tagline grid-bg" aria-label="Tese">
+    <div class="wrap">
+      <p class="heading-2" id="tagline">Tecnologia não é só implementação.<br>É estrutura, governança e<br>valor que dá para provar.</p>
+    </div>
+  </section>
+
+  <section id="metodo" aria-labelledby="t-met">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="caption-3">Como funciona</p>
+        <h2 class="heading-3" id="t-met">Antes do agente, a planta.</h2>
+        <p class="body-3">Três etapas, sempre nessa ordem. A IA só entra depois que a regra e o dono existem.</p>
+      </div>
+      <ol class="steps">
+        <li class="step reveal"><span class="step-n">01</span><p class="heading-6">Ler o contrato</p><p class="body-6 muted">O que foi prometido, cláusula por cláusula, e quem responde por cada parte.</p></li>
+        <li class="step reveal"><span class="step-n">02</span><p class="heading-6">Definir indicador e dono</p><p class="body-6 muted">Cada promessa vira KPI com fórmula, fonte de dado e responsável.</p></li>
+        <li class="step reveal"><span class="step-n">03</span><p class="heading-6">Colocar o agente para medir</p><p class="body-6 muted">A IA lê, cruza e marca divergência. Uma pessoa valida e decide.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="casos" aria-labelledby="t-cas">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="caption-3">Prova</p>
+        <h2 class="heading-3" id="t-cas">Plantas que viraram operação.</h2>
+        <p class="body-3">Clientes e dados internos anonimizados. Cada caso diz se está em produção, entregue ou em andamento.</p>
+      </div>
+      <div class="cases">
+        <article class="case wide reveal">
+          <span class="chip ent caption-4">Entregue</span>
+          <h3 class="heading-5">Catálogo de 420 KPIs</h3>
+          <dl class="body-6">
+            <div><dt class="caption-4">Problema</dt><dd>Indicadores sem padrão. Uma demanda parada desde 2022 que nem consultoria contratada resolveu.</dd></div>
+            <div><dt class="caption-4">O que fiz</dt><dd>Criei uma metodologia própria e um catálogo em quatro camadas, do operacional ao executivo.</dd></div>
+            <div><dt class="caption-4">Resultado</dt><dd>Destravado em cerca de uma semana. Base compartilhada com o time global de dados.</dd></div>
+          </dl>
+        </article>
+        <article class="case reveal">
+          <span class="chip prod caption-4">Em produção</span>
+          <h3 class="heading-6">Agente leitor de contrato</h3>
+          <dl class="body-6"><div><dt class="caption-4">Problema</dt><dd>Montar a governança de cada cliente exigia ler o contrato à mão.</dd></div><div><dt class="caption-4">Aprendizado</dt><dd>Manual desatualizado contamina o agente. A fonte é parte do produto.</dd></div></dl>
+        </article>
+        <article class="case reveal">
+          <span class="chip prod caption-4">Em produção</span>
+          <h3 class="heading-6">Health Score Operacional</h3>
+          <dl class="body-6"><div><dt class="caption-4">Problema</dt><dd>Saúde da operação avaliada por sensação, não por índice.</dd></div><div><dt class="caption-4">O que fiz</dt><dd>Metodologia própria de auditoria e um agente que aplica o índice.</dd></div></dl>
+        </article>
+        <article class="case reveal">
+          <span class="chip ent caption-4">Entregue</span>
+          <h3 class="heading-6">Framework de governança de IA</h3>
+          <dl class="body-6"><div><dt class="caption-4">Problema</dt><dd>Adoção de IA sem regra, dono nem critério de aprovação.</dd></div><div><dt class="caption-4">Próximo passo</dt><dd>Mapear o framework contra a ISO/IEC 42001.</dd></div></dl>
+        </article>
+        <article class="case reveal">
+          <span class="chip rec caption-4">Recorrente</span>
+          <h3 class="heading-6">Governance AI Sync</h3>
+          <dl class="body-6"><div><dt class="caption-4">Problema</dt><dd>Times com perfis muito diferentes diante da IA.</dd></div><div><dt class="caption-4">Formato</dt><dd>Sessões quinzenais de 45 minutos unindo ITIL 4 e Design Thinking.</dd></div></dl>
+        </article>
+      </div>
+      <ul class="nums">
+        <li class="num reveal"><b>420</b><span class="body-6 muted">KPIs catalogados em camadas</span><span class="seal seal-fato caption-5" style="align-self:flex-start">Fato</span></li>
+        <li class="num reveal"><b>3</b><span class="body-6 muted">agentes de IA em produção</span><span class="seal seal-fato caption-5" style="align-self:flex-start">Fato</span></li>
+        <li class="num reveal"><b>9+</b><span class="body-6 muted">anos em operação, processos e TI</span><span class="seal seal-fato caption-5" style="align-self:flex-start">Fato</span></li>
+        <li class="num reveal"><b>~38</b><span class="body-6 muted">empresas no benchmark competitivo</span><span class="seal seal-inf caption-5" style="align-self:flex-start">Estimativa</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="trajetoria" aria-labelledby="t-tra">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="caption-3">Trajetória</p>
+        <h2 class="heading-3" id="t-tra">Cheguei à TI pelo negócio.</h2>
+        <p class="body-3">Operação comercial, atendimento, treinamento e gestão antes da governança. Por isso começo pelas pessoas e pelo processo, não pela ferramenta.</p>
+      </div>
+      <ol class="tl">
+        <li><span class="caption-4 muted mono">2017</span><span class="title-4">Operação comercial</span></li>
+        <li><span class="caption-4 muted mono">2019</span><span class="title-4">Processos e treinamento</span></li>
+        <li><span class="caption-4 muted mono">2021</span><span class="title-4">Liderança de equipe</span></li>
+        <li><span class="caption-4 muted mono">2023</span><span class="title-4">Gestão de negócio</span></li>
+        <li><span class="caption-4 muted mono">2025</span><span class="title-4">Consultoria de governança</span></li>
+        <li class="now"><span class="caption-4 mono" style="color:var(--accent-text)">2026</span><span class="title-4">Governança de TI e IA</span></li>
+      </ol>
+      <div class="creds">
+        <div class="cred"><p class="caption-3" style="color:var(--link)">Certificações</p><ul class="body-6"><li>ITIL® 4 Foundation · 2026</li><li>Technology Solutions Specialist · NTT DATA · 2025</li></ul></div>
+        <div class="cred"><p class="caption-3" style="color:var(--link)">Formação em curso</p><ul class="body-6"><li>Pós graduação em Data Science</li><li>Psicologia</li><li>Gestão de Mídias Sociais Digitais</li></ul></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq" aria-labelledby="t-faq">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="caption-3">Perguntas</p>
+        <h2 class="heading-3" id="t-faq">Antes de conversar.</h2>
+      </div>
+      <div class="faq">
+        <details><summary class="title-2">Você é desenvolvedor de IA?<svg class="ic" aria-hidden="true" focusable="false" viewBox="0 0 256 256" fill="currentColor"><path d="M224,128a8,8,0,0,1-8,8H136v80a8,8,0,0,1-16,0V136H40a8,8,0,0,1,0-16h80V40a8,8,0,0,1,16,0v80h80A8,8,0,0,1,224,128Z"/></svg></summary><p class="ans body-3">Não. Não treino modelos. Meu trabalho é decidir onde a IA entra no processo, desenhar o agente a partir da regra de negócio e garantir que ele tenha dono, métrica e trilha de auditoria.</p></details>
+        <details><summary class="title-2">Que tipo de empresa se beneficia desse trabalho?<svg class="ic" aria-hidden="true" focusable="false" viewBox="0 0 256 256" fill="currentColor"><path d="M224,128a8,8,0,0,1-8,8H136v80a8,8,0,0,1-16,0V136H40a8,8,0,0,1,0-16h80V40a8,8,0,0,1,16,0v80h80A8,8,0,0,1,224,128Z"/></svg></summary><p class="ans body-3">Operações de serviço com contrato, nível de serviço e indicador: serviços gerenciados de TI, áreas de governança e setores regulados como energia, saúde e financeiro.</p></details>
+        <details><summary class="title-2">Com quais ferramentas você trabalha?<svg class="ic" aria-hidden="true" focusable="false" viewBox="0 0 256 256" fill="currentColor"><path d="M224,128a8,8,0,0,1-8,8H136v80a8,8,0,0,1-16,0V136H40a8,8,0,0,1,0-16h80V40a8,8,0,0,1,16,0v80h80A8,8,0,0,1,224,128Z"/></svg></summary><p class="ans body-3">ServiceNow, Power BI, Copilot Studio, ChatGPT Enterprise, Claude e Microsoft 365. A ferramenta vem depois do processo, nunca antes.</p></details>
+        <details><summary class="title-2">Os números deste site são reais?<svg class="ic" aria-hidden="true" focusable="false" viewBox="0 0 256 256" fill="currentColor"><path d="M224,128a8,8,0,0,1-8,8H136v80a8,8,0,0,1-16,0V136H40a8,8,0,0,1,0-16h80V40a8,8,0,0,1,16,0v80h80A8,8,0,0,1,224,128Z"/></svg></summary><p class="ans body-3">Sim. Cada número leva um selo: Fato quando é verificável, Estimativa quando é aproximado. A tabela do agente no topo é um exemplo ilustrativo, sem dado de cliente.</p></details>
+        <details><summary class="title-2">Você presta consultoria?<svg class="ic" aria-hidden="true" focusable="false" viewBox="0 0 256 256" fill="currentColor"><path d="M224,128a8,8,0,0,1-8,8H136v80a8,8,0,0,1-16,0V136H40a8,8,0,0,1,0-16h80V40a8,8,0,0,1,16,0v80h80A8,8,0,0,1,224,128Z"/></svg></summary><p class="ans body-3">Hoje atuo na NTT DATA. Estou aberto a conversas sobre oportunidades, mentoria e projetos, sempre respeitando meu contrato atual e a confidencialidade dos clientes.</p></details>
+        <details><summary class="title-2">Você usa IA no próprio conteúdo?<svg class="ic" aria-hidden="true" focusable="false" viewBox="0 0 256 256" fill="currentColor"><path d="M224,128a8,8,0,0,1-8,8H136v80a8,8,0,0,1-16,0V136H40a8,8,0,0,1,0-16h80V40a8,8,0,0,1,16,0v80h80A8,8,0,0,1,224,128Z"/></svg></summary><p class="ans body-3">Uso, e declaro. Peças feitas com IA levam o selo “Feito com IA, revisado por mim”. A revisão e a responsabilidade são minhas.</p></details>
+        <details><summary class="title-2">Onde você está?<svg class="ic" aria-hidden="true" focusable="false" viewBox="0 0 256 256" fill="currentColor"><path d="M224,128a8,8,0,0,1-8,8H136v80a8,8,0,0,1-16,0V136H40a8,8,0,0,1,0-16h80V40a8,8,0,0,1,16,0v80h80A8,8,0,0,1,224,128Z"/></svg></summary><p class="ans body-3">Em Fortaleza, Ceará, trabalhando de forma remota com times no Brasil, na Austrália e na África do Sul.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section id="contato" class="final grid-bg" aria-labelledby="t-con">
+    <div class="wrap final-box">
+      <div style="display:flex;flex-direction:column;gap:24px;min-width:0">
+        <p class="caption-3" style="color:var(--accent-text)">Contato</p>
+        <h2 class="heading-2" id="t-con">Sua IA tem dono?</h2>
+        <p class="title-1 muted" style="max-width:560px">Se a sua área já usa IA mas não consegue dizer quanto ela entrega, vamos conversar.</p>
+        <div><a class="btn btn-primary button-lg" href="https://www.linkedin.com/in/johnkevinribeiro" target="_blank" rel="noopener"><svg class="ic" aria-hidden="true" focusable="false" viewBox="0 0 256 256" fill="currentColor"><path d="M216,24H40A16,16,0,0,0,24,40V216a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V40A16,16,0,0,0,216,24Zm0,192H40V40H216V216ZM96,112v64a8,8,0,0,1-16,0V112a8,8,0,0,1,16,0Zm88,28v36a8,8,0,0,1-16,0V140a20,20,0,0,0-40,0v36a8,8,0,0,1-16,0V112a8,8,0,0,1,15.79-1.78A36,36,0,0,1,184,140ZM100,84A12,12,0,1,1,88,72,12,12,0,0,1,100,84Z"/></svg>Conversar no LinkedIn</a></div>
+        <p class="reassure body-6"><svg class="ic" aria-hidden="true" focusable="false" viewBox="0 0 256 256" fill="currentColor"><path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"/></svg>Sem formulário. Uma mensagem basta.</p>
+      </div>
+      <div class="contact">
+        <p class="caption-4 muted">Prefere email?</p>
+        <div class="addr"><code id="email">johnkevinribeiro@gmail.com</code><button class="btn btn-ghost button-sm" id="copy" type="button"><svg class="ic" aria-hidden="true" focusable="false" viewBox="0 0 256 256" fill="currentColor"><path d="M216,32H88a8,8,0,0,0-8,8V80H40a8,8,0,0,0-8,8V216a8,8,0,0,0,8,8H168a8,8,0,0,0,8-8V176h40a8,8,0,0,0,8-8V40A8,8,0,0,0,216,32ZM160,208H48V96H160Zm48-48H176V88a8,8,0,0,0-8-8H96V48H208Z"/></svg>Copiar</button></div>
+        <p class="status caption-5 muted" id="status" role="status" aria-live="polite"></p>
+        <p class="caption-5 muted">Fortaleza, Ceará · remoto</p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <div style="display:flex;flex-direction:column;gap:8px">
+      <span class="brand title-3"><svg aria-hidden="true" viewBox="0 0 3 3"><rect width="1" height="3" fill="currentColor"></rect><path d="M1 1 2 0h1L1 2z" fill="currentColor"></path><rect x="2" y="2" width="1" height="1" fill="#FFB020"></rect></svg>Kevin Ribeiro</span>
+      <span class="caption-5 muted">Feito com IA · revisado por mim · 2026</span>
+    </div>
+    <nav class="caption-4" aria-label="Rodapé">
+      <a href="#topo">Voltar ao topo</a>
+      <a href="https://www.linkedin.com/in/johnkevinribeiro" target="_blank" rel="noopener">LinkedIn</a>
+    </nav>
+    <details class="caption-5"><summary>Privacidade</summary><p class="muted">Este site não usa cookies, formulários nem ferramentas de rastreamento. As fontes são carregadas do Google Fonts, que recebe o endereço IP de quem visita.</p></details>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var root=document.documentElement, reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // menu
+  var btn=document.getElementById('menu-btn'), panel=document.getElementById('panel');
+  function setMenu(open){
+    btn.setAttribute('aria-expanded',String(open)); btn.setAttribute('aria-label',open?'Fechar menu':'Abrir menu');
+    panel.hidden=!open; panel.classList.toggle('open',open);
+    if(open){Array.prototype.forEach.call(panel.querySelectorAll('a'),function(a,i){a.style.animationDelay=Math.min(i*60,340)+'ms';});}
+  }
+  btn.addEventListener('click',function(){setMenu(btn.getAttribute('aria-expanded')!=='true');});
+  panel.addEventListener('click',function(e){if(e.target.closest('a'))setMenu(false);});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!panel.hidden){setMenu(false);btn.focus();}});
+
+  // current nav item
+  var links=document.querySelectorAll('.links a');
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){links.forEach(function(l){l.toggleAttribute('aria-current',l.getAttribute('href')==='#'+en.target.id);if(l.hasAttribute('aria-current'))l.setAttribute('aria-current','true');});}});},{rootMargin:'-45% 0px -50% 0px'});
+    ['metodo','casos','trajetoria','faq'].forEach(function(id){var s=document.getElementById(id);if(s)io.observe(s);});
+  }
+
+  // scroll reveals: only elements below the first screen start hidden
+  if(!reduce&&'IntersectionObserver' in window){
+    var els=[].slice.call(document.querySelectorAll('.reveal')).filter(function(el){return el.getBoundingClientRect().top>window.innerHeight;});
+    els.forEach(function(el){el.classList.add('pending');});
+    root.classList.add('reveal-ready');
+    document.querySelectorAll('.reveal:not(.pending)').forEach(function(el){el.classList.add('in');});
+    var ro=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');ro.unobserve(en.target);}});},{rootMargin:'0px 0px -10% 0px'});
+    els.forEach(function(el){ro.observe(el);});
+  }
+
+  // tagline reveal, word by word
+  var tag=document.getElementById('tagline');
+  if(tag){
+    var hl={'estrutura,':1,'governança':1,'provar.':1}, html=[];
+    tag.innerHTML.split(/(<br>)/).forEach(function(part){
+      if(part==='<br>'){html.push(part);return;}
+      part.split(' ').forEach(function(w){if(w)html.push('<span class="w'+(hl[w]?' hl':'')+'">'+w+'</span> ');});
+    });
+    tag.innerHTML=html.join('');
+    var words=tag.querySelectorAll('.w');
+    if(reduce){words.forEach(function(w){w.classList.add('on');});}
+    else{
+      var ticking=false;
+      function update(){
+        ticking=false; var line=window.innerHeight*0.7;
+        words.forEach(function(w){if(w.getBoundingClientRect().top<line)w.classList.add('on');});
+      }
+      window.addEventListener('scroll',function(){if(!ticking){ticking=true;requestAnimationFrame(update);}},{passive:true});
+      update();
+    }
+  }
+
+  // copy email
+  var copy=document.getElementById('copy'), out=document.getElementById('status'), em=document.getElementById('email');
+  function sel(){var r=document.createRange();r.selectNodeContents(em);var s=window.getSelection();s.removeAllRanges();s.addRange(r);out.textContent='Email selecionado. Use Ctrl+C ou Cmd+C para copiar.';}
+  copy.addEventListener('click',function(){
+    var t=em.textContent.trim();
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(function(){out.textContent='Email copiado.';},sel);}else{sel();}
+  });
+})();
+</script>
+
+</body>
+</html>
