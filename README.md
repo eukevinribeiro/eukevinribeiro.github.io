@@ -6,8 +6,11 @@ HTML estático, sem build. `index.html` e `404.html` são autocontidos (única d
 
 ## Publicação
 
-- **Cloudflare Pages** (direct upload): projeto `kevinribeiro`, domínio `kevinribeiro.pages.dev`.
-  Deploy: `npx wrangler pages deploy . --project-name kevinribeiro --branch main`
+- **Cloudflare Pages**: projeto `kevinribeiro`, no ar em https://kevinribeiro.pages.dev.
+  Publicado por API como um único módulo (`_worker.js`) que serve `index.html`, `404.html` e `og.png`:
+  `node deploy/build-worker.js` gera `deploy/_worker.js`, enviado em
+  `POST /accounts/<id>/pages/projects/kevinribeiro/deployments` (campos `manifest={}`, `branch=main`, `_worker.js`).
+  Alternativa mais simples: conectar este repositório ao projeto pelo painel (Connect to Git).
 - GitHub Pages: https://eukevinribeiro.github.io (publica a branch `main`).
 
 ## Kapi
