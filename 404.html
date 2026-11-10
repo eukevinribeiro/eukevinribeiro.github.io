@@ -254,15 +254,34 @@ footer{padding-block:48px}
   .tagline .w{opacity:1}
   .btn:hover,.benefit:hover{transform:none}
 }
+.kapi404{appearance:none;-webkit-appearance:none;border:0;background:none;padding:0;color:var(--fg);cursor:pointer;width:180px;height:96px;line-height:0;align-self:flex-start}
+.kapi404 svg{width:100%;height:100%;display:block}
+.kapi404 .k-cur{fill:var(--accent);animation:blink 1.1s steps(1,end) infinite}
+.kapi404 .k-lid{opacity:0}
+.kapi404.blink .k-lid{opacity:1}
+.kapi-line{font-size:14px;line-height:20px;color:var(--muted)}
+.kapi-line b{color:var(--accent-text);font-weight:500}
+@keyframes blink{50%{opacity:0}}
 </style>
 </head>
 <body>
 <main id="conteudo" class="hero grid-bg" style="min-height:100vh;border:0;display:flex;align-items:center">
 <div class="wrap" style="display:flex;flex-direction:column;gap:24px">
+<button class="kapi404" id="kapi" type="button" aria-label="Kapi, o mascote. Clique para ele falar"><svg aria-hidden="true" focusable="false" viewBox="0 0 15 8" shape-rendering="crispEdges" fill="currentColor"><rect x="7" y="0" width="2" height="1"></rect><path fill-rule="evenodd" d="M6 1h6v1h1v3h-2v1h-1v1H0V3h1V2h5zM8 2v1h1V2zM11 3v1h1V3z"></path><rect class="k-lid" x="8" y="2" width="1" height="1"></rect><rect x="1" y="7" width="2" height="1"></rect><rect x="4" y="7" width="1" height="1"></rect><rect x="6" y="7" width="2" height="1"></rect><rect x="9" y="7" width="1" height="1"></rect><rect class="k-cur" x="13" y="6" width="2" height="2"></rect></svg></button>
+<p class="kapi-line mono" id="kapi-line" role="status"><b>$</b> kapi --rota · 404: endereço sem dono</p>
 <p class="eyebrow caption-3">Erro 404</p>
 <h1 class="heading-1">Esta página<br>não está na planta.</h1>
 <p class="sub title-1">O endereço pode ter mudado ou nunca existiu.</p>
 <div><a class="btn btn-primary button-lg" href="/">Voltar para o início</a></div>
 </div></main>
+<script>
+(function(){
+  var k=document.getElementById('kapi'), l=document.getElementById('kapi-line'), i=0,
+      t=['<b>$</b> kapi --rota · 404: endereço sem dono','sem rota, sem KPI. volta pro início.','procurei na planta inteira. não achei.'];
+  k.addEventListener('click',function(){i=(i+1)%t.length;l.innerHTML=t[i];});
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+  (function blink(){setTimeout(function(){k.classList.add('blink');setTimeout(function(){k.classList.remove('blink');},140);blink();},2400+Math.random()*3000);})();
+})();
+</script>
 </body>
 </html>

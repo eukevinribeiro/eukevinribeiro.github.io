@@ -127,7 +127,7 @@ a{color:var(--link)}
 .agent-av{width:32px;height:32px;display:flex;align-items:center;justify-content:center;border:2px solid var(--link)}
 .agent-av svg{width:18px;height:18px}
 .agent-body{padding:16px;display:flex;flex-direction:column;gap:12px}
-.ask{align-self:flex-end;background:var(--surface-2);padding:8px 12px;max-width:85%}
+.ask{align-self:flex-end;background:var(--surface-2);padding:8px 12px;max-width:85%;min-height:36px}
 .tbl{width:100%;border-collapse:collapse}
 .tbl th{text-align:left;padding:8px 8px 8px 0;border-bottom:1px solid var(--fg)}
 .tbl td{padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top}
@@ -225,6 +225,133 @@ footer{padding-block:48px}
 .reveal-ready .reveal.in{opacity:1;transform:none;transition:opacity 700ms var(--ease),transform 700ms var(--ease)}
 @keyframes linkIn{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
 
+/* ===== interações v2: grade viva, demo do agente, contadores, Kapi ===== */
+:root{--grid-hi:rgba(142,168,245,.42);--spot:rgba(142,168,245,.14)}
+@media (prefers-color-scheme: light){:root:not([data-theme="dark"]){--grid-hi:rgba(31,79,224,.30);--spot:rgba(31,79,224,.08)}}
+:root[data-theme="light"]{--grid-hi:rgba(31,79,224,.30);--spot:rgba(31,79,224,.08)}
+
+.progress{position:fixed;left:0;top:0;height:3px;width:100%;z-index:25;background:var(--accent);transform:scaleX(var(--p,0));transform-origin:0 50%;pointer-events:none}
+
+/* a grade acende perto do ponteiro */
+.grid-bg{position:relative}
+.grid-bg::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity 400ms var(--ease);
+  background-image:linear-gradient(var(--grid-hi) 1px,transparent 1px),linear-gradient(90deg,var(--grid-hi) 1px,transparent 1px);background-size:40px 40px;
+  -webkit-mask-image:radial-gradient(260px circle at var(--mx,50%) var(--my,50%),#000,transparent);mask-image:radial-gradient(260px circle at var(--mx,50%) var(--my,50%),#000,transparent)}
+.grid-bg.lit::before{opacity:1}
+.grid-bg>*{position:relative}
+
+/* o K se constrói: pilar, vetor, nó */
+.brand svg *{transform-box:fill-box}
+.reveal-ready .brand.build .k-p{transform-origin:50% 100%;animation:kP 300ms var(--ease) both}
+.reveal-ready .brand.build .k-v{animation:kV 300ms var(--ease) 300ms both}
+.reveal-ready .brand.build .k-n{animation:kN 1ms steps(1,end) 620ms both}
+@keyframes kP{from{transform:scaleY(0)}}
+@keyframes kV{from{opacity:0;transform:translate(-34%,34%)}}
+@keyframes kN{from{opacity:0}}
+
+.links a{position:relative}
+.links a::after{content:"";position:absolute;left:12px;right:12px;bottom:0;height:2px;background:var(--accent);transform:scaleX(0);transform-origin:0 50%;transition:transform 300ms var(--ease)}
+.links a:hover::after,.links a[aria-current="true"]::after{transform:none}
+.links a[aria-current="true"]{box-shadow:none}
+
+/* entrada do hero */
+.reveal-ready .hero-copy>*{animation:rise 700ms var(--ease) both;animation-delay:calc(var(--i,0)*90ms)}
+@keyframes rise{from{opacity:0;transform:translateY(20px)}}
+
+/* demo do agente */
+.agent{position:relative}
+.reveal-ready .agent.demo [data-s]{opacity:0}
+.reveal-ready .agent.demo p[data-s]{transform:translateY(8px)}
+.reveal-ready .agent.demo [data-s].on{opacity:1;transform:none;transition:opacity 240ms var(--ease),transform 240ms var(--ease)}
+.reveal-ready .agent.demo tr[data-s] .seal{opacity:0;transform:scale(1.35)}
+.reveal-ready .agent.demo tr[data-s].on .seal{opacity:1;transform:none;transition:opacity 160ms var(--ease) 220ms,transform 160ms var(--ease) 220ms}
+.think{display:inline-flex;gap:4px;align-items:center;height:20px}
+.think i{width:6px;height:6px;background:var(--link);animation:blink 900ms steps(1,end) infinite}
+.think i:nth-child(2){animation-delay:300ms}
+.think i:nth-child(3){animation-delay:600ms}
+.caret::after{content:"";display:inline-block;width:7px;height:14px;background:var(--accent);vertical-align:-2px;margin-left:2px;animation:blink 1s steps(1,end) infinite}
+@keyframes blink{50%{opacity:0}}
+.agent-foot .btn{min-width:88px;justify-content:center}
+.agent-foot .btn.done{background:var(--action);color:var(--action-fg)}
+.tbl tbody tr{transition:background-color 300ms var(--ease)}
+.tbl tbody tr:hover{background:var(--spot)}
+
+/* listas em sequência */
+.reveal-ready .box.reveal li{opacity:0;transform:translateX(-12px)}
+.reveal-ready .box.reveal.in li{opacity:1;transform:none;transition:opacity 500ms var(--ease),transform 500ms var(--ease);transition-delay:calc(var(--i,0)*140ms + 250ms)}
+.reveal-ready .box.reveal li .ic{transform:scale(0)}
+.reveal-ready .box.reveal.in li .ic{transform:none;transition:transform 300ms var(--ease);transition-delay:calc(var(--i,0)*140ms + 450ms)}
+.box li{transition:padding-left 300ms var(--ease)}
+.box li:hover{padding-left:8px}
+
+/* foco de luz e cotas nos cartões */
+.spot{position:relative;isolation:isolate}
+.spot::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:0;z-index:-1;transition:opacity 300ms var(--ease);
+  background:radial-gradient(240px circle at var(--x,50%) var(--y,50%),var(--spot),transparent 70%)}
+.spot:hover::after{opacity:1}
+.case.wide.spot::after{background:radial-gradient(280px circle at var(--x,50%) var(--y,50%),rgba(255,255,255,.18),transparent 70%)}
+.tick::before{content:"";position:absolute;inset:-1px;pointer-events:none;opacity:0;transition:opacity 300ms var(--ease),inset 300ms var(--ease);
+  background:
+   linear-gradient(var(--accent),var(--accent)) 0 0/12px 1px no-repeat,linear-gradient(var(--accent),var(--accent)) 0 0/1px 12px no-repeat,
+   linear-gradient(var(--accent),var(--accent)) 100% 0/12px 1px no-repeat,linear-gradient(var(--accent),var(--accent)) 100% 0/1px 12px no-repeat,
+   linear-gradient(var(--accent),var(--accent)) 0 100%/12px 1px no-repeat,linear-gradient(var(--accent),var(--accent)) 0 100%/1px 12px no-repeat,
+   linear-gradient(var(--accent),var(--accent)) 100% 100%/12px 1px no-repeat,linear-gradient(var(--accent),var(--accent)) 100% 100%/1px 12px no-repeat}
+.tick:hover::before{opacity:1;inset:-7px}
+.case,.num,.cred{transition:transform 500ms var(--ease),border-color 300ms var(--ease)}
+.case:hover,.num:hover{transform:translateY(-4px);border-color:var(--link)}
+.benefit .ic{transition:transform 500ms var(--ease),color 300ms var(--ease)}
+.benefit:hover .ic{transform:translateY(-2px);color:var(--accent-text)}
+.chip.prod::before{animation:blink 1.6s steps(1,end) infinite}
+
+/* etapas acendem em ordem */
+.step::before{content:"";position:absolute;left:-1px;right:-1px;top:-1px;height:3px;background:var(--fg);transform-origin:0 50%}
+.step:nth-child(2)::before{background:var(--action)}
+.step:nth-child(3)::before{background:var(--accent)}
+.reveal-ready .steps .step::before{transform:scaleX(0);transition:transform 450ms linear;transition-delay:calc(var(--i,0)*450ms + 300ms)}
+.reveal-ready .steps.go .step::before{transform:none}
+.reveal-ready .steps .step-n{background:transparent;border-color:var(--line);color:var(--muted);transition:background-color 300ms var(--ease),border-color 300ms var(--ease),color 300ms var(--ease);transition-delay:calc(var(--i,0)*450ms + 500ms)}
+.reveal-ready .steps.go .step:nth-child(1) .step-n{border-color:var(--fg);color:var(--fg)}
+.reveal-ready .steps.go .step:nth-child(2) .step-n{background:var(--action);border-color:var(--action);color:var(--action-fg)}
+.reveal-ready .steps.go .step:nth-child(3) .step-n{background:var(--accent);border-color:var(--accent);color:var(--accent-fg)}
+
+/* linha do tempo se desenha */
+.tl{border-top:0;position:relative}
+.tl::before{content:"";position:absolute;left:0;right:0;top:0;height:1px;background:var(--fg);transform-origin:0 50%}
+.tl li{position:relative;transition:color 300ms var(--ease)}
+.tl li::before{content:"";position:absolute;left:0;top:-3px;width:7px;height:7px;background:var(--fg);transition:transform 300ms var(--ease),background-color 300ms var(--ease)}
+.tl li.now::before{background:var(--accent)}
+.tl li:hover::before{background:var(--accent);transform:scale(1.6)}
+.reveal-ready .tl::before{transform:scaleX(0);transition:transform 1400ms var(--ease)}
+.reveal-ready .tl.go::before{transform:none}
+.reveal-ready .tl li{opacity:0;transform:translateY(10px);transition:opacity 450ms var(--ease),transform 450ms var(--ease);transition-delay:calc(var(--i,0)*180ms + 150ms)}
+.reveal-ready .tl.go li{opacity:1;transform:none}
+
+.faq .ans{overflow:hidden}
+.faq details.closing summary .ic{transform:none}
+.faq summary{transition:color 300ms var(--ease),padding-left 300ms var(--ease)}
+.faq summary:hover{padding-left:8px;color:var(--accent-text)}
+#copy.ok{border-color:var(--accent);color:var(--accent-text)}
+
+/* Kapi, o mascote */
+.kapi-rail{position:absolute;left:0;right:0;bottom:100%;height:48px;pointer-events:none}
+.kapi{appearance:none;-webkit-appearance:none;border:0;background:none;padding:0;margin:0;color:var(--fg);cursor:pointer;display:block;width:90px;height:48px;line-height:0;position:absolute;right:24px;bottom:0;pointer-events:auto;-webkit-tap-highlight-color:transparent}
+.kapi-rail.js .kapi{right:auto;left:0;transform:translateX(var(--kx,0px))}
+.kapi svg{width:100%;height:100%;display:block;overflow:visible;transform:translateY(var(--hop,0px)) scaleX(var(--dir,1))}
+.kapi .k-cur{fill:var(--accent)}
+.kapi .k-lid,.kapi .k-legs-b{opacity:0}
+.kapi.blink .k-lid{opacity:1}
+.kapi.step .k-legs-a{opacity:0}
+.kapi.step .k-legs-b{opacity:1}
+.kapi.left{--dir:-1}
+.kapi.hop{--hop:-6px}
+.kapi.twitch .k-ear{transform:translateX(-1px)}
+.reveal-ready .kapi .k-cur{animation:blink 1.1s steps(1,end) infinite}
+.kapi-say{position:absolute;bottom:calc(100% + 56px);left:var(--sx,auto);right:var(--sr,auto);max-width:min(300px,100%);background:var(--surface-2);border:1px solid var(--line);padding:6px 10px;font-family:var(--mono);font-size:12px;line-height:16px;color:var(--fg);opacity:0;transform:translateY(4px);transition:opacity 200ms var(--ease),transform 200ms var(--ease);pointer-events:none;z-index:2}
+.kapi-say.on{opacity:1;transform:none}
+.kapi-say b{color:var(--accent-text);font-weight:500}
+.contact{position:relative}
+.foot-kapi{display:flex;align-items:flex-end;gap:12px}
+
 @media (max-width:1024px){
   .hero-grid,.final-box,.sec-head{grid-template-columns:minmax(0,1fr)}
   .hero-grid{gap:48px}
@@ -253,19 +380,21 @@ footer{padding-block:48px}
   *,*::before,*::after{transition-duration:200ms!important;animation:none!important}
   .reveal-ready .reveal{transform:none}
   .tagline .w{opacity:1}
-  .btn:hover,.benefit:hover{transform:none}
+  .btn:hover,.benefit:hover,.case:hover,.num:hover{transform:none}
+  .box li:hover,.faq summary:hover{padding-left:0}
 }
 </style>
 </head>
 <body>
 
 
+<div class="progress" id="progress" aria-hidden="true"></div>
 <a class="skip" href="#conteudo">Pular para o conteúdo</a>
 
 <header class="nav">
   <div class="nav-bar">
-    <a class="brand title-3" href="#topo" aria-label="Kevin Ribeiro, início">
-      <svg aria-hidden="true" viewBox="0 0 3 3"><rect width="1" height="3" fill="currentColor"></rect><path d="M1 1 2 0h1L1 2z" fill="currentColor"></path><rect x="2" y="2" width="1" height="1" fill="#FFB020"></rect></svg>
+    <a class="brand build title-3" href="#topo" aria-label="Kevin Ribeiro, início">
+      <svg aria-hidden="true" viewBox="0 0 3 3"><rect class="k-p" width="1" height="3" fill="currentColor"></rect><path class="k-v" d="M1 1 2 0h1L1 2z" fill="currentColor"></path><rect class="k-n" x="2" y="2" width="1" height="1" fill="#FFB020"></rect></svg>
       Kevin Ribeiro
     </a>
     <nav class="links title-4" aria-label="Seções">
@@ -300,7 +429,8 @@ footer{padding-block:48px}
           <li><svg class="ic" aria-hidden="true" focusable="false" viewBox="0 0 256 256" fill="currentColor"><path d="M225.86,102.82c-3.77-3.94-7.67-8-9.14-11.57-1.36-3.27-1.44-8.69-1.52-13.94-.15-9.76-.31-20.82-8-28.51s-18.75-7.85-28.51-8c-5.25-.08-10.67-.16-13.94-1.52-3.56-1.47-7.63-5.37-11.57-9.14C146.28,23.51,138.44,16,128,16s-18.27,7.51-25.18,14.14c-3.94,3.77-8,7.67-11.57,9.14C88,40.64,82.56,40.72,77.31,40.8c-9.76.15-20.82.31-28.51,8S41,67.55,40.8,77.31c-.08,5.25-.16,10.67-1.52,13.94-1.47,3.56-5.37,7.63-9.14,11.57C23.51,109.72,16,117.56,16,128s7.51,18.27,14.14,25.18c3.77,3.94,7.67,8,9.14,11.57,1.36,3.27,1.44,8.69,1.52,13.94.15,9.76.31,20.82,8,28.51s18.75,7.85,28.51,8c5.25.08,10.67.16,13.94,1.52,3.56,1.47,7.63,5.37,11.57,9.14C109.72,232.49,117.56,240,128,240s18.27-7.51,25.18-14.14c3.94-3.77,8-7.67,11.57-9.14,3.27-1.36,8.69-1.44,13.94-1.52,9.76-.15,20.82-.31,28.51-8s7.85-18.75,8-28.51c.08-5.25.16-10.67,1.52-13.94,1.47-3.56,5.37-7.63,9.14-11.57C232.49,146.28,240,138.44,240,128S232.49,109.73,225.86,102.82Zm-11.55,39.29c-4.79,5-9.75,10.17-12.38,16.52-2.52,6.1-2.63,13.07-2.73,19.82-.1,7-.21,14.33-3.32,17.43s-10.39,3.22-17.43,3.32c-6.75.1-13.72.21-19.82,2.73-6.35,2.63-11.52,7.59-16.52,12.38S132,224,128,224s-9.15-4.92-14.11-9.69-10.17-9.75-16.52-12.38c-6.1-2.52-13.07-2.63-19.82-2.73-7-.1-14.33-.21-17.43-3.32s-3.22-10.39-3.32-17.43c-.1-6.75-.21-13.72-2.73-19.82-2.63-6.35-7.59-11.52-12.38-16.52S32,132,32,128s4.92-9.15,9.69-14.11,9.75-10.17,12.38-16.52c2.52-6.1,2.63-13.07,2.73-19.82.1-7,.21-14.33,3.32-17.43S70.51,56.9,77.55,56.8c6.75-.1,13.72-.21,19.82-2.73,6.35-2.63,11.52-7.59,16.52-12.38S124,32,128,32s9.15,4.92,14.11,9.69,10.17,9.75,16.52,12.38c6.1,2.52,13.07,2.63,19.82,2.73,7,.1,14.33.21,17.43,3.32s3.22,10.39,3.32,17.43c.1,6.75.21,13.72,2.73,19.82,2.63,6.35,7.59,11.52,12.38,16.52S224,124,224,128,219.08,137.15,214.31,142.11ZM173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34Z"/></svg><span>ITIL® 4 Foundation</span></li>
         </ul>
       </div>
-      <figure class="agent" aria-label="Exemplo ilustrativo da interface de um agente leitor de contrato">
+      <figure class="agent demo" id="agent" aria-label="Exemplo ilustrativo da interface de um agente leitor de contrato">
+        <div class="kapi-rail" data-kapi="hero"><button class="kapi" type="button" aria-label="Kapi, o mascote. Clique para ele falar"><svg aria-hidden="true" focusable="false" viewBox="0 0 15 8" shape-rendering="crispEdges" fill="currentColor"><rect class="k-ear" x="7" y="0" width="2" height="1"></rect><path fill-rule="evenodd" d="M6 1h6v1h1v3h-2v1h-1v1H0V3h1V2h5zM8 2v1h1V2zM11 3v1h1V3z"></path><rect class="k-lid" x="8" y="2" width="1" height="1"></rect><g class="k-legs-a"><rect x="1" y="7" width="2" height="1"></rect><rect x="4" y="7" width="1" height="1"></rect><rect x="6" y="7" width="2" height="1"></rect><rect x="9" y="7" width="1" height="1"></rect></g><g class="k-legs-b"><rect x="1" y="7" width="1" height="1"></rect><rect x="3" y="7" width="2" height="1"></rect><rect x="6" y="7" width="1" height="1"></rect><rect x="8" y="7" width="2" height="1"></rect></g><rect class="k-cur" x="13" y="6" width="2" height="2"></rect></svg></button></div><p class="kapi-say" role="status"></p>
         <div class="agent-head">
           <div class="agent-id">
             <span class="agent-av"><svg aria-hidden="true" viewBox="0 0 3 3"><rect width="1" height="3" fill="currentColor"></rect><path d="M1 1 2 0h1L1 2z" fill="currentColor"></path><rect x="2" y="2" width=".42" height=".42" fill="#6E95FF"></rect><rect x="2.58" y="2" width=".42" height=".42" fill="#6E95FF"></rect><rect x="2" y="2.58" width=".42" height=".42" fill="#6E95FF"></rect><rect x="2.58" y="2.58" width=".42" height=".42" fill="#FFB020"></rect></svg></span>
@@ -309,21 +439,21 @@ footer{padding-block:48px}
           <span class="caption-4 muted">Exemplo ilustrativo</span>
         </div>
         <div class="agent-body">
-          <p class="ask body-6">Gere os KPIs do contrato anexo.</p>
-          <p class="body-6">Encontrei 3 cláusulas de nível de serviço. Uma não tem fonte de dado.</p>
+          <p class="ask body-6" data-s="ask">Gere os KPIs do contrato anexo.</p>
+          <p class="body-6" data-s="ans">Encontrei 3 cláusulas de nível de serviço. Uma não tem fonte de dado.</p>
           <div style="overflow-x:auto">
             <table class="tbl caption-5">
-              <thead><tr class="caption-4"><th>Cláusula</th><th>KPI sugerido</th><th class="hide-sm">Fonte</th><th>Evidência</th></tr></thead>
+              <thead data-s="head"><tr class="caption-4"><th>Cláusula</th><th>KPI sugerido</th><th class="hide-sm">Fonte</th><th>Evidência</th></tr></thead>
               <tbody>
-                <tr><td>Resposta P1 em 30 min</td><td>Tempo médio de resposta P1</td><td class="hide-sm">Incidentes</td><td><span class="seal seal-fato">Fato</span></td></tr>
-                <tr><td>Reincidência abaixo de 5%</td><td>Taxa de reincidência</td><td class="hide-sm">Problemas</td><td><span class="seal seal-fato">Fato</span></td></tr>
-                <tr class="flag"><td>Satisfação “adequada”</td><td>CSAT pós atendimento</td><td class="hide-sm">Não definida</td><td><span class="seal seal-inf">Inferência</span></td></tr>
+                <tr data-s="row"><td>Resposta P1 em 30 min</td><td>Tempo médio de resposta P1</td><td class="hide-sm">Incidentes</td><td><span class="seal seal-fato">Fato</span></td></tr>
+                <tr data-s="row"><td>Reincidência abaixo de 5%</td><td>Taxa de reincidência</td><td class="hide-sm">Problemas</td><td><span class="seal seal-fato">Fato</span></td></tr>
+                <tr class="flag" data-s="row"><td>Satisfação “adequada”</td><td>CSAT pós atendimento</td><td class="hide-sm">Não definida</td><td><span class="seal seal-inf">Inferência</span></td></tr>
               </tbody>
             </table>
           </div>
-          <p class="caption-4" style="color:var(--accent-text);display:flex;gap:8px;align-items:center"><svg class="ic" aria-hidden="true" focusable="false" viewBox="0 0 256 256" fill="currentColor"><path d="M236.8,188.09,149.35,36.22h0a24.76,24.76,0,0,0-42.7,0L19.2,188.09a23.51,23.51,0,0,0,0,23.72A24.35,24.35,0,0,0,40.55,224h174.9a24.35,24.35,0,0,0,21.33-12.19A23.51,23.51,0,0,0,236.8,188.09ZM222.93,203.8a8.5,8.5,0,0,1-7.48,4.2H40.55a8.5,8.5,0,0,1-7.48-4.2,7.59,7.59,0,0,1,0-7.72L120.52,44.21a8.75,8.75,0,0,1,15,0l87.45,151.87A7.59,7.59,0,0,1,222.93,203.8ZM120,144V104a8,8,0,0,1,16,0v40a8,8,0,0,1-16,0Zm20,36a12,12,0,1,1-12-12A12,12,0,0,1,140,180Z"/></svg>Divergência registrada: meta sem medida.</p>
+          <p class="caption-4" data-s="warn" style="color:var(--accent-text);display:flex;gap:8px;align-items:center"><svg class="ic" aria-hidden="true" focusable="false" viewBox="0 0 256 256" fill="currentColor"><path d="M236.8,188.09,149.35,36.22h0a24.76,24.76,0,0,0-42.7,0L19.2,188.09a23.51,23.51,0,0,0,0,23.72A24.35,24.35,0,0,0,40.55,224h174.9a24.35,24.35,0,0,0,21.33-12.19A23.51,23.51,0,0,0,236.8,188.09ZM222.93,203.8a8.5,8.5,0,0,1-7.48,4.2H40.55a8.5,8.5,0,0,1-7.48-4.2,7.59,7.59,0,0,1,0-7.72L120.52,44.21a8.75,8.75,0,0,1,15,0l87.45,151.87A7.59,7.59,0,0,1,222.93,203.8ZM120,144V104a8,8,0,0,1,16,0v40a8,8,0,0,1-16,0Zm20,36a12,12,0,1,1-12-12A12,12,0,0,1,140,180Z"/></svg>Divergência registrada: meta sem medida.</p>
         </div>
-        <div class="agent-foot"><span class="caption-5 muted">Feito com IA · revisão humana obrigatória</span><span class="btn btn-primary button-sm" aria-hidden="true">Validar</span></div>
+        <div class="agent-foot"><span class="caption-5 muted" id="agent-note">Feito com IA · revisão humana obrigatória</span><button class="btn btn-primary button-sm" id="validar" type="button">Validar</button></div>
       </figure>
     </div>
   </div>
@@ -363,10 +493,10 @@ footer{padding-block:48px}
         <h2 class="heading-3" id="t-ben">Quatro resultados que a diretoria consegue ver.</h2>
       </div>
       <ul class="benefits">
-        <li class="benefit reveal"><svg class="ic" aria-hidden="true" focusable="false" viewBox="0 0 256 256" fill="currentColor"><path d="M213.66,82.34l-56-56A8,8,0,0,0,152,24H56A16,16,0,0,0,40,40V216a16,16,0,0,0,16,16H200a16,16,0,0,0,16-16V88A8,8,0,0,0,213.66,82.34ZM160,51.31,188.69,80H160ZM200,216H56V40h88V88a8,8,0,0,0,8,8h48V216Zm-32-80a8,8,0,0,1-8,8H96a8,8,0,0,1,0-16h64A8,8,0,0,1,168,136Zm0,32a8,8,0,0,1-8,8H96a8,8,0,0,1,0-16h64A8,8,0,0,1,168,168Z"/></svg><p class="heading-6">Contrato que vira métrica</p><p class="body-6 muted">Cada cláusula de nível de serviço ganha KPI com fórmula, fonte e meta.</p></li>
-        <li class="benefit reveal"><svg class="ic" aria-hidden="true" focusable="false" viewBox="0 0 256 256" fill="currentColor"><path d="M160,112h48a16,16,0,0,0,16-16V48a16,16,0,0,0-16-16H160a16,16,0,0,0-16,16V64H128a24,24,0,0,0-24,24v32H72v-8A16,16,0,0,0,56,96H24A16,16,0,0,0,8,112v32a16,16,0,0,0,16,16H56a16,16,0,0,0,16-16v-8h32v32a24,24,0,0,0,24,24h16v16a16,16,0,0,0,16,16h48a16,16,0,0,0,16-16V160a16,16,0,0,0-16-16H160a16,16,0,0,0-16,16v16H128a8,8,0,0,1-8-8V88a8,8,0,0,1,8-8h16V96A16,16,0,0,0,160,112ZM56,144H24V112H56v32Zm104,16h48v48H160Zm0-112h48V96H160Z"/></svg><p class="heading-6">Agente com dono</p><p class="body-6 muted">Responsável nomeado, prompt versionado e limite claro do que o agente faz.</p></li>
-        <li class="benefit reveal"><svg class="ic" aria-hidden="true" focusable="false" viewBox="0 0 256 256" fill="currentColor"><path d="M225.86,102.82c-3.77-3.94-7.67-8-9.14-11.57-1.36-3.27-1.44-8.69-1.52-13.94-.15-9.76-.31-20.82-8-28.51s-18.75-7.85-28.51-8c-5.25-.08-10.67-.16-13.94-1.52-3.56-1.47-7.63-5.37-11.57-9.14C146.28,23.51,138.44,16,128,16s-18.27,7.51-25.18,14.14c-3.94,3.77-8,7.67-11.57,9.14C88,40.64,82.56,40.72,77.31,40.8c-9.76.15-20.82.31-28.51,8S41,67.55,40.8,77.31c-.08,5.25-.16,10.67-1.52,13.94-1.47,3.56-5.37,7.63-9.14,11.57C23.51,109.72,16,117.56,16,128s7.51,18.27,14.14,25.18c3.77,3.94,7.67,8,9.14,11.57,1.36,3.27,1.44,8.69,1.52,13.94.15,9.76.31,20.82,8,28.51s18.75,7.85,28.51,8c5.25.08,10.67.16,13.94,1.52,3.56,1.47,7.63,5.37,11.57,9.14C109.72,232.49,117.56,240,128,240s18.27-7.51,25.18-14.14c3.94-3.77,8-7.67,11.57-9.14,3.27-1.36,8.69-1.44,13.94-1.52,9.76-.15,20.82-.31,28.51-8s7.85-18.75,8-28.51c.08-5.25.16-10.67,1.52-13.94,1.47-3.56,5.37-7.63,9.14-11.57C232.49,146.28,240,138.44,240,128S232.49,109.73,225.86,102.82Zm-11.55,39.29c-4.79,5-9.75,10.17-12.38,16.52-2.52,6.1-2.63,13.07-2.73,19.82-.1,7-.21,14.33-3.32,17.43s-10.39,3.22-17.43,3.32c-6.75.1-13.72.21-19.82,2.73-6.35,2.63-11.52,7.59-16.52,12.38S132,224,128,224s-9.15-4.92-14.11-9.69-10.17-9.75-16.52-12.38c-6.1-2.52-13.07-2.63-19.82-2.73-7-.1-14.33-.21-17.43-3.32s-3.22-10.39-3.32-17.43c-.1-6.75-.21-13.72-2.73-19.82-2.63-6.35-7.59-11.52-12.38-16.52S32,132,32,128s4.92-9.15,9.69-14.11,9.75-10.17,12.38-16.52c2.52-6.1,2.63-13.07,2.73-19.82.1-7,.21-14.33,3.32-17.43S70.51,56.9,77.55,56.8c6.75-.1,13.72-.21,19.82-2.73,6.35-2.63,11.52-7.59,16.52-12.38S124,32,128,32s9.15,4.92,14.11,9.69,10.17,9.75,16.52,12.38c6.1,2.52,13.07,2.63,19.82,2.73,7,.1,14.33.21,17.43,3.32s3.22,10.39,3.32,17.43c.1,6.75.21,13.72,2.73,19.82,2.63,6.35,7.59,11.52,12.38,16.52S224,124,224,128,219.08,137.15,214.31,142.11ZM173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34Z"/></svg><p class="heading-6">Divergência registrada</p><p class="body-6 muted">O que o contrato promete e o dado não mostra vira registro, não conversa de corredor.</p></li>
-        <li class="benefit reveal"><svg class="ic" aria-hidden="true" focusable="false" viewBox="0 0 256 256" fill="currentColor"><path d="M208,40H48A16,16,0,0,0,32,56v56c0,52.72,25.52,84.67,46.93,102.19,23.06,18.86,46,25.26,47,25.53a8,8,0,0,0,4.2,0c1-.27,23.91-6.67,47-25.53C198.48,196.67,224,164.72,224,112V56A16,16,0,0,0,208,40Zm0,72c0,37.07-13.66,67.16-40.6,89.42A129.3,129.3,0,0,1,128,223.62a128.25,128.25,0,0,1-38.92-21.81C61.82,179.51,48,149.3,48,112l0-56,160,0ZM82.34,141.66a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35a8,8,0,0,1,11.32,11.32l-56,56a8,8,0,0,1-11.32,0Z"/></svg><p class="heading-6">Adoção sem shadow AI</p><p class="body-6 muted">Times usam IA nos canais aprovados, com trilhas por perfil de pessoa.</p></li>
+        <li class="benefit spot tick reveal"><svg class="ic" aria-hidden="true" focusable="false" viewBox="0 0 256 256" fill="currentColor"><path d="M213.66,82.34l-56-56A8,8,0,0,0,152,24H56A16,16,0,0,0,40,40V216a16,16,0,0,0,16,16H200a16,16,0,0,0,16-16V88A8,8,0,0,0,213.66,82.34ZM160,51.31,188.69,80H160ZM200,216H56V40h88V88a8,8,0,0,0,8,8h48V216Zm-32-80a8,8,0,0,1-8,8H96a8,8,0,0,1,0-16h64A8,8,0,0,1,168,136Zm0,32a8,8,0,0,1-8,8H96a8,8,0,0,1,0-16h64A8,8,0,0,1,168,168Z"/></svg><p class="heading-6">Contrato que vira métrica</p><p class="body-6 muted">Cada cláusula de nível de serviço ganha KPI com fórmula, fonte e meta.</p></li>
+        <li class="benefit spot tick reveal"><svg class="ic" aria-hidden="true" focusable="false" viewBox="0 0 256 256" fill="currentColor"><path d="M160,112h48a16,16,0,0,0,16-16V48a16,16,0,0,0-16-16H160a16,16,0,0,0-16,16V64H128a24,24,0,0,0-24,24v32H72v-8A16,16,0,0,0,56,96H24A16,16,0,0,0,8,112v32a16,16,0,0,0,16,16H56a16,16,0,0,0,16-16v-8h32v32a24,24,0,0,0,24,24h16v16a16,16,0,0,0,16,16h48a16,16,0,0,0,16-16V160a16,16,0,0,0-16-16H160a16,16,0,0,0-16,16v16H128a8,8,0,0,1-8-8V88a8,8,0,0,1,8-8h16V96A16,16,0,0,0,160,112ZM56,144H24V112H56v32Zm104,16h48v48H160Zm0-112h48V96H160Z"/></svg><p class="heading-6">Agente com dono</p><p class="body-6 muted">Responsável nomeado, prompt versionado e limite claro do que o agente faz.</p></li>
+        <li class="benefit spot tick reveal"><svg class="ic" aria-hidden="true" focusable="false" viewBox="0 0 256 256" fill="currentColor"><path d="M225.86,102.82c-3.77-3.94-7.67-8-9.14-11.57-1.36-3.27-1.44-8.69-1.52-13.94-.15-9.76-.31-20.82-8-28.51s-18.75-7.85-28.51-8c-5.25-.08-10.67-.16-13.94-1.52-3.56-1.47-7.63-5.37-11.57-9.14C146.28,23.51,138.44,16,128,16s-18.27,7.51-25.18,14.14c-3.94,3.77-8,7.67-11.57,9.14C88,40.64,82.56,40.72,77.31,40.8c-9.76.15-20.82.31-28.51,8S41,67.55,40.8,77.31c-.08,5.25-.16,10.67-1.52,13.94-1.47,3.56-5.37,7.63-9.14,11.57C23.51,109.72,16,117.56,16,128s7.51,18.27,14.14,25.18c3.77,3.94,7.67,8,9.14,11.57,1.36,3.27,1.44,8.69,1.52,13.94.15,9.76.31,20.82,8,28.51s18.75,7.85,28.51,8c5.25.08,10.67.16,13.94,1.52,3.56,1.47,7.63,5.37,11.57,9.14C109.72,232.49,117.56,240,128,240s18.27-7.51,25.18-14.14c3.94-3.77,8-7.67,11.57-9.14,3.27-1.36,8.69-1.44,13.94-1.52,9.76-.15,20.82-.31,28.51-8s7.85-18.75,8-28.51c.08-5.25.16-10.67,1.52-13.94,1.47-3.56,5.37-7.63,9.14-11.57C232.49,146.28,240,138.44,240,128S232.49,109.73,225.86,102.82Zm-11.55,39.29c-4.79,5-9.75,10.17-12.38,16.52-2.52,6.1-2.63,13.07-2.73,19.82-.1,7-.21,14.33-3.32,17.43s-10.39,3.22-17.43,3.32c-6.75.1-13.72.21-19.82,2.73-6.35,2.63-11.52,7.59-16.52,12.38S132,224,128,224s-9.15-4.92-14.11-9.69-10.17-9.75-16.52-12.38c-6.1-2.52-13.07-2.63-19.82-2.73-7-.1-14.33-.21-17.43-3.32s-3.22-10.39-3.32-17.43c-.1-6.75-.21-13.72-2.73-19.82-2.63-6.35-7.59-11.52-12.38-16.52S32,132,32,128s4.92-9.15,9.69-14.11,9.75-10.17,12.38-16.52c2.52-6.1,2.63-13.07,2.73-19.82.1-7,.21-14.33,3.32-17.43S70.51,56.9,77.55,56.8c6.75-.1,13.72-.21,19.82-2.73,6.35-2.63,11.52-7.59,16.52-12.38S124,32,128,32s9.15,4.92,14.11,9.69,10.17,9.75,16.52,12.38c6.1,2.52,13.07,2.63,19.82,2.73,7,.1,14.33.21,17.43,3.32s3.22,10.39,3.32,17.43c.1,6.75.21,13.72,2.73,19.82,2.63,6.35,7.59,11.52,12.38,16.52S224,124,224,128,219.08,137.15,214.31,142.11ZM173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34Z"/></svg><p class="heading-6">Divergência registrada</p><p class="body-6 muted">O que o contrato promete e o dado não mostra vira registro, não conversa de corredor.</p></li>
+        <li class="benefit spot tick reveal"><svg class="ic" aria-hidden="true" focusable="false" viewBox="0 0 256 256" fill="currentColor"><path d="M208,40H48A16,16,0,0,0,32,56v56c0,52.72,25.52,84.67,46.93,102.19,23.06,18.86,46,25.26,47,25.53a8,8,0,0,0,4.2,0c1-.27,23.91-6.67,47-25.53C198.48,196.67,224,164.72,224,112V56A16,16,0,0,0,208,40Zm0,72c0,37.07-13.66,67.16-40.6,89.42A129.3,129.3,0,0,1,128,223.62a128.25,128.25,0,0,1-38.92-21.81C61.82,179.51,48,149.3,48,112l0-56,160,0ZM82.34,141.66a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35a8,8,0,0,1,11.32,11.32l-56,56a8,8,0,0,1-11.32,0Z"/></svg><p class="heading-6">Adoção sem shadow AI</p><p class="body-6 muted">Times usam IA nos canais aprovados, com trilhas por perfil de pessoa.</p></li>
       </ul>
     </div>
   </section>
@@ -384,10 +514,10 @@ footer{padding-block:48px}
         <h2 class="heading-3" id="t-met">Antes do agente, a planta.</h2>
         <p class="body-3">Três etapas, sempre nessa ordem. A IA só entra depois que a regra e o dono existem.</p>
       </div>
-      <ol class="steps">
-        <li class="step reveal"><span class="step-n">01</span><p class="heading-6">Ler o contrato</p><p class="body-6 muted">O que foi prometido, cláusula por cláusula, e quem responde por cada parte.</p></li>
-        <li class="step reveal"><span class="step-n">02</span><p class="heading-6">Definir indicador e dono</p><p class="body-6 muted">Cada promessa vira KPI com fórmula, fonte de dado e responsável.</p></li>
-        <li class="step reveal"><span class="step-n">03</span><p class="heading-6">Colocar o agente para medir</p><p class="body-6 muted">A IA lê, cruza e marca divergência. Uma pessoa valida e decide.</p></li>
+      <ol class="steps" data-seq>
+        <li class="step spot reveal"><span class="step-n">01</span><p class="heading-6">Ler o contrato</p><p class="body-6 muted">O que foi prometido, cláusula por cláusula, e quem responde por cada parte.</p></li>
+        <li class="step spot reveal"><span class="step-n">02</span><p class="heading-6">Definir indicador e dono</p><p class="body-6 muted">Cada promessa vira KPI com fórmula, fonte de dado e responsável.</p></li>
+        <li class="step spot reveal"><span class="step-n">03</span><p class="heading-6">Colocar o agente para medir</p><p class="body-6 muted">A IA lê, cruza e marca divergência. Uma pessoa valida e decide.</p></li>
       </ol>
     </div>
   </section>
@@ -400,7 +530,7 @@ footer{padding-block:48px}
         <p class="body-3">Clientes e dados internos anonimizados. Cada caso diz se está em produção, entregue ou em andamento.</p>
       </div>
       <div class="cases">
-        <article class="case wide reveal">
+        <article class="case wide spot tick reveal">
           <span class="chip ent caption-4">Entregue</span>
           <h3 class="heading-5">Catálogo de 420 KPIs</h3>
           <dl class="body-6">
@@ -409,32 +539,32 @@ footer{padding-block:48px}
             <div><dt class="caption-4">Resultado</dt><dd>Destravado em cerca de uma semana. Base compartilhada com o time global de dados.</dd></div>
           </dl>
         </article>
-        <article class="case reveal">
+        <article class="case spot tick reveal">
           <span class="chip prod caption-4">Em produção</span>
           <h3 class="heading-6">Agente leitor de contrato</h3>
           <dl class="body-6"><div><dt class="caption-4">Problema</dt><dd>Montar a governança de cada cliente exigia ler o contrato à mão.</dd></div><div><dt class="caption-4">Aprendizado</dt><dd>Manual desatualizado contamina o agente. A fonte é parte do produto.</dd></div></dl>
         </article>
-        <article class="case reveal">
+        <article class="case spot tick reveal">
           <span class="chip prod caption-4">Em produção</span>
           <h3 class="heading-6">Health Score Operacional</h3>
           <dl class="body-6"><div><dt class="caption-4">Problema</dt><dd>Saúde da operação avaliada por sensação, não por índice.</dd></div><div><dt class="caption-4">O que fiz</dt><dd>Metodologia própria de auditoria e um agente que aplica o índice.</dd></div></dl>
         </article>
-        <article class="case reveal">
+        <article class="case spot tick reveal">
           <span class="chip ent caption-4">Entregue</span>
           <h3 class="heading-6">Framework de governança de IA</h3>
           <dl class="body-6"><div><dt class="caption-4">Problema</dt><dd>Adoção de IA sem regra, dono nem critério de aprovação.</dd></div><div><dt class="caption-4">Próximo passo</dt><dd>Mapear o framework contra a ISO/IEC 42001.</dd></div></dl>
         </article>
-        <article class="case reveal">
+        <article class="case spot tick reveal">
           <span class="chip rec caption-4">Recorrente</span>
           <h3 class="heading-6">Governance AI Sync</h3>
           <dl class="body-6"><div><dt class="caption-4">Problema</dt><dd>Times com perfis muito diferentes diante da IA.</dd></div><div><dt class="caption-4">Formato</dt><dd>Sessões quinzenais de 45 minutos unindo ITIL 4 e Design Thinking.</dd></div></dl>
         </article>
       </div>
       <ul class="nums">
-        <li class="num reveal"><b>420</b><span class="body-6 muted">KPIs catalogados em camadas</span><span class="seal seal-fato caption-5" style="align-self:flex-start">Fato</span></li>
-        <li class="num reveal"><b>3</b><span class="body-6 muted">agentes de IA em produção</span><span class="seal seal-fato caption-5" style="align-self:flex-start">Fato</span></li>
-        <li class="num reveal"><b>9+</b><span class="body-6 muted">anos em operação, processos e TI</span><span class="seal seal-fato caption-5" style="align-self:flex-start">Fato</span></li>
-        <li class="num reveal"><b>~38</b><span class="body-6 muted">empresas no benchmark competitivo</span><span class="seal seal-inf caption-5" style="align-self:flex-start">Estimativa</span></li>
+        <li class="num spot tick reveal"><b>420</b><span class="body-6 muted">KPIs catalogados em camadas</span><span class="seal seal-fato caption-5" style="align-self:flex-start">Fato</span></li>
+        <li class="num spot tick reveal"><b>3</b><span class="body-6 muted">agentes de IA em produção</span><span class="seal seal-fato caption-5" style="align-self:flex-start">Fato</span></li>
+        <li class="num spot tick reveal"><b>9+</b><span class="body-6 muted">anos em operação, processos e TI</span><span class="seal seal-fato caption-5" style="align-self:flex-start">Fato</span></li>
+        <li class="num spot tick reveal"><b>~38</b><span class="body-6 muted">empresas no benchmark competitivo</span><span class="seal seal-inf caption-5" style="align-self:flex-start">Estimativa</span></li>
       </ul>
     </div>
   </section>
@@ -446,7 +576,7 @@ footer{padding-block:48px}
         <h2 class="heading-3" id="t-tra">Cheguei à TI pelo negócio.</h2>
         <p class="body-3">Operação comercial, atendimento, treinamento e gestão antes da governança. Por isso começo pelas pessoas e pelo processo, não pela ferramenta.</p>
       </div>
-      <ol class="tl">
+      <ol class="tl" data-seq>
         <li><span class="caption-4 muted mono">2017</span><span class="title-4">Operação comercial</span></li>
         <li><span class="caption-4 muted mono">2019</span><span class="title-4">Processos e treinamento</span></li>
         <li><span class="caption-4 muted mono">2021</span><span class="title-4">Liderança de equipe</span></li>
@@ -489,8 +619,9 @@ footer{padding-block:48px}
         <p class="reassure body-6"><svg class="ic" aria-hidden="true" focusable="false" viewBox="0 0 256 256" fill="currentColor"><path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"/></svg>Sem formulário. Uma mensagem basta.</p>
       </div>
       <div class="contact">
+        <div class="kapi-rail" data-kapi="contato"><button class="kapi" type="button" aria-label="Kapi, o mascote. Clique para ele falar"><svg aria-hidden="true" focusable="false" viewBox="0 0 15 8" shape-rendering="crispEdges" fill="currentColor"><rect class="k-ear" x="7" y="0" width="2" height="1"></rect><path fill-rule="evenodd" d="M6 1h6v1h1v3h-2v1h-1v1H0V3h1V2h5zM8 2v1h1V2zM11 3v1h1V3z"></path><rect class="k-lid" x="8" y="2" width="1" height="1"></rect><g class="k-legs-a"><rect x="1" y="7" width="2" height="1"></rect><rect x="4" y="7" width="1" height="1"></rect><rect x="6" y="7" width="2" height="1"></rect><rect x="9" y="7" width="1" height="1"></rect></g><g class="k-legs-b"><rect x="1" y="7" width="1" height="1"></rect><rect x="3" y="7" width="2" height="1"></rect><rect x="6" y="7" width="1" height="1"></rect><rect x="8" y="7" width="2" height="1"></rect></g><rect class="k-cur" x="13" y="6" width="2" height="2"></rect></svg></button></div><p class="kapi-say" role="status"></p>
         <p class="caption-4 muted">Prefere email?</p>
-        <div class="addr"><code id="email">johnkevinribeiro@gmail.com</code><button class="btn btn-ghost button-sm" id="copy" type="button"><svg class="ic" aria-hidden="true" focusable="false" viewBox="0 0 256 256" fill="currentColor"><path d="M216,32H88a8,8,0,0,0-8,8V80H40a8,8,0,0,0-8,8V216a8,8,0,0,0,8,8H168a8,8,0,0,0,8-8V176h40a8,8,0,0,0,8-8V40A8,8,0,0,0,216,32ZM160,208H48V96H160Zm48-48H176V88a8,8,0,0,0-8-8H96V48H208Z"/></svg>Copiar</button></div>
+        <div class="addr"><code id="email">johnkevinribeiro@gmail.com</code><button class="btn btn-ghost button-sm" id="copy" type="button"><svg class="ic" aria-hidden="true" focusable="false" viewBox="0 0 256 256" fill="currentColor"><path d="M216,32H88a8,8,0,0,0-8,8V80H40a8,8,0,0,0-8,8V216a8,8,0,0,0,8,8H168a8,8,0,0,0,8-8V176h40a8,8,0,0,0,8-8V40A8,8,0,0,0,216,32ZM160,208H48V96H160Zm48-48H176V88a8,8,0,0,0-8-8H96V48H208Z"/></svg><span id="copy-lbl">Copiar</span></button></div>
         <p class="status caption-5 muted" id="status" role="status" aria-live="polite"></p>
         <p class="caption-5 muted">Fortaleza, Ceará · remoto</p>
       </div>
@@ -501,7 +632,7 @@ footer{padding-block:48px}
 <footer>
   <div class="wrap foot">
     <div style="display:flex;flex-direction:column;gap:8px">
-      <span class="brand title-3"><svg aria-hidden="true" viewBox="0 0 3 3"><rect width="1" height="3" fill="currentColor"></rect><path d="M1 1 2 0h1L1 2z" fill="currentColor"></path><rect x="2" y="2" width="1" height="1" fill="#FFB020"></rect></svg>Kevin Ribeiro</span>
+      <span class="brand title-3"><svg aria-hidden="true" viewBox="0 0 3 3"><rect class="k-p" width="1" height="3" fill="currentColor"></rect><path class="k-v" d="M1 1 2 0h1L1 2z" fill="currentColor"></path><rect class="k-n" x="2" y="2" width="1" height="1" fill="#FFB020"></rect></svg>Kevin Ribeiro</span>
       <span class="caption-5 muted">Feito com IA · revisado por mim · 2026</span>
     </div>
     <nav class="caption-4" aria-label="Rodapé">
@@ -540,7 +671,11 @@ footer{padding-block:48px}
     els.forEach(function(el){el.classList.add('pending');});
     root.classList.add('reveal-ready');
     document.querySelectorAll('.reveal:not(.pending)').forEach(function(el){el.classList.add('in');});
-    var ro=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');ro.unobserve(en.target);}});},{rootMargin:'0px 0px -10% 0px'});
+    var ro=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){
+      var el=en.target, sib=[].slice.call(el.parentNode.children).filter(function(c){return c.classList.contains('reveal');});
+      el.style.transitionDelay=Math.min(sib.indexOf(el),5)*90+'ms';
+      el.addEventListener('transitionend',function done(e){if(e.target===el&&e.propertyName==='transform'){el.style.transitionDelay='';el.removeEventListener('transitionend',done);}});
+      el.classList.add('in');ro.unobserve(el);}});},{rootMargin:'0px 0px -10% 0px'});
     els.forEach(function(el){ro.observe(el);});
   }
 
@@ -566,12 +701,162 @@ footer{padding-block:48px}
     }
   }
 
+
+  // ===== interações v2 =====
+  var motion=root.classList.contains('reveal-ready'), hasIO='IntersectionObserver' in window;
+  function each(sel,fn,ctx){[].forEach.call((ctx||document).querySelectorAll(sel),fn);}
+  function seen(sel,fn,th){
+    if(!hasIO){each(sel,fn);return;}
+    var o=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){o.unobserve(en.target);fn(en.target);}});},{threshold:th||0.3});
+    each(sel,function(el){o.observe(el);});
+  }
+
+  // índices para animações em sequência
+  each('[data-seq],.hero-copy,.box ul',function(p){[].forEach.call(p.children,function(c,i){c.style.setProperty('--i',i);});});
+  seen('.steps,.tl',function(el){el.classList.add('go');});
+
+  // barra de progresso de leitura
+  var bar=document.getElementById('progress'), pTick=false;
+  function prog(){pTick=false;var h=document.documentElement.scrollHeight-window.innerHeight;bar.style.setProperty('--p',h>0?Math.min(1,window.scrollY/h):0);}
+  window.addEventListener('scroll',function(){if(!pTick){pTick=true;requestAnimationFrame(prog);}},{passive:true});
+  window.addEventListener('resize',prog); prog();
+
+  // ponteiro: a grade acende e os cartões ganham foco de luz
+  var lit=null, pe=null;
+  function point(){
+    var e=pe; pe=null; if(!e||!e.target.closest)return;
+    var g=e.target.closest('.grid-bg'), c=e.target.closest('.spot'), r;
+    if(lit&&lit!==g)lit.classList.remove('lit');
+    if(g){r=g.getBoundingClientRect();g.style.setProperty('--mx',(e.clientX-r.left)+'px');g.style.setProperty('--my',(e.clientY-r.top)+'px');g.classList.add('lit');}
+    lit=g;
+    if(c){r=c.getBoundingClientRect();c.style.setProperty('--x',(e.clientX-r.left)+'px');c.style.setProperty('--y',(e.clientY-r.top)+'px');}
+  }
+  document.addEventListener('pointermove',function(e){if(e.pointerType==='touch')return;if(!pe)requestAnimationFrame(point);pe=e;},{passive:true});
+  document.documentElement.addEventListener('pointerleave',function(){if(lit){lit.classList.remove('lit');lit=null;}});
+
+  // o K se reconstrói ao passar o ponteiro
+  var brand=document.querySelector('.brand.build');
+  if(brand)brand.addEventListener('pointerenter',function(){brand.classList.remove('build');void brand.offsetWidth;brand.classList.add('build');});
+
+  // números contam até o valor
+  if(motion)seen('.num b,.proof b',function(el){
+    var m=el.textContent.match(/^(\D*)(\d+)(\D*)$/); if(!m)return;
+    var n=+m[2], t0=0;
+    function f(t){t0=t0||t;var p=Math.min(1,(t-t0)/700);el.textContent=m[1]+Math.round(n*(1-Math.pow(1-p,3)))+m[3];if(p<1)requestAnimationFrame(f);}
+    el.textContent=m[1]+'0'+m[3]; requestAnimationFrame(f);
+  },0.6);
+
+  // FAQ abre e fecha com altura animada
+  each('.faq details',function(d){
+    var sm=d.querySelector('summary'), a=d.querySelector('.ans'), an=null;
+    sm.addEventListener('click',function(e){
+      if(reduce||!a.animate)return;
+      e.preventDefault(); if(an)an.cancel();
+      var o={duration:320,easing:'cubic-bezier(0.22,1,0.36,1)'};
+      if(d.open&&!d.classList.contains('closing')){
+        d.classList.add('closing');
+        an=a.animate([{height:a.offsetHeight+'px',paddingBottom:'24px',opacity:1},{height:'0px',paddingBottom:'0px',opacity:0}],o);
+        an.onfinish=function(){d.open=false;d.classList.remove('closing');an=null;};
+      }else{
+        d.classList.remove('closing'); d.open=true;
+        an=a.animate([{height:'0px',paddingBottom:'0px',opacity:0},{height:a.offsetHeight+'px',paddingBottom:'24px',opacity:1}],o);
+        an.onfinish=function(){an=null;};
+      }
+    });
+  });
+
+  // Kapi, o mascote: anda em passos de pixel, pisca e responde ao clique
+  function Kapi(rail,lines){
+    var el=rail.querySelector('.kapi'), say=rail.nextElementSibling, host=rail.parentNode, U=6, W=90, x=0, target=0, walk=null, sayT=0, li=0, self=this, vis=true;
+    function maxX(){return Math.max(0,Math.floor((rail.clientWidth-W)/U)*U);}
+    function set(){el.style.setProperty('--kx',x+'px');}
+    function place(){var w=say.offsetWidth;say.style.setProperty('--sx',Math.max(0,Math.min(host.clientWidth-w,x+W/2-w/2))+'px');}
+    function stop(){clearInterval(walk);walk=null;el.classList.remove('step');}
+    function tick(){var d=target-x;if(Math.abs(d)<U){stop();return;}x+=d>0?U:-U;el.classList.toggle('left',d<0);el.classList.toggle('step');set();place();}
+    x=target=Math.max(0,maxX()-25); rail.classList.add('js'); set();
+    this.go=function(px){target=Math.max(0,Math.min(maxX(),Math.round(px/U)*U));if(!walk&&!reduce&&Math.abs(target-x)>=U)walk=setInterval(tick,80);};
+    this.say=function(html,ms){say.innerHTML=html;place();say.classList.add('on');clearTimeout(sayT);sayT=setTimeout(function(){say.classList.remove('on');},ms||2800);};
+    this.cheer=function(html){
+      self.say(html); if(reduce)return;
+      [0,160,320,480].forEach(function(t,i){setTimeout(function(){el.classList.toggle('hop',i%2===0);},t);});
+    };
+    el.addEventListener('click',function(){self.cheer(lines[li++%lines.length]);});
+    window.addEventListener('resize',function(){x=Math.min(x,maxX());target=x;set();});
+    if(hasIO)new IntersectionObserver(function(es){vis=es[0].isIntersecting;}).observe(rail);
+    var zone=rail.closest('.grid-bg')||host;
+    zone.addEventListener('pointermove',function(e){if(e.pointerType!=='mouse')return;var r=rail.getBoundingClientRect();self.go(e.clientX-r.left-W/2);},{passive:true});
+    if(!reduce){
+      if(!window.matchMedia('(hover:hover)').matches)setInterval(function(){if(vis&&!document.hidden)self.go(Math.random()*maxX());},7000);
+      (function blink(){setTimeout(function(){
+        if(vis&&!document.hidden){el.classList.add('blink');setTimeout(function(){el.classList.remove('blink');},140);
+          if(Math.random()<0.3){el.classList.add('twitch');setTimeout(function(){el.classList.remove('twitch');},220);}}
+        blink();},2400+Math.random()*3200);})();
+    }
+  }
+  var kapis={};
+  each('[data-kapi]',function(r){
+    kapis[r.getAttribute('data-kapi')]=new Kapi(r,r.getAttribute('data-kapi')==='hero'?[
+      '<b>$</b> kapi --status · regra ✓ dono ✓ métrica ✓',
+      'sem fonte de dado, sem KPI.',
+      'inferência não é fato. eu marco.',
+      'sou o Kapi. KPI, lido em voz alta.',
+      'IA sem dono? aqui não passa.'
+    ]:[
+      '<b>$</b> kapi --contato · LinkedIn ou email',
+      'sem formulário. é só chamar.',
+      'sua IA tem dono? a daqui tem.'
+    ]);
+  });
+
+  // demo do agente: pergunta digitada, resposta, linhas, selos e validação humana
+  var agent=document.getElementById('agent'), val=document.getElementById('validar'), note=document.getElementById('agent-note');
+  if(agent&&val){
+    var noteT=note.textContent, timers=[], ask=agent.querySelector('[data-s="ask"]'), ans=agent.querySelector('[data-s="ans"]'), askT=ask.textContent, ansT=ans.textContent;
+    function later(fn,ms){timers.push(setTimeout(fn,ms));}
+    function reset(){val.classList.remove('done');val.textContent='Validar';note.textContent=noteT;}
+    function run(){
+      timers.forEach(clearTimeout); timers=[]; reset(); val.disabled=true;
+      var rest=[].slice.call(agent.querySelectorAll('[data-s]')).filter(function(p){return p!==ask&&p!==ans;});
+      ask.style.minHeight=ask.offsetHeight+'px'; ans.style.minHeight=ans.offsetHeight+'px';
+      each('[data-s]',function(p){p.classList.remove('on');},agent);
+      var i=0; ask.textContent=''; ask.classList.add('on','caret');
+      (function type(){
+        ask.textContent=askT.slice(0,++i);
+        if(i<askT.length){later(type,26);return;}
+        ask.classList.remove('caret');
+        later(function(){ans.innerHTML='<span class="think" aria-hidden="true"><i></i><i></i><i></i></span>';ans.classList.add('on');},260);
+        later(function(){
+          ans.textContent=ansT;
+          rest.forEach(function(p,n){later(function(){
+            p.classList.add('on');
+            if(n===rest.length-1){val.disabled=false;if(kapis.hero)kapis.hero.say('meta sem medida. <b>registrei.</b>');}
+          },260+n*360);});
+        },1400);
+      })();
+    }
+    val.addEventListener('click',function(){
+      if(val.classList.contains('done')){if(motion)run();else reset();return;}
+      val.classList.add('done'); val.textContent='Validado'; note.textContent='Exemplo ilustrativo · revisão humana feita';
+      if(kapis.hero)kapis.hero.cheer('validado por uma pessoa <b>✓</b>');
+      if(motion)later(function(){val.textContent='Rodar de novo';},1800);
+    });
+    if(motion)seen('#agent',run,0.4);
+  }
+
+  if(window.console&&console.log)console.log('%c      ▄██▄▄▄\n▄███████▄██▀█\n███████████▀▀\n▀██▀█▀██▀█   ██\n%cKapi · regra, dono e métrica. Curioso com o código? Bora conversar: linkedin.com/in/johnkevinribeiro','font-family:monospace;line-height:1.1;color:#FFB020','font-family:monospace');
+
   // copy email
   var copy=document.getElementById('copy'), out=document.getElementById('status'), em=document.getElementById('email');
   function sel(){var r=document.createRange();r.selectNodeContents(em);var s=window.getSelection();s.removeAllRanges();s.addRange(r);out.textContent='Email selecionado. Use Ctrl+C ou Cmd+C para copiar.';}
+  var lbl=document.getElementById('copy-lbl'), okT=0;
+  function copied(){
+    out.textContent='Email copiado.'; copy.classList.add('ok'); lbl.textContent='Copiado';
+    if(kapis.contato)kapis.contato.cheer('email copiado <b>✓</b>');
+    clearTimeout(okT); okT=setTimeout(function(){copy.classList.remove('ok');lbl.textContent='Copiar';},2000);
+  }
   copy.addEventListener('click',function(){
     var t=em.textContent.trim();
-    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(function(){out.textContent='Email copiado.';},sel);}else{sel();}
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(copied,sel);}else{sel();}
   });
 })();
 </script>
