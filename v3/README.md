@@ -9,3 +9,6 @@ seis portas de serviço, Kapi como agente de IA no método e no contato, seção
 ## Colocar fotos em "Em campo"
 1. Salve a foto em `v3/media/` (ex.: `palestra.jpg`).
 2. No `index.html`, procure o título do registro e preencha `data-img="media/palestra.jpg"` no botão `class="shot"` correspondente.
+
+## Colocar a foto de rosto
+Salve a foto em `v3/media/` (ex.: `kevin.jpg`) e no `index.html` preencha `data-img="media/kevin.jpg"` no elemento `id="me-ph"`.
