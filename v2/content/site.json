@@ -1,0 +1,49 @@
+{
+  "perfil": {
+    "nome": "Kevin Ribeiro",
+    "cargo": "Governança de TI e IA",
+    "cidade": "Fortaleza, CE",
+    "titulo": "IA com regra,\ndono e métrica.",
+    "subtitulo": "Frameworks de indicadores, agentes de IA e painéis para operações de serviços de TI. Do contrato ao agente, com evidência no fim.",
+    "foto": "",
+    "foto_legenda": "Kevin Ribeiro · Governança de TI e IA · Fortaleza/CE",
+    "disponibilidade": "aberto a conversas · dez/2026",
+    "whatsapp": "5585920020587",
+    "whatsapp_exibicao": "(85) 92002-0587",
+    "email": "johnkevinribeiro@gmail.com",
+    "linkedin": "https://www.linkedin.com/in/johnkevinribeiro",
+    "instagram": ""
+  },
+  "numeros": [
+    { "valor": "34", "rotulo": "entregas inventariadas desde jun/2025", "selo": "Fato" },
+    { "valor": "8", "rotulo": "agentes de IA desenhados", "selo": "Fato" },
+    { "valor": "420", "rotulo": "KPIs no framework de indicadores", "selo": "Fato" },
+    { "valor": "20", "rotulo": "empresas no estudo de mercado", "selo": "Fato" }
+  ],
+  "servicos": [
+    { "id": "agentes", "titulo": "Agentes de IA com dono", "texto": "Desenho do agente a partir da regra de negócio: escopo, fontes, formato de saída, validação humana e versão.", "entrega": "agente documentado + manual de uso" },
+    { "id": "seguro", "titulo": "Implementação segura de processos com IA", "texto": "Onde a IA entra, onde não entra, quem responde e que dado ela pode tocar. LGPD e trilha de auditoria desde o começo.", "entrega": "mapa de processo + política de uso" },
+    { "id": "kpis", "titulo": "Contrato que vira indicador", "texto": "Cada cláusula de nível de serviço vira KPI com fórmula, fonte de dado, meta e responsável.", "entrega": "catálogo de KPIs por contrato" },
+    { "id": "paineis", "titulo": "Painéis executivos", "texto": "Protótipo navegável do painel antes do BI: a diretoria valida a pergunta antes de alguém construir a resposta.", "entrega": "painel em HTML + relatório em PDF" },
+    { "id": "capacitacao", "titulo": "Capacitação e cultura de IA", "texto": "Guia, trilha e encontros práticos para times criarem agentes úteis, seguros e auditáveis.", "entrega": "trilha + encontros de 45 min" },
+    { "id": "palestra", "titulo": "Palestra e mentoria", "texto": "IA aplicada à governança, com caso real e demonstração ao vivo. Para eventos, empresas e hackathons.", "entrega": "palestra de 30 a 60 min" }
+  ],
+  "contato_opcoes": [
+    { "id": "agentes", "rotulo": "Agentes de IA para a minha operação" },
+    { "id": "seguro", "rotulo": "Implementar IA nos processos com segurança" },
+    { "id": "kpis", "rotulo": "Transformar contrato em indicador" },
+    { "id": "paineis", "rotulo": "Um painel executivo" },
+    { "id": "capacitacao", "rotulo": "Capacitar o meu time em IA" },
+    { "id": "palestra", "rotulo": "Palestra ou mentoria" },
+    { "id": "vaga", "rotulo": "Falar sobre uma vaga" }
+  ],
+  "faq": [
+    { "p": "Você é desenvolvedor de IA?", "r": "Não. Não treino modelos. Meu trabalho é decidir onde a IA entra no processo, desenhar o agente a partir da regra de negócio e garantir que ele tenha dono, métrica e trilha de auditoria." },
+    { "p": "Que tipo de empresa se beneficia desse trabalho?", "r": "Operações de serviço com contrato, nível de serviço e indicador: serviços gerenciados de TI, áreas de governança e setores regulados como energia, saúde e financeiro." },
+    { "p": "Com quais ferramentas você trabalha?", "r": "ServiceNow, Power BI, Copilot Studio, ChatGPT Enterprise, Claude e Microsoft 365. A ferramenta vem depois do processo, nunca antes." },
+    { "p": "Os números deste site são reais?", "r": "Sim. Cada número leva um selo: Fato quando há registro, Estimativa quando é aproximado. Clientes e dados internos estão anonimizados, e as telas usam dados fictícios." },
+    { "p": "Você presta consultoria?", "r": "Hoje atuo na NTT DATA. Estou aberto a conversas sobre oportunidades, mentoria e projetos, sempre respeitando meu contrato atual e a confidencialidade dos clientes." },
+    { "p": "Você usa IA no próprio conteúdo?", "r": "Uso, e declaro. Peças feitas com IA levam o selo “Feito com IA, revisado por mim”. A revisão e a responsabilidade são minhas." },
+    { "p": "Onde você está?", "r": "Em Fortaleza, Ceará, trabalhando de forma remota com times no Brasil, na Austrália e na África do Sul." }
+  ]
+}

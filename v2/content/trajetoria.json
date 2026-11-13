@@ -1,0 +1,15 @@
+{
+  "itens": [
+    { "periodo": "2026 · hoje", "titulo": "Governança de TI e IA", "lugar": "NTT DATA", "tipo": "experiencia", "atual": true },
+    { "periodo": "2026", "titulo": "ITIL® 4 Foundation", "lugar": "Certificação", "tipo": "certificacao" },
+    { "periodo": "em curso", "titulo": "Pós-graduação em Data Science", "lugar": "Formação", "tipo": "formacao" },
+    { "periodo": "em curso", "titulo": "Psicologia", "lugar": "Graduação", "tipo": "formacao" },
+    { "periodo": "em curso", "titulo": "Gestão de Mídias Sociais Digitais", "lugar": "Formação", "tipo": "formacao" },
+    { "periodo": "2025", "titulo": "Technology Solutions Specialist", "lugar": "Certificação · NTT DATA", "tipo": "certificacao" },
+    { "periodo": "2025", "titulo": "Consultoria de governança", "lugar": "Operação de serviços gerenciados", "tipo": "experiencia" },
+    { "periodo": "2023", "titulo": "Gestão de negócio", "lugar": "Operação comercial", "tipo": "experiencia" },
+    { "periodo": "2021", "titulo": "Liderança de equipe", "lugar": "Atendimento e vendas", "tipo": "experiencia" },
+    { "periodo": "2019", "titulo": "Processos e treinamento", "lugar": "Operação", "tipo": "experiencia" },
+    { "periodo": "2017", "titulo": "Operação comercial", "lugar": "Início da trajetória", "tipo": "experiencia" }
+  ]
+}

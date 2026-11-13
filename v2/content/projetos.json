@@ -1,0 +1,181 @@
+{
+  "filtros": [
+    { "id": "todos", "rotulo": "Todos" },
+    { "id": "ind", "rotulo": "Indicadores" },
+    { "id": "age", "rotulo": "Agentes de IA" },
+    { "id": "pai", "rotulo": "Painéis" },
+    { "id": "cap", "rotulo": "Capacitação" },
+    { "id": "art", "rotulo": "Articulação e governança" }
+  ],
+  "casos": [
+    {
+      "id": "framework",
+      "categorias": ["ind"],
+      "arte": "barras",
+      "status": "Desenho concluído", "status_tom": "azul",
+      "tipo": "Framework · Indicadores", "periodo": "jun a jul/2026", "papel": "Autor",
+      "titulo": "Framework de indicadores inteligentes",
+      "resumo": "420 KPIs em 3 blocos e 4 camadas, apoiados em um estudo de mercado próprio.",
+      "contexto": "Área de governança de serviços de uma multinacional de TI, operação Brasil, que atende vários clientes de serviços gerenciados.",
+      "problema": "O cliente recebia um relatório que não falava sobre ele. O contrato era extenso, o layout era o mesmo para todos e o indicador media volume, não desempenho.",
+      "fiz": "Comparei 20 provedores, cataloguei 150 KPIs de mercado e recomendei 39 como base. Desenhei o framework em 3 blocos e 4 camadas, do operacional ao executivo. Para cada KPI defini lógica, regra de negócio, critério de aplicabilidade e controle de qualidade do dado. Deixei o modelo físico de dados com o time global de dados. Meu papel termina na especificação.",
+      "aprendizado": "O gargalo não era desenhar indicador, era chegar no dado. Hoje eu começaria por um piloto com poucos KPIs e dado já disponível.",
+      "fluxo": ["Contrato e escopo do cliente", "Agente recomenda os KPIs", "Pacote de KPIs por contrato", "Plataforma de ITSM, data lake e BI", "Relatório mensal e visão executiva"],
+      "resultados": [
+        { "texto": "420 KPIs: 160 de operação, 80 de capacidade e 180 de governança avançada", "selo": "Fato" },
+        { "texto": "20 empresas comparadas, 150 KPIs catalogados, 39 recomendados", "selo": "Fato" },
+        { "texto": "Apresentado a cerca de 14 pessoas do time global de dados", "selo": "Estimativa" }
+      ],
+      "situacao": "Desenho concluído. A aplicação completa depende da camada de dados: o acesso foi liberado, a arquitetura técnica ainda está pendente.",
+      "ferramentas": ["ITIL 4", "ISO/IEC 20000", "COBIT 2019", "SIAM", "Excel", "Agentes de IA generativa"],
+      "evidencias": []
+    },
+    {
+      "id": "contratos",
+      "categorias": ["age", "pai"],
+      "arte": "fluxo",
+      "arte_itens": ["contratos", "agente", "dados", "painel"],
+      "status": "Em validação", "status_tom": "laranja",
+      "tipo": "Agente de IA · Painel", "periodo": "ago a nov/2026", "papel": "Autor",
+      "titulo": "Gestão contratual com agente leitor de contratos",
+      "resumo": "O agente lê lotes de contratos e alimenta um painel com cerca de 30 saídas.",
+      "contexto": "Área interna de contratos de uma multinacional de TI.",
+      "problema": "O controle dependia de ler cada contrato e passar as informações principais para a planilha, documento por documento.",
+      "fiz": "Desenhei o agente que lê lotes de contratos e devolve uma planilha de controle e um arquivo de dados. Construí o painel que consome esse arquivo: catálogo de indicadores com metodologia de cálculo, modo apresentação e relatórios executivos. O agente sinaliza os pontos que exigem validação humana. Nada entra no painel sem conferência. Reconstruí a ferramenta em out/2026, depois de uma mudança na plataforma de IA.",
+      "aprendizado": "A plataforma de IA mudou no meio do caminho e a ferramenta precisou ser refeita. Regra de negócio não pode morar dentro da ferramenta.",
+      "fluxo": ["Lote de contratos", "Agente lê e extrai", "Planilha de controle e arquivo de dados", "Pessoa valida os pontos sinalizados", "Painel e relatórios executivos"],
+      "resultados": [
+        { "texto": "Cerca de 30 saídas no painel", "selo": "Estimativa" },
+        { "texto": "Em validação com a área usuária", "selo": "Fato" },
+        { "texto": "Conversa em andamento para virar sistema online corporativo", "selo": "Fato" }
+      ],
+      "situacao": "Em validação. Tempo economizado ainda não medido.",
+      "ferramentas": ["Assistente corporativo de IA com agentes", "HTML", "JavaScript", "JSON", "Excel"],
+      "evidencias": []
+    },
+    {
+      "id": "guia",
+      "categorias": ["cap"],
+      "arte": "trilha",
+      "status": "Publicado internamente", "status_tom": "azul",
+      "tipo": "Capacitação", "periodo": "mai a ago/2026", "papel": "Autor e facilitador",
+      "titulo": "Guia, trilha e fórum para criar agentes de IA",
+      "resumo": "Um guia de 26 páginas que virou trilha interativa. Outros times já criaram agentes com ele.",
+      "contexto": "Time de governança de serviços: níveis de serviço, projetos, qualidade e lideranças.",
+      "problema": "As pessoas precisavam criar agentes úteis, seguros e auditáveis, e não existia padrão. A maior barreira para usar IA era o preparo de quem usa.",
+      "fiz": "Escrevi o guia em 6 partes: fundamentos, escolha de plataforma, passo a passo, segurança e LGPD, modelos e checklists. Transformei o guia em um app com trilha, progresso e certificado. Criei um fórum de cultura de IA com encontros de 45 minutos: tendências, caso real e demonstração ao vivo. Regra de desenho: o agente nunca decide sozinho. Validação e responsabilidade continuam humanas.",
+      "aprendizado": "Material sozinho não gera adoção. Precisa de sessão prática e acompanhamento. E as plataformas mudam rápido: o guia precisa de ciclo de atualização.",
+      "fluxo": ["Problema bem definido", "Finalidade e escopo", "Fontes e proteções", "Formato de saída padrão", "Testes", "Registro, versão e monitoramento"],
+      "resultados": [
+        { "texto": "Pelo menos 2 outros times criaram agentes com o material", "selo": "Fato" },
+        { "texto": "Guia de 26 páginas, com versão em app", "selo": "Fato" },
+        { "texto": "Cerca de 20 convidados no primeiro encontro do fórum", "selo": "Estimativa" }
+      ],
+      "situacao": "Publicado internamente. Combinado como conteúdo de um programa de estágio, comigo como instrutor voluntário.",
+      "ferramentas": ["LGPD", "ISO/IEC 42001", "HTML", "Aprendizagem de adultos"],
+      "evidencias": []
+    },
+    {
+      "id": "sla",
+      "categorias": ["age"],
+      "arte": "log",
+      "arte_itens": ["chamado fictício · prazo estourado", "causa provável: aguardando terceiro", "justificativa sugerida · validar"],
+      "status": "Em produção", "status_tom": "ambar",
+      "tipo": "Agente de IA", "periodo": "nov/2025", "papel": "Autor",
+      "titulo": "Agente analisador de violações de SLA",
+      "resumo": "Meu primeiro agente: analisa o chamado com prazo estourado e sugere a justificativa.",
+      "contexto": "Time de gestão de níveis de serviço de uma multinacional de TI.",
+      "problema": "Analisar cada chamado com prazo estourado e escrever a justificativa era trabalho manual, um por um.",
+      "fiz": "Desenhei o agente que lê o chamado, aponta a causa provável e sugere a justificativa. Usei a política interna de níveis de serviço como base de conhecimento. O analista valida antes de qualquer coisa seguir. O caso virou palestra sobre IA aplicada à governança.",
+      "aprendizado": "Não medi o antes e o depois. É o dado que mais faz falta neste caso.",
+      "fluxo": ["Chamado com prazo estourado", "Agente lê histórico e política", "Causa provável", "Justificativa sugerida", "Analista valida"],
+      "resultados": [
+        { "texto": "Bem recebido pelo time de níveis de serviço", "selo": "Fato" },
+        { "texto": "Caso de origem dos outros 7 agentes", "selo": "Fato" }
+      ],
+      "situacao": "Em produção. Tempo economizado não foi medido.",
+      "ferramentas": ["Assistente de IA generativa", "Plataforma de ITSM", "ITIL 4"],
+      "evidencias": []
+    },
+    {
+      "id": "portfolio",
+      "categorias": ["pai", "age"],
+      "arte": "pontos",
+      "status": "Entregue", "status_tom": "azul",
+      "tipo": "Painel · Agente de IA", "periodo": "ago a out/2026", "papel": "Autor",
+      "titulo": "Painel de portfólio de projetos alimentado por agente",
+      "resumo": "Planilhas financeiras de cada projeto viram um painel único em 3 passos.",
+      "contexto": "Área interna de gestão de projetos, com relatório voltado à diretoria.",
+      "problema": "Os dados ficavam em planilhas de resultado financeiro separadas, uma por projeto.",
+      "fiz": "Criei o app web, o agente consolidador e o manual de uso. Revisei a parte financeira com uma usuária da área: orçamento, custo realizado, estimativa no término e índice de desempenho de custo. Na versão 3.1 entraram as visões por diretoria e por gerente de conta.",
+      "aprendizado": "A primeira versão tinha métrica que a área não usava. Validar o indicador com quem usa, antes de construir, teria evitado retrabalho.",
+      "fluxo": ["Gerente preenche a planilha pelo checklist", "Planilhas vão para o agente", "Agente devolve um arquivo consolidado", "Pessoa confere e importa", "Painel, relatório e apresentação em PDF"],
+      "resultados": [
+        { "texto": "Painel único, atualizado em 3 passos a cada fechamento de mês", "selo": "Fato" },
+        { "texto": "Seção “projetos que exigem decisão da diretoria” avaliada como excelente e objetiva por uma usuária", "selo": "Fato" },
+        { "texto": "3 versões registradas, com manual", "selo": "Fato" }
+      ],
+      "situacao": "Entregue, com manual. Em conversa para virar sistema online com login corporativo.",
+      "ferramentas": ["Assistente corporativo de IA com agentes", "HTML", "JavaScript", "JSON", "PDF"],
+      "evidencias": []
+    },
+    {
+      "id": "acesso",
+      "categorias": ["art"],
+      "arte": "fluxo",
+      "arte_itens": ["ITSM", "data lake", "BI", "relatório"],
+      "status": "Acesso liberado", "status_tom": "azul",
+      "tipo": "Articulação entre áreas", "periodo": "jul a out/2026", "papel": "Liderei a articulação",
+      "titulo": "Acesso a dados de ITSM com o time global",
+      "resumo": "Do pedido ao acesso liberado: a base que faltava para os indicadores saírem do papel.",
+      "contexto": "Governança de serviços da operação Brasil e time global de dados, em outros países.",
+      "problema": "O framework de indicadores dependia de um dado que a área não acessava.",
+      "fiz": "Escrevi o pedido e a justificativa de negócio. Mapeei as fontes: chaves, filtros, frequência de atualização e restrições de privacidade. Conduzi o alinhamento com o time global, em inglês. Em outra frente, uma justificativa técnica baseada no contrato liberou o módulo de relatórios da plataforma de um cliente.",
+      "aprendizado": "Foram meses de articulação. Acesso a dado é projeto, não detalhe.",
+      "fluxo": ["Pedido e justificativa de negócio", "Mapa de fontes e requisitos", "Alinhamento com o time global", "Acesso liberado", "Arquitetura técnica (pendente)"],
+      "resultados": [
+        { "texto": "Acesso ao data lake liberado em out/2026", "selo": "Fato" },
+        { "texto": "Módulo de relatórios de um cliente liberado com a justificativa técnica", "selo": "Fato" },
+        { "texto": "Framework apresentado a cerca de 14 pessoas de outros países", "selo": "Estimativa" }
+      ],
+      "situacao": "Acesso liberado. Arquitetura técnica ainda pendente, com especialistas de dados.",
+      "ferramentas": ["Requisitos de dados", "Plataforma de ITSM", "Data lake corporativo", "Inglês"],
+      "evidencias": []
+    }
+  ],
+  "inventario": [
+    { "categoria": "age", "tipo": "Agente de IA", "entrega": "Recomendador de KPIs a partir do contrato", "papel": "Autor", "status": "2 versões" },
+    { "categoria": "art", "tipo": "Governança", "entrega": "Manual de governança de IA v1.0", "papel": "Autor", "status": "Entregue" },
+    { "categoria": "ind", "tipo": "Indicadores", "entrega": "Índice de saúde operacional", "papel": "Autor", "status": "Em avaliação" },
+    { "categoria": "age", "tipo": "Agente de IA", "entrega": "Conformidade contratual e recomendações", "papel": "Autor", "status": "Aplicado a múltiplos contratos" },
+    { "categoria": "age", "tipo": "Agente de IA", "entrega": "Apoio aos relatórios mensais de serviço", "papel": "Autor", "status": "Em uso por parte do time" },
+    { "categoria": "ind", "tipo": "Indicadores", "entrega": "KPIs de valor: resolução no primeiro contato, reincidência e tempo em pausa", "papel": "Coautor", "status": "Estruturado com o time de BI" },
+    { "categoria": "pai", "tipo": "Painel", "entrega": "Painel executivo consolidado para a diretoria", "papel": "Autor", "status": "Protótipo" },
+    { "categoria": "art", "tipo": "Governança", "entrega": "Taxonomia de atividades de IA em 14 categorias", "papel": "Coautor", "status": "Implantado" },
+    { "categoria": "cap", "tipo": "Capacitação", "entrega": "Palestra “IA aplicada à governança”", "papel": "Autor", "status": "Realizada" },
+    { "categoria": "cap", "tipo": "Capacitação", "entrega": "Mentoria voluntária de IA em hackathon de sustentabilidade", "papel": "Mentor", "status": "Nov/2026" }
+  ],
+  "capacidades": [
+    { "grupo": "Governança e processos", "itens": [
+      { "texto": "Gestão de níveis de serviço", "caso": "sla" },
+      { "texto": "Governança de IA: revisão humana, dado mínimo, dono e rastreabilidade", "caso": "guia" },
+      { "texto": "Leitura e conformidade contratual", "caso": "contratos" } ] },
+    { "grupo": "IA aplicada e agentes", "itens": [
+      { "texto": "Desenho de agentes de ponta a ponta", "caso": "sla" },
+      { "texto": "Engenharia de instruções", "caso": "guia" },
+      { "texto": "Extração estruturada de documentos", "caso": "contratos" },
+      { "texto": "Validação humana embutida no fluxo", "caso": "contratos" } ] },
+    { "grupo": "Dados e indicadores", "itens": [
+      { "texto": "Desenho de frameworks de KPIs", "caso": "framework" },
+      { "texto": "Benchmark e pesquisa de mercado", "caso": "framework" },
+      { "texto": "Requisitos de dados para arquitetura analítica", "caso": "acesso" } ] },
+    { "grupo": "Prototipagem", "itens": [
+      { "texto": "Painéis em HTML e JavaScript", "caso": "portfolio" },
+      { "texto": "Fluxo agente, JSON, painel e PDF", "caso": "portfolio" },
+      { "texto": "Apps de aprendizagem", "caso": "guia" } ] },
+    { "grupo": "Comunicação e influência", "itens": [
+      { "texto": "Design instrucional para adultos", "caso": "guia" },
+      { "texto": "Articulação com times globais em inglês", "caso": "acesso" },
+      { "texto": "Negociação de acesso com justificativa técnica", "caso": "acesso" } ] }
+  ]
+}

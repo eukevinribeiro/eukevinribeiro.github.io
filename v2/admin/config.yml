@@ -1,0 +1,175 @@
+# Painel de conteúdo do site (Sveltia CMS, compatível com Decap/Netlify CMS)
+# Cada "Publicar" vira um commit no GitHub; a Vercel republica o site sozinha.
+backend:
+  name: github
+  repo: eukevinribeiro/eukevinribeiro.github.io   # troque pelo repositório privado quando ele existir
+  branch: main                                    # ramo que a Vercel publica
+locale: pt
+media_folder: v2/media
+public_folder: /media
+
+collections:
+  - name: paginas
+    label: Site
+    files:
+      - name: site
+        label: Perfil, números, serviços e perguntas
+        file: v2/content/site.json
+        fields:
+          - label: Perfil
+            name: perfil
+            widget: object
+            fields:
+              - { label: "Nome", name: nome, widget: string }
+              - { label: "Cargo", name: cargo, widget: string }
+              - { label: "Cidade", name: cidade, widget: string }
+              - { label: "Título (use quebra de linha)", name: titulo, widget: text }
+              - { label: "Subtítulo", name: subtitulo, widget: text }
+              - { label: "Foto do topo", name: foto, widget: image, required: false }
+              - { label: "Legenda da foto", name: foto_legenda, widget: string, required: false }
+              - { label: "Disponibilidade (crachá)", name: disponibilidade, widget: string }
+              - { label: "WhatsApp (só números, com 55)", name: whatsapp, widget: string }
+              - { label: "WhatsApp como aparece", name: whatsapp_exibicao, widget: string }
+              - { label: "E-mail", name: email, widget: string }
+              - { label: "LinkedIn", name: linkedin, widget: string }
+              - { label: "Instagram", name: instagram, widget: string, required: false }
+          - label: Números com selo
+            name: numeros
+            widget: list
+            fields:
+              - { label: "Valor", name: valor, widget: string }
+              - { label: "Rótulo", name: rotulo, widget: string }
+              - { label: "Selo", name: selo, widget: select, options: [Fato, Estimativa] }
+          - label: Serviços
+            name: servicos
+            widget: list
+            fields:
+              - { label: "ID (sem espaço)", name: id, widget: string }
+              - { label: "Título", name: titulo, widget: string }
+              - { label: "Texto", name: texto, widget: text }
+              - { label: "Entrega", name: entrega, widget: string }
+          - label: Opções do “Do que a sua operação precisa?”
+            name: contato_opcoes
+            widget: list
+            fields:
+              - { label: "ID (igual ao do serviço)", name: id, widget: string }
+              - { label: "Rótulo", name: rotulo, widget: string }
+          - label: Perguntas
+            name: faq
+            widget: list
+            fields:
+              - { label: "Pergunta", name: p, widget: string }
+              - { label: "Resposta", name: r, widget: text }
+
+      - name: projetos
+        label: Projetos, inventário e capacidades
+        file: v2/content/projetos.json
+        fields:
+          - label: Filtros
+            name: filtros
+            widget: list
+            fields:
+              - { label: "ID", name: id, widget: string }
+              - { label: "Rótulo", name: rotulo, widget: string }
+          - label: Casos
+            name: casos
+            widget: list
+            summary: "{{titulo}}"
+            fields:
+              - { label: "ID (sem espaço)", name: id, widget: string }
+              - { label: "Categorias (IDs dos filtros)", name: categorias, widget: list }
+              - { label: "Arte do cartão", name: arte, widget: select, options: [barras, fluxo, trilha, log, pontos] }
+              - { label: "Itens da arte (fluxo ou log)", name: arte_itens, widget: list, required: false }
+              - { label: "Status", name: status, widget: string }
+              - { label: "Cor do status", name: status_tom, widget: select, options: [azul, ambar, laranja] }
+              - { label: "Tipo", name: tipo, widget: string }
+              - { label: "Período", name: periodo, widget: string }
+              - { label: "Papel", name: papel, widget: string }
+              - { label: "Título", name: titulo, widget: string }
+              - { label: "Resumo", name: resumo, widget: text }
+              - { label: "Contexto", name: contexto, widget: text }
+              - { label: "Problema", name: problema, widget: text }
+              - { label: "O que eu fiz", name: fiz, widget: text }
+              - { label: "Aprendizado", name: aprendizado, widget: text }
+              - { label: "Como funciona (etapas)", name: fluxo, widget: list }
+              - label: Resultados
+                name: resultados
+                widget: list
+                fields:
+                  - { label: "Texto", name: texto, widget: string }
+                  - { label: "Selo", name: selo, widget: select, options: [Fato, Estimativa] }
+              - { label: "Situação", name: situacao, widget: text }
+              - { label: "Ferramentas", name: ferramentas, widget: list }
+              - label: Evidências (imagens)
+                name: evidencias
+                widget: list
+                required: false
+                fields:
+                  - { label: "Imagem", name: imagem, widget: image, media_folder: /v2/media/evidencias, public_folder: /media/evidencias }
+                  - { label: "Legenda", name: legenda, widget: string, required: false }
+          - label: Inventário
+            name: inventario
+            widget: list
+            summary: "{{entrega}}"
+            fields:
+              - { label: "Categoria (ID do filtro)", name: categoria, widget: string }
+              - { label: "Tipo", name: tipo, widget: string }
+              - { label: "Entrega", name: entrega, widget: string }
+              - { label: "Papel", name: papel, widget: string }
+              - { label: "Status", name: status, widget: string }
+          - label: Capacidades
+            name: capacidades
+            widget: list
+            summary: "{{grupo}}"
+            fields:
+              - { label: "Grupo", name: grupo, widget: string }
+              - label: Itens
+                name: itens
+                widget: list
+                fields:
+                  - { label: "Texto", name: texto, widget: string }
+                  - { label: "ID do caso de evidência", name: caso, widget: string }
+
+      - name: galeria
+        label: Em campo (fotos de eventos e evidências)
+        file: v2/content/galeria.json
+        fields:
+          - label: Registros
+            name: itens
+            widget: list
+            summary: "{{titulo}} · {{data}}"
+            fields:
+              - { label: "Foto", name: imagem, widget: image, required: false, media_folder: /v2/media/eventos, public_folder: /media/eventos }
+              - { label: "Título", name: titulo, widget: string }
+              - { label: "Tipo", name: tipo, widget: select, options: [evento, evidencia, certificado, bastidor] }
+              - { label: "Data", name: data, widget: string, required: false }
+              - { label: "Legenda", name: legenda, widget: text, required: false }
+
+      - name: trajetoria
+        label: Trajetória (experiências, cursos e certificações)
+        file: v2/content/trajetoria.json
+        fields:
+          - label: Itens (o primeiro aparece no topo)
+            name: itens
+            widget: list
+            summary: "{{periodo}} · {{titulo}}"
+            fields:
+              - { label: "Período", name: periodo, widget: string }
+              - { label: "Título", name: titulo, widget: string }
+              - { label: "Onde / tipo", name: lugar, widget: string }
+              - { label: "Tipo", name: tipo, widget: select, options: [experiencia, formacao, certificacao] }
+              - { label: "É o atual?", name: atual, widget: boolean, required: false }
+
+      - name: notas
+        label: Notas (blog)
+        file: v2/content/notas.json
+        fields:
+          - label: Publicações
+            name: itens
+            widget: list
+            summary: "{{data}} · {{titulo}}"
+            fields:
+              - { label: "Título", name: titulo, widget: string }
+              - { label: "Data", name: data, widget: string }
+              - { label: "Resumo", name: resumo, widget: text }
+              - { label: "Link (LinkedIn ou artigo)", name: link, widget: string, required: false }

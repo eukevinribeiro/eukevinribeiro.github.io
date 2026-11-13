@@ -1,0 +1,10 @@
+{
+  "itens": [
+    { "imagem": "", "titulo": "Palestra “IA aplicada à governança”", "tipo": "evento", "data": "2026", "legenda": "O caso do agente de violações de SLA virou palestra para o time." },
+    { "imagem": "", "titulo": "Mentoria em hackathon de sustentabilidade", "tipo": "evento", "data": "nov/2026", "legenda": "Mentoria voluntária de IA para os times participantes." },
+    { "imagem": "", "titulo": "Fórum de cultura de IA · 1º encontro", "tipo": "evento", "data": "2026", "legenda": "Encontro de 45 minutos: tendência, caso real e demonstração ao vivo." },
+    { "imagem": "", "titulo": "Painel de portfólio de projetos v3.1", "tipo": "evidencia", "data": "out/2026", "legenda": "Tela com dados fictícios. Visões por diretoria e por gerente de conta." },
+    { "imagem": "", "titulo": "Guia para criar agentes de IA", "tipo": "evidencia", "data": "ago/2026", "legenda": "26 páginas em 6 partes, com versão em app e certificado." },
+    { "imagem": "", "titulo": "Certificado ITIL® 4 Foundation", "tipo": "certificado", "data": "2026", "legenda": "" }
+  ]
+}
