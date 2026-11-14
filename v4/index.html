@@ -1904,7 +1904,8 @@ footer{padding-block:56px;border-top:1px solid var(--line)}
       p.addEventListener('pointerenter',function(e){if(e.pointerType==='mouse'){fauto=false;fsel(i);}});
       p.addEventListener('keydown',function(e){if(e.key==='ArrowRight'||e.key==='ArrowLeft'){fauto=false;fsel((i+(e.key==='ArrowRight'?1:pils.length-1))%pils.length,true);e.preventDefault();}});
     });
-    seen('#fund',function(el){el.classList.add('go');},0.25);
+    seen('#fund .fund-beam',function(){fund.classList.add('go');},0.01);
+    setTimeout(function(){if(fund.getBoundingClientRect().top<innerHeight)fund.classList.add('go');},1200);
   }
 
   // ---------- portas de serviço: marcam o item no contato ----------
