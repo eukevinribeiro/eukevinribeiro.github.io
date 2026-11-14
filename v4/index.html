@@ -971,6 +971,66 @@ footer{padding-block:56px;border-top:1px solid var(--line)}
 }
 @media (prefers-reduced-motion:reduce){.me-ph img{filter:none}}
 
+/* --- base do framework no topo (no lugar da faixa de números) --- */
+.base{margin-top:12px;display:flex;flex-direction:column;gap:14px}
+.base-h{color:var(--accent-text);display:flex;align-items:center;gap:10px}
+.base-h::before{content:"";width:8px;height:8px;background:var(--accent)}
+.base-l{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.base-l li{padding:14px 16px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);display:flex;flex-direction:column;gap:2px;background:var(--bg);transition:background-color 300ms var(--ease)}
+.base-l li:hover{background:var(--surface)}
+.base-l b{font-size:16px;line-height:22px;font-weight:600;letter-spacing:-.01em}
+.base-l span{font-family:var(--mono);font-size:11px;line-height:16px;color:var(--muted)}
+.hero-note{margin-top:0}
+.base-a{color:var(--fg);text-underline-offset:4px;text-decoration-color:var(--accent);white-space:nowrap}
+.base-a:hover{color:var(--accent-text)}
+
+/* --- fundamentos: framework apoiado em seis pilares --- */
+.fund{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(0,1fr);gap:20px;align-items:stretch}
+.fund-fig{display:flex;flex-direction:column;min-width:0}
+.fund-beam{display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:16px 20px;background:var(--accent);color:var(--accent-fg);position:relative;z-index:1}
+.fund-beam b{font-size:20px;line-height:26px;font-weight:600;letter-spacing:-.01em}
+.fund-beam .mono{font-size:11px;letter-spacing:.06em;text-transform:uppercase;opacity:.8}
+.fund-pils{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:8px;padding:0 8px;flex:1}
+.pil{position:relative;display:flex;flex-direction:column;gap:8px;text-align:left;min-height:260px;padding:16px 10px;min-width:0;background:var(--surface);border:1px solid var(--line);border-top:0;border-bottom:0;color:var(--fg);font-family:var(--font);cursor:pointer;transform-origin:50% 100%;transition:background-color 300ms var(--ease),border-color 300ms var(--ease)}
+.pil::before{content:"";position:absolute;left:-1px;right:-1px;top:0;height:3px;background:var(--line);transition:background-color 300ms var(--ease)}
+.pil-r{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);transition:color 300ms var(--ease)}
+.pil-n{font-size:14px;line-height:19px;font-weight:600;letter-spacing:-.01em;overflow-wrap:anywhere}
+.pil-a{margin-top:auto;font-size:10px;line-height:14px;color:var(--muted)}
+.pil:hover{border-color:var(--link)}
+.pil[aria-selected="true"]{background:var(--surface-2);border-color:var(--accent)}
+.pil[aria-selected="true"]::before{background:var(--accent)}
+.pil[aria-selected="true"] .pil-r{color:var(--accent-text)}
+.fund-base{display:flex;justify-content:space-between;gap:16px;padding:12px 20px;border:1px solid var(--fg);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.fund-base span:first-child{color:var(--fg)}
+.fund-det{border:1px solid var(--line);background:var(--surface);padding:28px;display:flex;flex-direction:column;gap:14px;min-width:0}
+.fund-k{color:var(--accent-text)}
+.fund-det .body-3{color:var(--fg)}
+.fund-det .tags{margin-top:auto;padding-top:8px}
+.fund-pre{margin-top:20px;padding:20px 24px;border:1px dashed var(--line);max-width:none}
+.fund-pre b{color:var(--fg);font-weight:600}
+.reveal-ready .fund .pil{transform:scaleY(0);transition:transform 700ms var(--ease),background-color 300ms var(--ease),border-color 300ms var(--ease);transition-delay:calc(var(--i)*90ms + 250ms),0ms,0ms}
+.reveal-ready .fund.go .pil{transform:none}
+.reveal-ready .fund .pil>span{opacity:0;transition:opacity 400ms var(--ease);transition-delay:calc(var(--i)*90ms + 700ms)}
+.reveal-ready .fund.go .pil>span{opacity:1}
+.reveal-ready .fund .fund-beam{transform:translateY(-14px);opacity:0;transition:transform 600ms var(--ease) 900ms,opacity 400ms var(--ease) 900ms}
+.reveal-ready .fund.go .fund-beam{transform:none;opacity:1}
+@media (max-width:1024px){.fund{grid-template-columns:minmax(0,1fr)}.pil{min-height:200px}}
+@media (max-width:760px){
+  .base-l{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .base-l li{padding:12px}
+  .base-l b{font-size:15px;line-height:20px}
+  .fund-beam{flex-direction:column;gap:2px;padding:14px 16px}
+  .fund-pils{grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;padding:0 6px;row-gap:0}
+  .pil{min-height:124px;padding:12px 8px;gap:6px}
+  .pil:nth-child(n+4){border-top:1px solid var(--line)}
+  .pil-n{font-size:13px;line-height:17px}
+  .pil-a{display:none}
+  .fund-base{flex-direction:column;gap:2px;padding:10px 16px}
+  .fund-det{padding:20px}
+  .fund-pre{padding:16px}
+}
+@media (prefers-reduced-motion:reduce){.reveal-ready .fund .pil,.reveal-ready .fund .fund-beam{transform:none;opacity:1}.reveal-ready .fund .pil>span{opacity:1}}
+
 </style>
 </head>
 <body>
@@ -1016,13 +1076,11 @@ footer{padding-block:56px;border-top:1px solid var(--line)}
         <h1 class="heading-1">IA com regra,<br>dono e métrica.</h1>
         <p class="sub title-1">Mapeio problemas de negócio pela governança e aplico IA onde ela faz sentido. O resultado são frameworks de indicadores, agentes e dashboards entregues como produto, com evidência no fim.</p>
         <div class="hero-cta"><a class="btn btn-primary button-lg mag" href="#projetos">Ver os projetos<svg class="ic" aria-hidden="true" focusable="false" viewBox="0 0 256 256" fill="currentColor"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg></a><a class="btn btn-dark button-lg mag js-wa" href="https://wa.me/5585920020587?text=Ol%C3%A1%2C%20Kevin!%20Vim%20pelo%20seu%20site." target="_blank" rel="noopener"><svg class="ic" aria-hidden="true" focusable="false" viewBox="0 0 256 256" fill="currentColor"><path d="M187.58,144.84l-32-16a8,8,0,0,0-8,.5l-14.69,9.8a40.55,40.55,0,0,1-16-16l9.8-14.69a8,8,0,0,0,.5-8l-16-32A8,8,0,0,0,104,64a40,40,0,0,0-40,40,88.1,88.1,0,0,0,88,88,40,40,0,0,0,40-40A8,8,0,0,0,187.58,144.84ZM152,176a72.08,72.08,0,0,1-72-72A24,24,0,0,1,99.29,80.46l11.48,23L101,118a8,8,0,0,0-.73,7.51,56.47,56.47,0,0,0,30.15,30.15A8,8,0,0,0,138,155l14.61-9.74,23,11.48A24,24,0,0,1,152,176ZM128,24A104,104,0,0,0,36.18,176.88L24.83,210.93a16,16,0,0,0,20.24,20.24l34.05-11.35A104,104,0,1,0,128,24Zm0,192a87.87,87.87,0,0,1-44.06-11.81,8,8,0,0,0-6.54-.67L40,216,52.47,178.6a8,8,0,0,0-.66-6.54A88,88,0,1,1,128,216Z"/></svg>WhatsApp</a><a class="btn btn-dark button-lg ibtn-lg" href="https://www.linkedin.com/in/johnkevinribeiro" target="_blank" rel="noopener" aria-label="LinkedIn"><svg class="ic" aria-hidden="true" focusable="false" viewBox="0 0 256 256" fill="currentColor"><path d="M216,24H40A16,16,0,0,0,24,40V216a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V40A16,16,0,0,0,216,24Zm0,192H40V40H216V216ZM96,112v64a8,8,0,0,1-16,0V112a8,8,0,0,1,16,0Zm88,28v36a8,8,0,0,1-16,0V140a20,20,0,0,0-40,0v36a8,8,0,0,1-16,0V112a8,8,0,0,1,15.79-1.78A36,36,0,0,1,184,140ZM100,84A12,12,0,1,1,88,72,12,12,0,0,1,100,84Z"/></svg></a></div>
-        <dl class="stats">
-          <div><dt>34</dt><dd>entregas desde jun/2025</dd></div>
-          <div><dt>8</dt><dd>agentes de IA desenhados</dd></div>
-          <div><dt>420</dt><dd>KPIs em um framework</dd></div>
-          <div><dt>20</dt><dd>empresas em estudo de mercado</dd></div>
-        </dl>
-        <p class="hero-note caption-5 mono muted">Fortaleza, CE · remoto. Números com registro; o detalhe está nos casos abaixo.</p>
+        <div class="base">
+          <p class="base-h caption-3">Framework próprio de KPIs, com base em</p>
+          <ul class="base-l"><li><b>COBIT 5</b><span>governança</span></li><li><b>ITIL 4</b><span>serviço</span></li><li><b>Balanced Scorecard</b><span>equilíbrio</span></li><li><b>Storytelling com Dados</b><span>leitura</span></li><li><b>Governança ServiceNow</b><span>plataforma</span></li><li><b>XLA</b><span>experiência</span></li></ul>
+          <p class="hero-note body-6 muted">Do framework saíram agentes de IA e dashboards para contratos e PMO. <a class="base-a" href="#fundamentos">Ver os fundamentos</a></p>
+        </div>
       </div>
       <figure class="agent demo" id="agent" aria-label="Exemplo ilustrativo da interface de um agente leitor de contrato">
         
@@ -1065,12 +1123,12 @@ footer{padding-block:56px;border-top:1px solid var(--line)}
       <div class="stage"><span class="scan" id="pscan" aria-hidden="true"></span>
       <div class="projs" id="projs">
         <article class="proj spot tick reveal" data-cat="ind">
-          <div class="art" aria-hidden="true"><div class="art-bars mono"><span style="flex:160"><b>160</b>operação</span><span style="flex:80"><b>80</b>capacidade</span><span style="flex:180"><b>180</b>governança</span></div></div>
+          <div class="art" aria-hidden="true"><div class="art-bars mono"><span style="flex:160"><b>01</b>operação</span><span style="flex:80"><b>02</b>capacidade</span><span style="flex:180"><b>03</b>governança</span></div></div>
           <div class="proj-body">
             <div class="proj-meta"><span class="chip ent caption-4">Desenho concluído</span><span class="caption-5 muted mono">Framework · Indicadores</span></div>
             <h3 class="heading-6">Framework de indicadores inteligentes</h3>
-            <p class="body-6 muted">420 KPIs em 3 blocos e 4 camadas, apoiados em um estudo de mercado próprio.</p>
-            <p class="proj-res"><span class="mono">Resultado</span><span>420 KPIs em 3 blocos e 4 camadas</span><span class="seal seal-fato caption-5">Fato</span></p><button class="btn btn-ghost button-sm proj-open" type="button" data-open="caso-kpis">Ver o caso<svg class="ic" aria-hidden="true" focusable="false" viewBox="0 0 256 256" fill="currentColor"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg></button>
+            <p class="body-6 muted">Framework próprio para criar KPIs de serviços de TI, em 3 blocos e 4 camadas. Apoiado em seis referências e em um estudo com 20 provedores.</p>
+            <p class="proj-res"><span class="mono">Resultado</span><span>Framework próprio, do operacional ao executivo</span><span class="seal seal-fato caption-5">Fato</span></p><button class="btn btn-ghost button-sm proj-open" type="button" data-open="caso-kpis">Ver o caso<svg class="ic" aria-hidden="true" focusable="false" viewBox="0 0 256 256" fill="currentColor"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg></button>
           </div>
         </article>
         <article class="proj spot tick reveal" data-cat="age pai">
@@ -1141,6 +1199,31 @@ footer{padding-block:56px;border-top:1px solid var(--line)}
   <section class="tagline grid-bg" aria-label="Tese">
     <div class="wrap">
       <p class="heading-2" id="tagline">Tecnologia não é só implementação.<br>É estrutura, governança e<br>valor que dá para provar.</p>
+    </div>
+  </section>
+
+  <section id="fundamentos" aria-labelledby="t-fund">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="caption-3">Fundamentos</p>
+        <h2 class="heading-3" id="t-fund">Framework próprio.<br>Base reconhecida.</h2>
+        <p class="body-3">O framework de indicadores que desenhei para operações de serviços de TI se apoia em seis referências de governança, serviço, dados e experiência. Escolha um pilar para ver o que ele sustenta.</p>
+      </div>
+      <div class="fund reveal" id="fund">
+        <div class="fund-fig">
+          <div class="fund-beam"><span class="mono">construção própria</span><b>Framework de indicadores</b><span class="mono">3 blocos · 4 camadas</span></div>
+          <div class="fund-pils" role="tablist" aria-label="Referências que sustentam o framework"><button class="pil" type="button" role="tab" data-i="0" aria-selected="true" style="--i:0"><span class="pil-r mono">Governança</span><span class="pil-n">COBIT 5</span><span class="pil-a mono">ISACA · 2012</span></button><button class="pil" type="button" role="tab" data-i="1" aria-selected="false" style="--i:1"><span class="pil-r mono">Serviço</span><span class="pil-n">ITIL 4</span><span class="pil-a mono">AXELOS · 2019</span></button><button class="pil" type="button" role="tab" data-i="2" aria-selected="false" style="--i:2"><span class="pil-r mono">Equilíbrio</span><span class="pil-n">Balanced Scorecard</span><span class="pil-a mono">via COBIT 5</span></button><button class="pil" type="button" role="tab" data-i="3" aria-selected="false" style="--i:3"><span class="pil-r mono">Leitura</span><span class="pil-n">Storytelling com Dados</span><span class="pil-a mono">Knaflic · 2019</span></button><button class="pil" type="button" role="tab" data-i="4" aria-selected="false" style="--i:4"><span class="pil-r mono">Plataforma</span><span class="pil-n">Governança ServiceNow</span><span class="pil-a mono">Almeida · 2021</span></button><button class="pil" type="button" role="tab" data-i="5" aria-selected="false" style="--i:5"><span class="pil-r mono">Experiência</span><span class="pil-n">XLA</span><span class="pil-a mono">Computacenter · 2020</span></button></div>
+          <div class="fund-base mono"><span>operação de serviços de TI</span><span>contrato · dado · decisão</span></div>
+        </div>
+        <div class="fund-det" id="fund-det" role="tabpanel" aria-live="polite">
+          <p class="caption-3 fund-k" id="fd-k">01 / Governança</p>
+          <h3 class="heading-5" id="fd-n">COBIT 5</h3>
+          <p class="caption-5 muted mono" id="fd-f">COBIT 5: A Business Framework for the Governance and Management of Enterprise IT</p>
+          <p class="body-3" id="fd-t">Liga objetivo de negócio, indicador, risco, controle e responsável. Dá ao framework a cascata de objetivos e o domínio de monitoramento e avaliação (MEA).</p>
+          <ul class="tags" id="fd-c"><li class="caption-4">cascata de objetivos</li><li class="caption-4">domínio MEA</li><li class="caption-4">riscos e controles</li><li class="caption-4">responsabilidades</li></ul>
+        </div>
+      </div>
+      <p class="fund-pre body-6 muted reveal"><b>No prefácio do manual.</b> Uma inspiração que não é fonte técnica: <i>Do Androids Dream of Electric Sheep?</i>, de Philip K. Dick (1968). A automação apoia a medição; interpretar, julgar e responder continuam humanos.</p>
     </div>
   </section>
 
@@ -1303,7 +1386,7 @@ footer{padding-block:56px;border-top:1px solid var(--line)}
       <div><p class="caption-3">Como funciona</p><ol class="flow body-6"><li><span class="mono">01</span>Contrato e escopo do cliente</li><li><span class="mono">02</span>Agente recomenda os KPIs</li><li><span class="mono">03</span>Pacote de KPIs por contrato</li><li><span class="mono">04</span>Plataforma de ITSM e camada de dados</li><li><span class="mono">05</span>Relatório mensal e visão executiva</li></ol></div>
       <div><p class="caption-3">Resultado</p><ul class="res body-6"><li><span><b>420</b> KPIs: 160 de operação, 80 de capacidade e 180 de governança avançada</span><span class="seal seal-fato caption-5">Fato</span></li><li><span><b>20</b> empresas comparadas, <b>150</b> KPIs catalogados, <b>39</b> recomendados</span><span class="seal seal-fato caption-5">Fato</span></li><li><span>Apresentado a cerca de <b>14</b> pessoas do time global de dados</span><span class="seal seal-inf caption-5">Estimativa</span></li></ul></div>
       <div><p class="caption-3">Status</p><p class="body-6">Desenho concluído. A aplicação completa depende da camada de dados: o acesso foi liberado, a arquitetura técnica ainda está pendente.</p></div>
-      <div><p class="caption-3">Ferramentas e referências</p><ul class="tags"><li class="caption-4">ITIL 4</li><li class="caption-4">ISO/IEC 20000</li><li class="caption-4">COBIT 2019</li><li class="caption-4">SIAM</li><li class="caption-4">Excel</li><li class="caption-4">Agentes de IA generativa</li></ul></div>
+      <div><p class="caption-3">Ferramentas e referências</p><ul class="tags"><li class="caption-4">COBIT 5</li><li class="caption-4">ITIL 4</li><li class="caption-4">Balanced Scorecard</li><li class="caption-4">Storytelling com Dados</li><li class="caption-4">Governança ServiceNow</li><li class="caption-4">XLA</li><li class="caption-4">ISO/IEC 20000</li><li class="caption-4">SIAM</li><li class="caption-4">Excel</li><li class="caption-4">Agentes de IA generativa</li></ul></div>
     </div>
   </div>
   <p class="caption-5 muted caso-foot">Cliente e dados internos anonimizados. Telas e exemplos usam dados fictícios.</p>
@@ -1800,6 +1883,28 @@ footer{padding-block:56px;border-top:1px solid var(--line)}
     mBtn.addEventListener('click',function(){mOpen=true;mClip();});
     new MutationObserver(mClip).observe($('#pfilters'),{attributes:true,subtree:true,attributeFilter:['aria-pressed']});
     mClip();
+  }
+
+
+  // ---------- fundamentos: pilares do framework ----------
+  var fund=$('#fund');
+  if(fund){
+    var FD=[{r:'Governança',n:'COBIT 5',f:'COBIT 5: A Business Framework for the Governance and Management of Enterprise IT',t:'Liga objetivo de negócio, indicador, risco, controle e responsável. Dá ao framework a cascata de objetivos e o domínio de monitoramento e avaliação (MEA).',c:['cascata de objetivos', 'domínio MEA', 'riscos e controles', 'responsabilidades']},{r:'Serviço',n:'ITIL 4',f:'ITIL Foundation: ITIL 4 Edition',t:'Sustenta a leitura dos indicadores de resposta, recuperação, backlog, recorrência e qualidade do serviço, com foco em cocriação de valor.',c:['nível de serviço', 'incidentes', 'problemas', 'melhoria contínua']},{r:'Equilíbrio',n:'Balanced Scorecard',f:'Balanced Scorecard, aplicado por intermédio do COBIT 5 (ISACA, 2012)',t:'Equilibra as quatro perspectivas do indicador, para que a operação não seja medida por um ângulo só.',c:['financeira', 'cliente', 'processos internos', 'aprendizado e crescimento']},{r:'Leitura',n:'Storytelling com Dados',f:'Cole Nussbaumer Knaflic. Storytelling com Dados. Alta Books, 2019',t:'Orienta como o indicador é mostrado: quem vai ler, qual gráfico usar, o que tirar da tela e que contexto dar para apoiar a decisão.',c:['público', 'escolha do gráfico', 'menos ruído', 'contexto']},{r:'Plataforma',n:'Governança ServiceNow',f:'Alessandro Rodrigues de Almeida. ServiceNow: Governança da plataforma. 2021',t:'Garante a confiabilidade do dado na origem. Sem governança da plataforma, o indicador mede errado com precisão.',c:['controle', 'rastreabilidade', 'segurança', 'transparência', 'metodologia']},{r:'Experiência',n:'XLA',f:'Computacenter. Experience Level Agreements: why green SLAs can still mean poor experience. 2020',t:'Separa cumprir o contrato de entregar boa experiência. Um SLA verde pode conviver com cliente insatisfeito, por isso SLA e XLA se complementam.',c:['SLA', 'XLA', 'experiência percebida']}], pils=$$('.pil',fund), fdet=$('#fund-det'), fcur=0, fauto=true;
+    function fsel(i,focus){
+      if(i===fcur&&!focus)return; fcur=i; var d=FD[i];
+      pils.forEach(function(p,k){p.setAttribute('aria-selected',String(k===i));p.tabIndex=k===i?0:-1;});
+      $('#fd-k').textContent=('0'+(i+1)).slice(-2)+' / '+d.r; $('#fd-n').textContent=d.n; $('#fd-f').textContent=d.f; $('#fd-t').textContent=d.t;
+      $('#fd-c').innerHTML=d.c.map(function(c){return '<li class="caption-4">'+esc(c)+'</li>';}).join('');
+      if(canAnim)fdet.animate([{opacity:0,transform:'translateY(8px)',clipPath:'inset(0 0 100% 0)'},{opacity:1,transform:'none',clipPath:'inset(0 0 0 0)'}],{duration:420,easing:EASE});
+      if(focus)pils[i].focus();
+    }
+    pils.forEach(function(p,i){
+      p.tabIndex=i===0?0:-1;
+      p.addEventListener('click',function(){fauto=false;fsel(i);});
+      p.addEventListener('pointerenter',function(e){if(e.pointerType==='mouse'){fauto=false;fsel(i);}});
+      p.addEventListener('keydown',function(e){if(e.key==='ArrowRight'||e.key==='ArrowLeft'){fauto=false;fsel((i+(e.key==='ArrowRight'?1:pils.length-1))%pils.length,true);e.preventDefault();}});
+    });
+    seen('#fund',function(el){el.classList.add('go');},0.25);
   }
 
   // ---------- portas de serviço: marcam o item no contato ----------
