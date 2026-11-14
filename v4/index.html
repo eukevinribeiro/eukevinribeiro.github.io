@@ -944,6 +944,31 @@ footer{padding-block:56px;border-top:1px solid var(--line)}
   .morph{height:200vh}
   .foot{gap:28px}
 }
+
+/* --- referências aplicadas --- */
+/* resultado do caso em destaque */
+.proj-res{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 12px;align-items:center;padding:12px 0 4px;border-top:1px solid var(--line);font-size:14px;line-height:20px;font-weight:500}
+.proj-res .mono{grid-column:1/-1;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--accent-text);font-weight:500}
+.proj-res .seal{font-size:10px;line-height:14px;padding:1px 6px}
+/* paleta: só âmbar, azul e neutros */
+[data-tipo="formacao"]{--c:var(--fg)}
+[data-tipo="formacao"] .tlx-tag{background:transparent;color:var(--fg);box-shadow:inset 0 0 0 1px var(--muted)}
+.kav::after{display:none}
+/* link de continuação */
+.tl-more{margin-top:28px}
+.lnk-arrow{display:inline-flex;align-items:center;gap:8px;color:var(--fg);text-decoration:none;font-weight:500;font-size:15px;border-bottom:1px solid var(--muted);padding-bottom:4px;transition:border-color 300ms var(--ease),color 300ms var(--ease)}
+.lnk-arrow .ic{width:16px;height:16px;transition:transform 300ms var(--ease)}
+.lnk-arrow:hover{border-color:var(--accent);color:var(--accent-text)}
+.lnk-arrow:hover .ic{transform:translateX(4px)}
+/* guias de prancha e cruzes nas interseções (telas largas) */
+@media (min-width:1100px){
+  main>section:not(.morph)>.wrap{position:relative}
+  main>section:not(.morph)>.wrap::before{content:"";position:absolute;top:-128px;bottom:-128px;left:16px;right:16px;border-inline:1px solid var(--line);opacity:.55;pointer-events:none;z-index:-1}
+  main>section:not(.morph)>.wrap::after{content:"";position:absolute;top:-134px;left:10px;right:10px;height:13px;pointer-events:none;
+    --x:linear-gradient(var(--muted),var(--muted));
+    background:var(--x) 0 6px/13px 1px no-repeat,var(--x) 6px 0/1px 13px no-repeat,var(--x) 100% 6px/13px 1px no-repeat,var(--x) calc(100% - 6px) 0/1px 13px no-repeat}
+  main>section{isolation:isolate}
+}
 @media (prefers-reduced-motion:reduce){.me-ph img{filter:none}}
 
 </style>
@@ -1045,7 +1070,7 @@ footer{padding-block:56px;border-top:1px solid var(--line)}
             <div class="proj-meta"><span class="chip ent caption-4">Desenho concluído</span><span class="caption-5 muted mono">Framework · Indicadores</span></div>
             <h3 class="heading-6">Framework de indicadores inteligentes</h3>
             <p class="body-6 muted">420 KPIs em 3 blocos e 4 camadas, apoiados em um estudo de mercado próprio.</p>
-            <button class="btn btn-ghost button-sm proj-open" type="button" data-open="caso-kpis">Ver o caso<svg class="ic" aria-hidden="true" focusable="false" viewBox="0 0 256 256" fill="currentColor"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg></button>
+            <p class="proj-res"><span class="mono">Resultado</span><span>420 KPIs em 3 blocos e 4 camadas</span><span class="seal seal-fato caption-5">Fato</span></p><button class="btn btn-ghost button-sm proj-open" type="button" data-open="caso-kpis">Ver o caso<svg class="ic" aria-hidden="true" focusable="false" viewBox="0 0 256 256" fill="currentColor"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg></button>
           </div>
         </article>
         <article class="proj spot tick reveal" data-cat="age pai">
@@ -1054,7 +1079,7 @@ footer{padding-block:56px;border-top:1px solid var(--line)}
             <div class="proj-meta"><span class="chip val caption-4">Em validação</span><span class="caption-5 muted mono">Agente de IA · Painel</span></div>
             <h3 class="heading-6">Gestão contratual com agente leitor de contratos</h3>
             <p class="body-6 muted">O agente lê lotes de contratos e alimenta um painel com cerca de 30 saídas.</p>
-            <button class="btn btn-ghost button-sm proj-open" type="button" data-open="caso-contratos">Ver o caso<svg class="ic" aria-hidden="true" focusable="false" viewBox="0 0 256 256" fill="currentColor"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg></button>
+            <p class="proj-res"><span class="mono">Resultado</span><span>Cerca de 30 saídas no painel</span><span class="seal seal-inf caption-5">Estimativa</span></p><button class="btn btn-ghost button-sm proj-open" type="button" data-open="caso-contratos">Ver o caso<svg class="ic" aria-hidden="true" focusable="false" viewBox="0 0 256 256" fill="currentColor"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg></button>
           </div>
         </article>
         <article class="proj spot tick reveal" data-cat="cap">
@@ -1063,7 +1088,7 @@ footer{padding-block:56px;border-top:1px solid var(--line)}
             <div class="proj-meta"><span class="chip ent caption-4">Publicado internamente</span><span class="caption-5 muted mono">Capacitação</span></div>
             <h3 class="heading-6">Guia, trilha e fórum para criar agentes de IA</h3>
             <p class="body-6 muted">Um guia de 26 páginas que virou trilha interativa. Outros times já criaram agentes com ele.</p>
-            <button class="btn btn-ghost button-sm proj-open" type="button" data-open="caso-guia">Ver o caso<svg class="ic" aria-hidden="true" focusable="false" viewBox="0 0 256 256" fill="currentColor"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg></button>
+            <p class="proj-res"><span class="mono">Resultado</span><span>2 outros times criaram agentes com o guia</span><span class="seal seal-fato caption-5">Fato</span></p><button class="btn btn-ghost button-sm proj-open" type="button" data-open="caso-guia">Ver o caso<svg class="ic" aria-hidden="true" focusable="false" viewBox="0 0 256 256" fill="currentColor"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg></button>
           </div>
         </article>
         <article class="proj spot tick reveal" data-cat="age">
@@ -1072,7 +1097,7 @@ footer{padding-block:56px;border-top:1px solid var(--line)}
             <div class="proj-meta"><span class="chip prod caption-4">Em produção</span><span class="caption-5 muted mono">Agente de IA</span></div>
             <h3 class="heading-6">Agente analisador de violações de SLA</h3>
             <p class="body-6 muted">Meu primeiro agente: analisa o chamado com prazo estourado e sugere a justificativa.</p>
-            <button class="btn btn-ghost button-sm proj-open" type="button" data-open="caso-sla">Ver o caso<svg class="ic" aria-hidden="true" focusable="false" viewBox="0 0 256 256" fill="currentColor"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg></button>
+            <p class="proj-res"><span class="mono">Resultado</span><span>Caso de origem de outros 7 agentes</span><span class="seal seal-fato caption-5">Fato</span></p><button class="btn btn-ghost button-sm proj-open" type="button" data-open="caso-sla">Ver o caso<svg class="ic" aria-hidden="true" focusable="false" viewBox="0 0 256 256" fill="currentColor"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg></button>
           </div>
         </article>
         <article class="proj spot tick reveal" data-cat="pai age">
@@ -1081,7 +1106,7 @@ footer{padding-block:56px;border-top:1px solid var(--line)}
             <div class="proj-meta"><span class="chip ent caption-4">Entregue</span><span class="caption-5 muted mono">Painel · Agente de IA</span></div>
             <h3 class="heading-6">Painel de portfólio de projetos alimentado por agente</h3>
             <p class="body-6 muted">Planilhas financeiras de cada projeto viram um painel único em 3 passos.</p>
-            <button class="btn btn-ghost button-sm proj-open" type="button" data-open="caso-portal">Ver o caso<svg class="ic" aria-hidden="true" focusable="false" viewBox="0 0 256 256" fill="currentColor"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg></button>
+            <p class="proj-res"><span class="mono">Resultado</span><span>Painel único, atualizado em 3 passos</span><span class="seal seal-fato caption-5">Fato</span></p><button class="btn btn-ghost button-sm proj-open" type="button" data-open="caso-portal">Ver o caso<svg class="ic" aria-hidden="true" focusable="false" viewBox="0 0 256 256" fill="currentColor"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg></button>
           </div>
         </article>
         <article class="proj spot tick reveal" data-cat="art">
@@ -1090,7 +1115,7 @@ footer{padding-block:56px;border-top:1px solid var(--line)}
             <div class="proj-meta"><span class="chip ent caption-4">Acesso liberado</span><span class="caption-5 muted mono">Articulação entre áreas</span></div>
             <h3 class="heading-6">Acesso a dados de ITSM com o time global</h3>
             <p class="body-6 muted">Do pedido ao acesso liberado: a base que faltava para os indicadores saírem do papel.</p>
-            <button class="btn btn-ghost button-sm proj-open" type="button" data-open="caso-dados">Ver o caso<svg class="ic" aria-hidden="true" focusable="false" viewBox="0 0 256 256" fill="currentColor"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg></button>
+            <p class="proj-res"><span class="mono">Resultado</span><span>Acesso ao data lake liberado em out/2026</span><span class="seal seal-fato caption-5">Fato</span></p><button class="btn btn-ghost button-sm proj-open" type="button" data-open="caso-dados">Ver o caso<svg class="ic" aria-hidden="true" focusable="false" viewBox="0 0 256 256" fill="currentColor"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg></button>
           </div>
         </article>
       </div></div>
@@ -1197,6 +1222,7 @@ footer{padding-block:56px;border-top:1px solid var(--line)}
         <ol class="tlx-track" data-seq><li data-tipo="experiencia"><div class="tlx-card"><span class="caption-4 mono muted yr">2017</span><span class="title-3">Operação comercial</span><span class="tlx-tag">experiência</span></div></li><li data-tipo="experiencia"><div class="tlx-card"><span class="caption-4 mono muted yr">2019</span><span class="title-3">Processos e treinamento</span><span class="tlx-tag">experiência</span></div></li><li data-tipo="experiencia"><div class="tlx-card"><span class="caption-4 mono muted yr">2021</span><span class="title-3">Liderança de equipe</span><span class="tlx-tag">experiência</span></div></li><li data-tipo="experiencia"><div class="tlx-card"><span class="caption-4 mono muted yr">2023</span><span class="title-3">Gestão de negócio</span><span class="tlx-tag">experiência</span></div></li><li data-tipo="experiencia"><div class="tlx-card"><span class="caption-4 mono muted yr">2025</span><span class="title-3">Consultoria de governança</span><span class="tlx-tag">experiência</span></div></li><li data-tipo="certificacao"><div class="tlx-card"><span class="caption-4 mono muted yr">2025</span><span class="title-3">Technology Solutions Specialist</span><span class="caption-5 muted">NTT DATA</span><span class="tlx-tag">certificação</span></div></li><li data-tipo="certificacao"><div class="tlx-card"><span class="caption-4 mono muted yr">2026</span><span class="title-3">ITIL® 4 Foundation</span><span class="caption-5 muted">Gestão de serviços de TI</span><span class="tlx-tag">certificação</span></div></li><li data-tipo="experiencia" class="now"><div class="tlx-card"><span class="caption-4 mono muted yr">2026 · hoje</span><span class="title-3">Governança de TI e IA</span><span class="caption-5 muted">NTT DATA</span><span class="tlx-tag">experiência</span></div></li><li data-tipo="formacao"><div class="tlx-card"><span class="caption-4 mono muted yr">em curso</span><span class="title-3">Pós-graduação em Data Science</span><span class="caption-5 muted">Formação em curso</span><span class="tlx-tag">formação</span></div></li><li data-tipo="formacao"><div class="tlx-card"><span class="caption-4 mono muted yr">em curso</span><span class="title-3">Psicologia</span><span class="caption-5 muted">Formação em curso</span><span class="tlx-tag">formação</span></div></li><li data-tipo="formacao"><div class="tlx-card"><span class="caption-4 mono muted yr">em curso</span><span class="title-3">Gestão de Mídias Sociais Digitais</span><span class="caption-5 muted">Formação em curso</span><span class="tlx-tag">formação</span></div></li></ol>
       </div>
       <div class="tlx-bar" aria-hidden="true"><i id="tlx-p"></i></div>
+      <p class="tl-more"><a class="lnk-arrow" href="https://www.linkedin.com/in/johnkevinribeiro" target="_blank" rel="noopener">Trajetória completa no LinkedIn<svg class="ic" aria-hidden="true" focusable="false" viewBox="0 0 256 256" fill="currentColor"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg></a></p>
     </div>
   </section>
 
