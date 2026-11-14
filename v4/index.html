@@ -1,0 +1,1963 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kevin Ribeiro · Portfólio de governança de TI e IA</title>
+<meta name="robots" content="noindex">
+<meta name="description" content="Portfólio de Kevin Ribeiro, governança de TI e IA em Fortaleza. Frameworks de indicadores, agentes de IA e painéis, com regra, dono e métrica.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Kevin Ribeiro · IA com regra, dono e métrica">
+<meta property="og:description" content="Portfólio de Kevin Ribeiro, governança de TI e IA em Fortaleza. Frameworks de indicadores, agentes de IA e painéis, com regra, dono e métrica.">
+<meta property="og:image" content="https://kevinribeiro.pages.dev/og.png">
+<meta property="og:url" content="https://kevinribeiro.pages.dev/">
+<link rel="canonical" href="https://kevinribeiro.pages.dev/">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#0B1730">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-0.5 -0.5 4 4'%3E%3Crect x='-0.5' y='-0.5' width='4' height='4' fill='%230B1730'/%3E%3Crect width='1' height='3' fill='%23fff'/%3E%3Cpath d='M1 1 2 0h1L1 2z' fill='%23fff'/%3E%3Crect x='2' y='2' width='1' height='1' fill='%23FFB020'/%3E%3C/svg%3E">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Person", "name": "Kevin Ribeiro", "jobTitle": "Governança de TI e IA", "address": {"@type": "PostalAddress", "addressLocality": "Fortaleza", "addressRegion": "CE", "addressCountry": "BR"}, "sameAs": ["https://www.linkedin.com/in/johnkevinribeiro"]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Você é desenvolvedor de IA?", "acceptedAnswer": {"@type": "Answer", "text": "Não. Não treino modelos. Meu trabalho é decidir onde a IA entra no processo, desenhar o agente a partir da regra de negócio e garantir que ele tenha dono, métrica e trilha de auditoria."}}, {"@type": "Question", "name": "Que tipo de empresa se beneficia desse trabalho?", "acceptedAnswer": {"@type": "Answer", "text": "Operações de serviço com contrato, nível de serviço e indicador: serviços gerenciados de TI, áreas de governança e setores regulados como energia, saúde e financeiro."}}, {"@type": "Question", "name": "Com quais ferramentas você trabalha?", "acceptedAnswer": {"@type": "Answer", "text": "ServiceNow, Power BI, Copilot Studio, ChatGPT Enterprise, Claude e Microsoft 365. A ferramenta vem depois do processo, nunca antes."}}, {"@type": "Question", "name": "Os números deste site são reais?", "acceptedAnswer": {"@type": "Answer", "text": "Sim. Cada número leva um selo: Fato quando há registro, Estimativa quando é aproximado. Clientes e dados internos estão anonimizados, e as telas usam dados fictícios."}}, {"@type": "Question", "name": "Você presta consultoria?", "acceptedAnswer": {"@type": "Answer", "text": "Hoje atuo na NTT DATA. Estou aberto a conversas sobre oportunidades, mentoria e projetos, sempre respeitando meu contrato atual e a confidencialidade dos clientes."}}, {"@type": "Question", "name": "Você usa IA no próprio conteúdo?", "acceptedAnswer": {"@type": "Answer", "text": "Uso, e declaro. Peças feitas com IA levam o selo “Feito com IA, revisado por mim”. A revisão e a responsabilidade são minhas."}}, {"@type": "Question", "name": "Onde você está?", "acceptedAnswer": {"@type": "Answer", "text": "Em Fortaleza, Ceará, trabalhando de forma remota com times no Brasil, na Austrália e na África do Sul."}}]}</script>
+<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<script>try{var t=localStorage.getItem("kr-theme");if(t)document.documentElement.setAttribute("data-theme",t)}catch(e){}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: planta técnica em navy. Nav flutuante, hero com a interface do agente, faixas de seção em grade de 40px, tudo em Geist com cantos retos. */
+:root{
+  --bg:#0B1730; --surface:#13254D; --surface-2:#0F1E3F; --fg:#FFFFFF; --muted:#AFC1DD; --line:#26385F;
+  --accent:#FFB020; --accent-fg:#0B1730; --accent-text:#FFB020; --action:#1F4FE0; --action-fg:#FFFFFF; --link:#8EA8F5;
+  --hero-a:#FFFFFF; --hero-b:#9B9B9B; --grid:rgba(124,156,203,.10); --nav:rgba(11,23,48,.72);
+  --ok:#8EA8F5; --warn:#FFB020; --dev:#FF8A5C;
+  --font:"Geist",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"Geist Mono",ui-monospace,Consolas,monospace;
+  --ease:cubic-bezier(0.22,1,0.36,1);
+  color-scheme:dark;
+}
+@media (prefers-color-scheme: light){:root:not([data-theme="dark"]){
+  --bg:#F4F4F0; --surface:#FFFFFF; --surface-2:#E3E7EE; --fg:#0E1117; --muted:#5A6272; --line:#DADDE3;
+  --accent:#FFB020; --accent-fg:#0B1730; --accent-text:#7A4E00; --action:#1F4FE0; --action-fg:#FFFFFF; --link:#1F4FE0;
+  --hero-a:#000000; --hero-b:#666666; --grid:rgba(31,79,224,.07); --nav:rgba(244,244,240,.78);
+  --ok:#1F4FE0; --warn:#7A4E00; --dev:#C2410C; color-scheme:light}}
+:root[data-theme="light"]{
+  --bg:#F4F4F0; --surface:#FFFFFF; --surface-2:#E3E7EE; --fg:#0E1117; --muted:#5A6272; --line:#DADDE3;
+  --accent:#FFB020; --accent-fg:#0B1730; --accent-text:#7A4E00; --action:#1F4FE0; --action-fg:#FFFFFF; --link:#1F4FE0;
+  --hero-a:#000000; --hero-b:#666666; --grid:rgba(31,79,224,.07); --nav:rgba(244,244,240,.78);
+  --ok:#1F4FE0; --warn:#7A4E00; --dev:#C2410C; color-scheme:light}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:96px}
+body{background:var(--bg);color:var(--fg);font-family:var(--font);font-size:16px;line-height:24px;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4,p,ul,ol,figure,dl,dd{margin:0}
+ul,ol{padding:0;list-style:none}
+a{color:var(--link)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+.ic{width:20px;height:20px;flex:none}
+
+/* text styles (landing-page-design B1) */
+.heading-1{font-size:60px;line-height:60px;font-weight:600;letter-spacing:-.03em;text-wrap:balance}
+.heading-2{font-size:48px;line-height:48px;font-weight:600;letter-spacing:-.025em;text-wrap:balance}
+.heading-3{font-size:36px;line-height:40px;font-weight:600;letter-spacing:-.02em;text-wrap:balance}
+.heading-5{font-size:24px;line-height:32px;font-weight:600;letter-spacing:-.01em;text-wrap:balance}
+.heading-6{font-size:20px;line-height:28px;font-weight:600;text-wrap:balance}
+.title-2{font-size:18px;line-height:28px;font-weight:500}
+.title-3{font-size:16px;line-height:24px;font-weight:500}
+.title-4{font-size:14px;line-height:20px;font-weight:500}
+.body-2{font-size:16px;line-height:24px;font-weight:500;text-wrap:pretty}
+.body-3{font-size:16px;line-height:24px;font-weight:400;text-wrap:pretty}
+.body-6{font-size:14px;line-height:20px;font-weight:400;text-wrap:pretty}
+.title-1{font-size:20px;line-height:28px;font-weight:500;text-wrap:pretty}
+.button-lg{font-size:18px;line-height:28px;font-weight:600}
+.button-sm{font-size:14px;line-height:20px;font-weight:600}
+.caption-3{font-size:12px;line-height:16px;font-weight:600;letter-spacing:.08em;text-transform:uppercase}
+.caption-4{font-size:12px;line-height:16px;font-weight:500}
+.caption-5{font-size:12px;line-height:16px;font-weight:400}
+.mono{font-family:var(--mono)}
+.muted{color:var(--muted)}
+
+.wrap{max-width:1200px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.grid-bg{background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:40px 40px}
+
+.skip{position:absolute;left:16px;top:-64px;z-index:30;background:var(--accent);color:var(--accent-fg);padding:8px 12px;text-decoration:none}
+.skip:focus{top:calc(16px + env(safe-area-inset-top,0px))}
+
+/* buttons (B2: 8px x 12px) */
+.btn{display:inline-flex;align-items:center;gap:8px;padding:8px 12px;text-decoration:none;border:1px solid transparent;cursor:pointer;font-family:var(--font);transition:transform 300ms var(--ease),background-color 300ms var(--ease),opacity 300ms var(--ease)}
+.btn:hover{transform:translateY(-2px)}
+.btn:active{transform:translateY(1px) scale(.98)}
+.btn-primary{background:var(--accent);color:var(--accent-fg)}
+.btn-primary:hover{background:#FFC24D}
+.btn-ghost{background:transparent;color:var(--fg);border-color:var(--line)}
+.btn-ghost:hover{background:var(--surface)}
+.btn-dark{background:var(--action);color:var(--action-fg)}
+.btn-dark:hover{background:#3A66EC}
+
+/* nav (B7 navigation) */
+.nav{position:fixed;z-index:20;left:0;right:0;top:calc(16px + env(safe-area-inset-top,0px));display:flex;justify-content:center;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));pointer-events:none}
+.nav-bar{pointer-events:auto;display:flex;align-items:center;gap:24px;padding:8px 8px 8px 16px;background:var(--nav);border:1px solid var(--line);-webkit-backdrop-filter:blur(16px);backdrop-filter:blur(16px)}
+.brand{display:flex;align-items:center;gap:8px;color:var(--fg);text-decoration:none}
+.brand svg{width:24px;height:24px}
+.links{display:flex;gap:4px}
+.links a{display:inline-block;padding:8px 12px;color:var(--muted);text-decoration:none;transition:color 300ms var(--ease)}
+.links a:hover,.links a[aria-current="true"]{color:var(--fg)}
+.links a[aria-current="true"]{box-shadow:inset 0 -2px 0 var(--accent)}
+.menu-btn{display:none;width:44px;height:44px;align-items:center;justify-content:center;background:transparent;border:1px solid var(--line);color:var(--fg);cursor:pointer;position:relative}
+.menu-btn i{position:absolute;left:12px;right:12px;height:2px;background:currentColor;transition:transform 500ms var(--ease)}
+.menu-btn i:first-child{transform:translateY(-4px)}
+.menu-btn i:last-child{transform:translateY(4px)}
+.menu-btn[aria-expanded="true"] i:first-child{transform:rotate(45deg)}
+.menu-btn[aria-expanded="true"] i:last-child{transform:rotate(-45deg)}
+.panel{position:fixed;inset:0;z-index:19;background:var(--nav);-webkit-backdrop-filter:blur(24px);backdrop-filter:blur(24px);padding:calc(96px + env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) 48px max(16px,env(safe-area-inset-left,0px));display:flex;flex-direction:column;gap:8px}
+.panel a{color:var(--fg);text-decoration:none;padding:12px 0;border-bottom:1px solid var(--line)}
+.panel .btn{margin-top:24px;align-self:flex-start;border-bottom:1px solid transparent;padding:8px 12px}
+.panel.open a{animation:linkIn 500ms var(--ease) both}
+
+/* hero */
+.hero{padding-top:calc(160px + env(safe-area-inset-top,0px));padding-bottom:96px;border-bottom:1px solid var(--line)}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,480px);gap:64px;align-items:center}
+.hero-copy{display:flex;flex-direction:column;gap:24px;min-width:0}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;color:var(--accent-text)}
+.eyebrow::before{content:"";width:8px;height:8px;background:var(--accent)}
+.hero h1{max-width:680px;background:linear-gradient(90deg,var(--hero-a),var(--hero-b));-webkit-background-clip:text;background-clip:text;color:transparent}
+.hero .sub{max-width:680px;color:var(--muted)}
+.proof{display:flex;flex-wrap:wrap;gap:8px 24px;padding-top:8px}
+.proof li{display:flex;align-items:center;gap:8px;color:var(--muted)}
+.proof b{color:var(--fg);font-weight:600}
+.proof .ic{color:var(--accent-text)}
+
+.agent{background:var(--surface);border:1px solid var(--line);min-width:0}
+.agent-head{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 16px;border:1px solid var(--line);margin:-1px -1px 0;background:var(--surface-2)}
+.agent-id{display:flex;align-items:center;gap:12px}
+.agent-av{width:32px;height:32px;display:flex;align-items:center;justify-content:center;border:2px solid var(--link)}
+.agent-av svg{width:18px;height:18px}
+.agent-body{padding:16px;display:flex;flex-direction:column;gap:12px}
+.ask{align-self:flex-end;background:var(--surface-2);padding:8px 12px;max-width:85%;min-height:36px}
+.tbl{width:100%;border-collapse:collapse}
+.tbl th{text-align:left;padding:8px 8px 8px 0;border-bottom:1px solid var(--fg)}
+.tbl td{padding:8px 8px 8px 0;border-bottom:1px solid var(--line);vertical-align:top}
+.tbl tr.flag td{color:var(--accent-text)}
+.seal{display:inline-block;padding:2px 8px;font-family:var(--mono)}
+.seal-fato{background:var(--action);color:var(--action-fg)}
+.seal-inf{border:1px dashed var(--muted);color:var(--muted)}
+.agent-foot{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 16px;border-top:1px solid var(--line)}
+
+/* sections */
+section{padding-block:96px;border-bottom:1px solid var(--line)}
+.sec-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px 64px;align-items:end;margin-bottom:48px}
+.sec-head .caption-3{grid-column:1/-1;color:var(--accent-text)}
+.sec-head h2{max-width:680px}
+.sec-head p{color:var(--muted);max-width:560px}
+
+.split{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.box{background:var(--surface);border:1px solid var(--line);padding:32px;display:flex;flex-direction:column;gap:16px}
+.box li{display:flex;gap:12px;align-items:flex-start;padding-block:12px;border-bottom:1px solid var(--line)}
+.box li:last-child{border-bottom:0}
+.box li .ic{margin-top:2px}
+.box.before .ic{color:var(--dev)}
+.box.after{border-color:var(--link)}
+.box.after .ic{color:var(--link)}
+
+.benefits{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.benefit{background:var(--surface);border:1px solid var(--line);padding:24px;display:flex;flex-direction:column;gap:12px;transition:transform 500ms var(--ease),border-color 300ms var(--ease)}
+.benefit:hover{transform:translateY(-4px);border-color:var(--link)}
+.benefit .ic{width:32px;height:32px;color:var(--link)}
+
+.tagline{padding-block:96px}
+.tagline p{max-width:880px}
+.tagline .w{opacity:.3;transition:opacity 500ms var(--ease)}
+.tagline .w.on{opacity:1}
+.tagline .w.hl.on{color:var(--accent)}
+
+.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;counter-reset:s}
+.step{border:1px solid var(--line);padding:32px;display:flex;flex-direction:column;gap:16px;background:var(--surface-2)}
+.step-n{width:48px;height:48px;display:flex;align-items:center;justify-content:center;border:2px solid var(--fg);font-family:var(--mono);font-weight:500}
+.step:nth-child(2) .step-n{background:var(--action);border-color:var(--action);color:var(--action-fg)}
+.step:nth-child(3) .step-n{background:var(--accent);border-color:var(--accent);color:var(--accent-fg)}
+
+.cases{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.case{background:var(--surface);border:1px solid var(--line);padding:24px;display:flex;flex-direction:column;gap:16px}
+.case dl{display:flex;flex-direction:column;gap:12px;border-top:1px solid var(--line);padding-top:16px}
+.case dt{color:var(--muted)}
+.chip{align-self:flex-start;display:inline-flex;align-items:center;gap:8px;padding:4px 8px;border:1px solid var(--line)}
+.chip::before{content:"";width:8px;height:8px}
+.chip.prod::before{background:var(--accent)}
+.chip.ent::before{background:var(--link)}
+.chip.rec::before{background:var(--muted)}
+.case.wide{grid-column:span 2;background:var(--action);border-color:var(--action);color:var(--action-fg)}
+.case.wide .muted,.case.wide dt{color:#DCE6FF}
+.case.wide dl{border-color:rgba(255,255,255,.3)}
+.case.wide .chip{border-color:rgba(255,255,255,.4)}
+
+.nums{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px;margin-top:16px}
+.num{border:1px solid var(--line);padding:24px;display:flex;flex-direction:column;gap:8px}
+.num b{font-size:48px;line-height:48px;font-weight:600;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+
+.tl{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));border-top:1px solid var(--fg)}
+.tl li{padding:16px 12px 0 0;display:flex;flex-direction:column;gap:4px}
+.tl li.now{box-shadow:inset 0 3px 0 var(--accent)}
+.creds{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:48px}
+.cred{border:1px solid var(--line);padding:24px;display:flex;flex-direction:column;gap:12px}
+.cred li{padding-block:8px;border-bottom:1px solid var(--line)}
+.cred li:last-child{border-bottom:0}
+
+.faq{max-width:880px;border-top:1px solid var(--fg)}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:24px;align-items:center;padding-block:24px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary .ic{transition:transform 500ms var(--ease);color:var(--link)}
+.faq details[open] summary .ic{transform:rotate(45deg)}
+.faq .ans{padding-bottom:24px;color:var(--muted);max-width:680px}
+
+.final{text-align:left}
+.final-box{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,400px);gap:48px;align-items:end}
+.contact{background:var(--surface);border:1px solid var(--line);padding:24px;display:flex;flex-direction:column;gap:12px}
+.addr{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.addr code{font-family:var(--mono);font-size:14px;line-height:20px;background:var(--bg);border:1px solid var(--line);padding:8px 12px;user-select:all;overflow-wrap:anywhere}
+.status{min-height:20px}
+.reassure{display:flex;align-items:center;gap:8px;color:var(--muted)}
+
+footer{padding-block:48px}
+.foot{display:flex;flex-wrap:wrap;justify-content:space-between;gap:24px;align-items:flex-start}
+.foot nav{display:flex;flex-wrap:wrap;gap:16px}
+.foot a{color:var(--muted)}
+.foot details{max-width:420px}
+.foot summary{cursor:pointer;color:var(--muted)}
+.foot details p{margin-top:8px}
+
+/* reveal (B7) */
+.reveal-ready .reveal{opacity:0;transform:translateY(32px)}
+.reveal-ready .reveal.in{opacity:1;transform:none;transition:opacity 700ms var(--ease),transform 700ms var(--ease)}
+@keyframes linkIn{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+
+/* ===== interações v2: grade viva, demo do agente, contadores, Kapi ===== */
+:root{--grid-hi:rgba(142,168,245,.42);--spot:rgba(142,168,245,.14)}
+@media (prefers-color-scheme: light){:root:not([data-theme="dark"]){--grid-hi:rgba(31,79,224,.30);--spot:rgba(31,79,224,.08)}}
+:root[data-theme="light"]{--grid-hi:rgba(31,79,224,.30);--spot:rgba(31,79,224,.08)}
+
+.progress{position:fixed;left:0;top:0;height:3px;width:100%;z-index:25;background:var(--accent);transform:scaleX(var(--p,0));transform-origin:0 50%;pointer-events:none}
+
+/* a grade acende perto do ponteiro */
+.grid-bg{position:relative}
+.grid-bg::before{content:"";position:absolute;inset:0;pointer-events:none;opacity:0;transition:opacity 400ms var(--ease);
+  background-image:linear-gradient(var(--grid-hi) 1px,transparent 1px),linear-gradient(90deg,var(--grid-hi) 1px,transparent 1px);background-size:40px 40px;
+  -webkit-mask-image:radial-gradient(260px circle at var(--mx,50%) var(--my,50%),#000,transparent);mask-image:radial-gradient(260px circle at var(--mx,50%) var(--my,50%),#000,transparent)}
+.grid-bg.lit::before{opacity:1}
+.grid-bg>*{position:relative}
+
+/* o K se constrói: pilar, vetor, nó */
+.brand svg *{transform-box:fill-box}
+.reveal-ready .brand.build .k-p{transform-origin:50% 100%;animation:kP 300ms var(--ease) both}
+.reveal-ready .brand.build .k-v{animation:kV 300ms var(--ease) 300ms both}
+.reveal-ready .brand.build .k-n{animation:kN 1ms steps(1,end) 620ms both}
+@keyframes kP{from{transform:scaleY(0)}}
+@keyframes kV{from{opacity:0;transform:translate(-34%,34%)}}
+@keyframes kN{from{opacity:0}}
+
+.links a{position:relative}
+.links a::after{content:"";position:absolute;left:12px;right:12px;bottom:0;height:2px;background:var(--accent);transform:scaleX(0);transform-origin:0 50%;transition:transform 300ms var(--ease)}
+.links a:hover::after,.links a[aria-current="true"]::after{transform:none}
+.links a[aria-current="true"]{box-shadow:none}
+
+/* entrada do hero */
+.reveal-ready .hero-copy>*{animation:rise 700ms var(--ease) both;animation-delay:calc(var(--i,0)*90ms)}
+@keyframes rise{from{opacity:0;transform:translateY(20px)}}
+
+/* demo do agente */
+.agent{position:relative}
+.reveal-ready .agent.demo [data-s]{opacity:0}
+.reveal-ready .agent.demo p[data-s]{transform:translateY(8px)}
+.reveal-ready .agent.demo [data-s].on{opacity:1;transform:none;transition:opacity 240ms var(--ease),transform 240ms var(--ease)}
+.reveal-ready .agent.demo tr[data-s] .seal{opacity:0;transform:scale(1.35)}
+.reveal-ready .agent.demo tr[data-s].on .seal{opacity:1;transform:none;transition:opacity 160ms var(--ease) 220ms,transform 160ms var(--ease) 220ms}
+.think{display:inline-flex;gap:4px;align-items:center;height:20px}
+.think i{width:6px;height:6px;background:var(--link);animation:blink 900ms steps(1,end) infinite}
+.think i:nth-child(2){animation-delay:300ms}
+.think i:nth-child(3){animation-delay:600ms}
+.caret::after{content:"";display:inline-block;width:7px;height:14px;background:var(--accent);vertical-align:-2px;margin-left:2px;animation:blink 1s steps(1,end) infinite}
+@keyframes blink{50%{opacity:0}}
+.agent-foot .btn{min-width:88px;justify-content:center}
+.agent-foot .btn.done{background:var(--action);color:var(--action-fg)}
+.tbl tbody tr{transition:background-color 300ms var(--ease)}
+.tbl tbody tr:hover{background:var(--spot)}
+
+/* listas em sequência */
+.reveal-ready .box.reveal li{opacity:0;transform:translateX(-12px)}
+.reveal-ready .box.reveal.in li{opacity:1;transform:none;transition:opacity 500ms var(--ease),transform 500ms var(--ease);transition-delay:calc(var(--i,0)*140ms + 250ms)}
+.reveal-ready .box.reveal li .ic{transform:scale(0)}
+.reveal-ready .box.reveal.in li .ic{transform:none;transition:transform 300ms var(--ease);transition-delay:calc(var(--i,0)*140ms + 450ms)}
+.box li{transition:padding-left 300ms var(--ease)}
+.box li:hover{padding-left:8px}
+
+/* foco de luz e cotas nos cartões */
+.spot{position:relative;isolation:isolate}
+.spot::after{content:"";position:absolute;inset:0;pointer-events:none;opacity:0;z-index:-1;transition:opacity 300ms var(--ease);
+  background:radial-gradient(240px circle at var(--x,50%) var(--y,50%),var(--spot),transparent 70%)}
+.spot:hover::after{opacity:1}
+.case.wide.spot::after{background:radial-gradient(280px circle at var(--x,50%) var(--y,50%),rgba(255,255,255,.18),transparent 70%)}
+.tick::before{content:"";position:absolute;inset:-1px;pointer-events:none;opacity:0;transition:opacity 300ms var(--ease),inset 300ms var(--ease);
+  background:
+   linear-gradient(var(--accent),var(--accent)) 0 0/12px 1px no-repeat,linear-gradient(var(--accent),var(--accent)) 0 0/1px 12px no-repeat,
+   linear-gradient(var(--accent),var(--accent)) 100% 0/12px 1px no-repeat,linear-gradient(var(--accent),var(--accent)) 100% 0/1px 12px no-repeat,
+   linear-gradient(var(--accent),var(--accent)) 0 100%/12px 1px no-repeat,linear-gradient(var(--accent),var(--accent)) 0 100%/1px 12px no-repeat,
+   linear-gradient(var(--accent),var(--accent)) 100% 100%/12px 1px no-repeat,linear-gradient(var(--accent),var(--accent)) 100% 100%/1px 12px no-repeat}
+.tick:hover::before{opacity:1;inset:-7px}
+.case,.num,.cred{transition:transform 500ms var(--ease),border-color 300ms var(--ease)}
+.case:hover,.num:hover{transform:translateY(-4px);border-color:var(--link)}
+.benefit .ic{transition:transform 500ms var(--ease),color 300ms var(--ease)}
+.benefit:hover .ic{transform:translateY(-2px);color:var(--accent-text)}
+.chip.prod::before{animation:blink 1.6s steps(1,end) infinite}
+
+/* etapas acendem em ordem */
+.step::before{content:"";position:absolute;left:-1px;right:-1px;top:-1px;height:3px;background:var(--fg);transform-origin:0 50%}
+.step:nth-child(2)::before{background:var(--action)}
+.step:nth-child(3)::before{background:var(--accent)}
+.reveal-ready .steps .step::before{transform:scaleX(0);transition:transform 450ms linear;transition-delay:calc(var(--i,0)*450ms + 300ms)}
+.reveal-ready .steps.go .step::before{transform:none}
+.reveal-ready .steps .step-n{background:transparent;border-color:var(--line);color:var(--muted);transition:background-color 300ms var(--ease),border-color 300ms var(--ease),color 300ms var(--ease);transition-delay:calc(var(--i,0)*450ms + 500ms)}
+.reveal-ready .steps.go .step:nth-child(1) .step-n{border-color:var(--fg);color:var(--fg)}
+.reveal-ready .steps.go .step:nth-child(2) .step-n{background:var(--action);border-color:var(--action);color:var(--action-fg)}
+.reveal-ready .steps.go .step:nth-child(3) .step-n{background:var(--accent);border-color:var(--accent);color:var(--accent-fg)}
+
+/* linha do tempo se desenha */
+.tl{border-top:0;position:relative}
+.tl::before{content:"";position:absolute;left:0;right:0;top:0;height:1px;background:var(--fg);transform-origin:0 50%}
+.tl li{position:relative;transition:color 300ms var(--ease)}
+.tl li::before{content:"";position:absolute;left:0;top:-3px;width:7px;height:7px;background:var(--fg);transition:transform 300ms var(--ease),background-color 300ms var(--ease)}
+.tl li.now::before{background:var(--accent)}
+.tl li:hover::before{background:var(--accent);transform:scale(1.6)}
+.reveal-ready .tl::before{transform:scaleX(0);transition:transform 1400ms var(--ease)}
+.reveal-ready .tl.go::before{transform:none}
+.reveal-ready .tl li{opacity:0;transform:translateY(10px);transition:opacity 450ms var(--ease),transform 450ms var(--ease);transition-delay:calc(var(--i,0)*180ms + 150ms)}
+.reveal-ready .tl.go li{opacity:1;transform:none}
+
+.faq .ans{overflow:hidden}
+.faq details.closing summary .ic{transform:none}
+.faq summary{transition:color 300ms var(--ease),padding-left 300ms var(--ease)}
+.faq summary:hover{padding-left:8px;color:var(--accent-text)}
+#copy.ok{border-color:var(--accent);color:var(--accent-text)}
+
+/* Kapi, o mascote */
+.kapi-rail{position:absolute;left:0;right:0;bottom:100%;height:48px;pointer-events:none}
+.kapi{appearance:none;-webkit-appearance:none;border:0;background:none;padding:0;margin:0;color:var(--fg);cursor:pointer;display:block;width:90px;height:48px;line-height:0;position:absolute;right:24px;bottom:0;pointer-events:auto;-webkit-tap-highlight-color:transparent}
+.kapi-rail.js .kapi{right:auto;left:0;transform:translateX(var(--kx,0px))}
+.kapi svg{width:100%;height:100%;display:block;overflow:visible;transform:translateY(var(--hop,0px)) scaleX(var(--dir,1))}
+.kapi .k-cur{fill:var(--accent)}
+.kapi .k-lid,.kapi .k-legs-b{opacity:0}
+.kapi.blink .k-lid{opacity:1}
+.kapi.step .k-legs-a{opacity:0}
+.kapi.step .k-legs-b{opacity:1}
+.kapi.left{--dir:-1}
+.kapi.hop{--hop:-6px}
+.kapi.twitch .k-ear{transform:translateX(-1px)}
+.reveal-ready .kapi .k-cur{animation:blink 1.1s steps(1,end) infinite}
+.kapi-say{position:absolute;bottom:calc(100% + 56px);left:var(--sx,auto);right:var(--sr,auto);max-width:min(300px,100%);background:var(--surface-2);border:1px solid var(--line);padding:6px 10px;font-family:var(--mono);font-size:12px;line-height:16px;color:var(--fg);opacity:0;transform:translateY(4px);transition:opacity 200ms var(--ease),transform 200ms var(--ease);pointer-events:none;z-index:2}
+.kapi-say.on{opacity:1;transform:none}
+.kapi-say b{color:var(--accent-text);font-weight:500}
+.contact{position:relative}
+.foot-kapi{display:flex;align-items:flex-end;gap:12px}
+
+/* ===== portfólio: projetos, casos e capacidades ===== */
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px}
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}
+.fbtn{font-family:var(--font);background:transparent;color:var(--muted);border:1px solid var(--line);padding:8px 12px;min-height:36px;cursor:pointer;transition:color 300ms var(--ease),border-color 300ms var(--ease),background-color 300ms var(--ease)}
+.fbtn:hover{color:var(--fg);border-color:var(--link)}
+.fbtn[aria-pressed="true"]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+#fcount{min-height:16px;margin-bottom:16px}
+.projs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.proj{background:var(--surface);border:1px solid var(--line);display:flex;flex-direction:column;cursor:pointer;transition:transform 500ms var(--ease),border-color 300ms var(--ease)}
+.proj:hover{transform:translateY(-4px);border-color:var(--link)}
+.proj-body{padding:24px;display:flex;flex-direction:column;gap:12px;flex:1}
+.proj-meta{display:flex;flex-wrap:wrap;gap:8px 12px;align-items:center}
+.proj-open{margin-top:auto;align-self:flex-start}
+.proj-open .ic{width:16px;height:16px;transition:transform 300ms var(--ease)}
+.proj:hover .proj-open .ic{transform:translateX(4px)}
+.chip.val::before{background:var(--dev)}
+.art{height:136px;border-bottom:1px solid var(--line);background:var(--surface-2);background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:20px 20px;display:flex;align-items:center;justify-content:center;padding:16px;color:var(--fg);font-size:11px;line-height:16px;overflow:hidden}
+.art-bars{display:flex;gap:4px;width:100%;align-items:flex-end;height:72px}
+.art-bars span{display:flex;flex-direction:column;justify-content:flex-end;padding:6px;font-size:10px;overflow:hidden;white-space:nowrap;height:100%;background:var(--fg);color:var(--bg);min-width:0;transform-origin:50% 100%;transition:transform 500ms var(--ease)}
+.art-bars span:nth-child(2){background:var(--action);color:var(--action-fg);height:60%}
+.art-bars span:nth-child(3){background:var(--accent);color:var(--accent-fg)}
+.art-bars span:nth-child(1){height:88%}
+.art-bars b{font-size:16px;line-height:20px;font-weight:500}
+.proj:hover .art-bars span{transform:scaleY(1.08)}
+.art-flow{display:flex;align-items:center;gap:0;width:100%}
+.art-flow span{flex:1;text-align:center;border:1px solid var(--muted);padding:10px 4px;background:var(--bg);position:relative;min-width:0;transition:border-color 300ms var(--ease),background-color 300ms var(--ease),color 300ms var(--ease)}
+.art-flow span+span{margin-left:14px}
+.art-flow span+span::before{content:"";position:absolute;right:100%;top:50%;width:14px;height:1px;background:var(--muted)}
+.art-flow .hl{border-color:var(--accent);color:var(--accent-text)}
+.proj:hover .art-flow span{border-color:var(--link)}
+.proj:hover .art-flow .hl{background:var(--accent);color:var(--accent-fg);border-color:var(--accent)}
+.art-trail{display:flex;flex-direction:column;gap:12px;width:100%;color:var(--muted)}
+.trail{display:flex;gap:4px}
+.trail i{flex:1;height:12px;background:var(--accent);transition:background-color 300ms var(--ease)}
+.trail i.off{background:transparent;border:1px solid var(--muted)}
+.proj:hover .trail i.off{background:var(--accent);border-color:var(--accent)}
+.proj:hover .trail i.off:last-child{transition-delay:200ms}
+.art-term{display:flex;flex-direction:column;gap:4px;width:100%;background:var(--bg);border:1px solid var(--line);padding:10px 12px;color:var(--muted)}
+.art-term span::before{content:"> ";color:var(--link)}
+.art-term .hl{color:var(--accent-text)}
+.art-bub{width:100%;height:100%;color:var(--link)}
+.art-bub circle{transition:transform 500ms var(--ease);transform-box:fill-box;transform-origin:center}
+.proj:hover .art-bub circle{transform:scale(1.12)}
+.more{margin-top:48px;border:1px solid var(--line);padding:24px;display:flex;flex-direction:column;gap:12px}
+.more .tbl td{padding-block:12px}
+.caps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.cap{border:1px solid var(--line);padding:24px;display:flex;flex-direction:column;gap:12px;background:var(--surface)}
+.cap li{display:flex;justify-content:space-between;gap:12px;align-items:baseline;padding-block:10px;border-bottom:1px solid var(--line)}
+.cap li:last-child{border-bottom:0}
+.cap-lim{background:transparent;border-style:dashed;color:var(--muted)}
+.cap-lim .title-3{color:var(--fg)}
+.lnk{font-family:var(--font);background:none;border:0;padding:4px 0;color:var(--link);cursor:pointer;white-space:nowrap;text-decoration:underline;text-underline-offset:3px}
+.lnk:hover{color:var(--accent-text)}
+dialog.caso{width:min(960px,calc(100vw - 32px));max-height:min(88vh,900px);padding:0;border:1px solid var(--line);background:var(--surface);color:var(--fg);overflow:auto;overscroll-behavior:contain}
+dialog.caso::backdrop{background:rgba(5,11,26,.72);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
+.reveal-ready dialog.caso[open]{animation:casoIn 400ms var(--ease)}
+@keyframes casoIn{from{opacity:0;transform:translateY(24px)}}
+.caso-head{position:sticky;top:0;z-index:1;display:flex;justify-content:space-between;gap:16px;align-items:flex-start;padding:24px;background:var(--surface-2);border-bottom:1px solid var(--line)}
+.caso-head>div{display:flex;flex-direction:column;gap:8px;min-width:0}
+.caso-x{width:44px;height:44px;justify-content:center;padding:0;flex:none}
+.caso-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:32px;padding:24px}
+.caso-col{display:flex;flex-direction:column;gap:24px;min-width:0}
+.caso-col>div{display:flex;flex-direction:column;gap:8px}
+.caso .caption-3{color:var(--accent-text)}
+.dots li{position:relative;padding:6px 0 6px 18px}
+.dots li::before{content:"";position:absolute;left:0;top:14px;width:6px;height:6px;background:var(--link)}
+.flow{display:flex;flex-direction:column;gap:0;counter-reset:f}
+.flow li{display:flex;gap:12px;align-items:center;border:1px solid var(--line);padding:10px 12px;background:var(--bg);position:relative}
+.flow li+li{margin-top:14px}
+.flow li+li::before{content:"";position:absolute;left:23px;bottom:100%;width:1px;height:14px;background:var(--muted)}
+.flow li span{color:var(--muted);font-size:12px}
+.reveal-ready .flow li{opacity:.35;transition:opacity 300ms var(--ease),border-color 300ms var(--ease);transition-delay:calc(var(--i,0)*160ms + 250ms)}
+.reveal-ready dialog.go .flow li{opacity:1;border-color:var(--link)}
+.reveal-ready dialog.go .flow li:last-child{border-color:var(--accent)}
+.res li{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;padding-block:10px;border-bottom:1px solid var(--line)}
+.res li:last-child{border-bottom:0}
+.res b{font-weight:600}
+.res .seal{flex:none}
+.tags{display:flex;flex-wrap:wrap;gap:8px}
+.tags li{border:1px solid var(--line);padding:4px 8px;color:var(--muted)}
+.caso-foot{padding:0 24px 24px}
+
+@media (max-width:1024px){
+  .projs,.caps{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .hero-grid,.final-box,.sec-head{grid-template-columns:minmax(0,1fr)}
+  .hero-grid{gap:48px}
+  .benefits,.nums{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .cases{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .tl{grid-template-columns:repeat(3,minmax(0,1fr));row-gap:16px}
+}
+@media (max-width:760px){
+  .links,.nav-bar>.btn{display:none}
+  .menu-btn{display:inline-flex}
+  .nav-bar{width:100%;justify-content:space-between}
+  .heading-1{font-size:36px;line-height:40px}
+  .heading-2{font-size:30px;line-height:36px}
+  .heading-3{font-size:30px;line-height:36px}
+  .hero{padding-top:calc(128px + env(safe-area-inset-top,0px));padding-bottom:64px}
+  section,.tagline{padding-block:64px}
+  .sec-head{margin-bottom:32px}
+  .split,.benefits,.steps,.cases,.nums,.creds,.projs,.caps,.caso-grid{grid-template-columns:minmax(0,1fr)}
+  .more{padding:16px}
+  .case.wide{grid-column:auto}
+  .box,.step{padding:24px}
+  .tl{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .tbl .hide-sm{display:none}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{transition-duration:200ms!important;animation:none!important}
+  .reveal-ready .reveal{transform:none}
+  .tagline .w{opacity:1}
+  .btn:hover,.benefit:hover,.case:hover,.num:hover,.proj:hover{transform:none}
+  .box li:hover,.faq summary:hover{padding-left:0}
+}
+
+/* ===================== v3 ===================== */
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+:root{--ai:#6E95FF}
+@media (prefers-color-scheme: light){:root:not([data-theme="dark"]){--ai:#1F4FE0}}
+:root[data-theme="light"]{--ai:#1F4FE0}
+
+/* troca de tema: varredura de cima para baixo */
+::view-transition-old(root),::view-transition-new(root){animation:none;mix-blend-mode:normal}
+.vt-scan::view-transition-new(root){animation:vtScan 650ms var(--ease) both}
+@keyframes vtScan{from{clip-path:inset(0 0 100% 0)}to{clip-path:inset(0 0 0 0)}}
+.ibtn{width:40px;height:40px;display:inline-flex;align-items:center;justify-content:center;background:transparent;border:1px solid var(--line);color:var(--fg);cursor:pointer;flex:none;transition:border-color 300ms var(--ease),background-color 300ms var(--ease),color 300ms var(--ease)}
+.ibtn:hover{border-color:var(--link);background:var(--surface)}
+.ibtn svg{width:18px;height:18px}
+.theme-btn .t-half{transition:transform 600ms var(--ease);transform-origin:center;transform-box:fill-box}
+:root[data-theme="light"] .theme-btn .t-half{transform:rotate(180deg)}
+.nav-bar .wa-mini{color:var(--fg)}
+.nav-bar .wa-mini:hover{color:var(--accent-text)}
+
+/* WhatsApp flutuante */
+.fab{position:fixed;z-index:18;right:max(16px,env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));display:inline-flex;align-items:center;gap:10px;padding:12px 16px;background:var(--accent);color:var(--accent-fg);text-decoration:none;font-weight:600;font-size:15px;line-height:20px;border:1px solid var(--accent);transform:translateY(calc(100% + 32px));transition:transform 500ms var(--ease),background-color 300ms var(--ease)}
+.fab.show{transform:none}
+.fab:hover{background:#FFC24D}
+.fab .ic{width:20px;height:20px}
+.fab::after{content:"";position:absolute;inset:-6px;border:1px solid var(--accent);opacity:0;animation:fabPing 2.8s var(--ease) infinite}
+@keyframes fabPing{0%{opacity:.7;inset:0}70%,100%{opacity:0;inset:-10px}}
+
+/* títulos que "decodificam" */
+.dec{font-variant-ligatures:none}
+
+/* botões magnéticos */
+.mag{will-change:transform}
+
+/* ---------- filtros com marcador deslizante ---------- */
+.filters{position:relative;isolation:isolate}
+.filters .find{position:absolute;z-index:-1;left:0;top:0;width:0;height:0;background:var(--fg);pointer-events:none;transition:transform 480ms var(--ease),width 480ms var(--ease),height 480ms var(--ease)}
+.filters .find::after{content:"";position:absolute;left:0;right:0;bottom:-4px;height:2px;background:var(--accent);transform-origin:0 50%;animation:findLine 480ms var(--ease) both}
+.filters.moving .find::after{animation:none}
+@keyframes findLine{from{transform:scaleX(0)}}
+.filters.js .fbtn[aria-pressed="true"]{background:transparent;border-color:var(--fg);color:var(--bg)}
+.fbtn{position:relative}
+.fbtn .n{font-family:var(--mono);font-size:10px;opacity:.6;margin-left:6px}
+.fmeta{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;margin-bottom:16px}
+.fmeta #fcount,.fmeta .fc{margin:0}
+.fhint{display:none}
+@media (hover:none){.fhint{display:inline}}
+.stage{position:relative}
+.scan{position:absolute;left:-12px;right:-12px;top:0;height:1px;background:var(--accent);box-shadow:0 0 0 1px rgba(255,176,32,.18),0 0 28px 6px rgba(255,176,32,.28);opacity:0;pointer-events:none;z-index:5}
+.scan::before{content:attr(data-label);position:absolute;right:12px;top:-22px;font-family:var(--mono);font-size:10px;line-height:14px;background:var(--accent);color:var(--accent-fg);padding:3px 6px;white-space:nowrap}
+.projs,.shots{position:relative}
+.more tbody tr[hidden]{display:none}
+
+/* ---------- serviços: seis portas ---------- */
+.doors{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.door{position:relative;background:var(--surface);border:1px solid var(--line);padding:24px;display:flex;flex-direction:column;gap:12px;color:var(--fg);text-decoration:none;overflow:hidden;transition:transform 500ms var(--ease),border-color 300ms var(--ease)}
+.door:hover{transform:translateY(-4px);border-color:var(--link)}
+.door-top{display:flex;justify-content:space-between;align-items:center}
+.door-n{width:40px;height:40px;display:flex;align-items:center;justify-content:center;border:2px solid var(--fg);font-family:var(--mono);font-weight:500;font-size:14px;transition:background-color 300ms var(--ease),color 300ms var(--ease),border-color 300ms var(--ease)}
+.door:hover .door-n{background:var(--accent);border-color:var(--accent);color:var(--accent-fg)}
+.door-k{font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.04em}
+.door p.body-6{color:var(--muted)}
+.door-out{margin-top:auto;display:flex;justify-content:space-between;align-items:center;gap:12px;padding-top:14px;border-top:1px solid var(--line);font-family:var(--mono);font-size:11px;line-height:16px;color:var(--muted);position:relative}
+.door-out::before{content:"";position:absolute;left:0;top:-1px;height:1px;width:100%;background:var(--accent);transform:scaleX(0);transform-origin:0 50%;transition:transform 500ms var(--ease)}
+.door:hover .door-out::before{transform:none}
+.door-out .ic{width:16px;height:16px;color:var(--fg);transition:transform 300ms var(--ease)}
+.door:hover .door-out .ic{transform:translateX(4px)}
+.door.blue{background:var(--action);border-color:var(--action);color:var(--action-fg)}
+.door.blue p.body-6,.door.blue .door-out,.door.blue .door-k{color:#DCE6FF}
+.door.blue .door-out{border-color:rgba(255,255,255,.3)}
+.door.blue .door-n{border-color:#fff}
+.door.blue .door-out .ic{color:#fff}
+.door.blue.spot::after{background:radial-gradient(280px circle at var(--x,50%) var(--y,50%),rgba(255,255,255,.18),transparent 70%)}
+.limit{margin-top:16px;border:1px dashed var(--line);padding:20px 24px;color:var(--muted)}
+.limit b{color:var(--fg);font-weight:600}
+
+/* ---------- método: laboratório do Kapi ---------- */
+.step{position:relative;transition:border-color 300ms var(--ease),background-color 300ms var(--ease)}
+.step.live{border-color:var(--accent)}
+.step.live .step-n{box-shadow:0 0 0 4px rgba(255,176,32,.25)}
+.lab{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,.65fr);gap:16px;margin-top:16px}
+.chat{background:var(--surface);border:1px solid var(--line);display:flex;flex-direction:column;min-width:0;height:600px}
+.chat-head{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 16px;border-bottom:1px solid var(--line);background:var(--surface-2)}
+.kav{width:40px;height:40px;display:flex;align-items:center;justify-content:center;border:2px solid var(--ai);flex:none;color:var(--fg);position:relative}
+.kav svg{width:30px;height:16px}
+.kav::after{content:"";position:absolute;right:-4px;bottom:-4px;width:8px;height:8px;background:#34D399;border:2px solid var(--surface-2)}
+.ai-tag{display:inline-block;margin-left:6px;padding:1px 6px;font-family:var(--mono);font-size:10px;line-height:14px;background:var(--ai);color:#fff;vertical-align:1px}
+.chat-log{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:12px;scroll-behavior:smooth;overscroll-behavior:contain}
+.msg{max-width:88%;padding:10px 12px;font-size:14px;line-height:20px;border:1px solid var(--line);animation:msgIn 360ms var(--ease) both;overflow-wrap:anywhere}
+.msg.k{align-self:flex-start;background:var(--surface-2);border-left:2px solid var(--ai)}
+.msg.u{align-self:flex-end;background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.msg .who{display:block;font-family:var(--mono);font-size:10px;line-height:14px;color:var(--muted);margin-bottom:4px;letter-spacing:.04em}
+.msg.u .who{color:inherit;opacity:.6}
+.msg b{font-weight:600}
+.msg .tbl{margin-top:8px}
+.msg .acts{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.msg .caret::after{height:12px}
+@keyframes msgIn{from{opacity:0;transform:translateY(10px);clip-path:inset(0 0 100% 0)}to{opacity:1;transform:none;clip-path:inset(0 0 0 0)}}
+.chat-chips{display:flex;gap:8px;padding:10px 16px;border-top:1px solid var(--line);overflow-x:auto;scrollbar-width:none}
+.chat-chips::-webkit-scrollbar{display:none}
+.chip-q{flex:none;font-family:var(--font);font-size:12px;line-height:16px;font-weight:500;padding:8px 10px;background:transparent;color:var(--fg);border:1px solid var(--line);cursor:pointer;transition:border-color 300ms var(--ease),background-color 300ms var(--ease),color 300ms var(--ease)}
+.chip-q:hover{border-color:var(--accent);color:var(--accent-text)}
+.chip-q:disabled{opacity:.4;cursor:default}
+.chat-in{display:flex;gap:8px;padding:12px 16px;border-top:1px solid var(--line);background:var(--surface-2)}
+.chat-in input{flex:1;min-width:0;font:inherit;font-size:16px;color:var(--fg);background:var(--bg);border:1px solid var(--line);padding:8px 12px;border-radius:0}
+.chat-in input:focus{outline:2px solid var(--accent);outline-offset:0}
+.chat-note{padding:0 16px 12px;background:var(--surface-2)}
+.trace{border:1px solid var(--line);background:var(--surface-2);display:flex;flex-direction:column;min-width:0;height:600px}
+.trace-head{display:flex;justify-content:space-between;gap:8px;padding:14px 16px;border-bottom:1px solid var(--line);color:var(--muted)}
+.checks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));border-bottom:1px solid var(--line)}
+.checks li{display:flex;align-items:center;gap:8px;padding:12px 16px;font-size:13px;line-height:18px;color:var(--muted);border-right:1px solid var(--line);border-bottom:1px solid var(--line);transition:color 300ms var(--ease)}
+.checks li:nth-child(2n){border-right:0}
+.checks li:nth-last-child(-n+2){border-bottom:0}
+.checks li i{width:12px;height:12px;border:1px solid var(--muted);flex:none;transition:background-color 300ms var(--ease),border-color 300ms var(--ease),transform 300ms var(--ease)}
+.checks li.on{color:var(--fg)}
+.checks li.on i{background:var(--accent);border-color:var(--accent);transform:rotate(45deg) scale(.9)}
+.trace-log{flex:1;overflow-y:auto;padding:12px 16px;display:flex;flex-direction:column;gap:6px;color:var(--muted)}
+.trace-log li{display:grid;grid-template-columns:auto 1fr;gap:10px;animation:msgIn 300ms var(--ease) both}
+.trace-log time{color:var(--link)}
+.trace-log .hl{color:var(--accent-text)}
+.trace-log .ok{color:var(--fg)}
+.trace-empty{color:var(--muted);opacity:.7}
+
+/* ---------- em campo ---------- */
+.shots{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+.shot{position:relative;background:var(--surface);border:1px solid var(--line);padding:8px 8px 14px;display:flex;flex-direction:column;gap:10px;text-align:left;cursor:pointer;color:var(--fg);font-family:var(--font);transition:transform 500ms var(--ease),border-color 300ms var(--ease)}
+.shot:hover{transform:translateY(-4px);border-color:var(--link)}
+.shot:first-child{grid-column:span 2;grid-row:span 2}
+.ph{position:relative;aspect-ratio:1/1;background:var(--surface-2);background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:20px 20px;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.shot:first-child .ph{aspect-ratio:auto;flex:1;min-height:260px}
+.ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.ph.x::before{content:"";position:absolute;inset:0;background:linear-gradient(to top right,transparent calc(50% - .5px),var(--line) calc(50% - .5px),var(--line) calc(50% + .5px),transparent calc(50% + .5px)),linear-gradient(to bottom right,transparent calc(50% - .5px),var(--line) calc(50% - .5px),var(--line) calc(50% + .5px),transparent calc(50% + .5px))}
+.ph.x span{position:relative;background:var(--surface-2);border:1px solid var(--line);padding:4px 8px;font-family:var(--mono);font-size:11px;color:var(--muted)}
+.ph::after{content:"";position:absolute;left:0;right:0;top:0;height:30%;background:linear-gradient(to bottom,transparent,var(--spot),transparent);transform:translateY(-100%);pointer-events:none}
+.shot:hover .ph::after{animation:phScan 1.1s var(--ease)}
+@keyframes phScan{to{transform:translateY(340%)}}
+.shot .chip{position:absolute;top:16px;left:16px;z-index:1;background:var(--bg)}
+.chip.ev::before{background:var(--accent)}
+.chip.evi::before{background:var(--link)}
+.chip.cer::before{background:var(--fg)}
+.shot-t{padding:0 6px;display:flex;flex-direction:column;gap:2px}
+dialog.lb .lb-img{display:flex;align-items:center;justify-content:center;padding:24px;background:var(--bg);min-height:min(56vh,520px)}
+dialog.lb .lb-img img{max-width:100%;max-height:70vh;object-fit:contain}
+dialog.lb .lb-img .ph{width:min(100%,560px);aspect-ratio:4/3}
+dialog.lb .lb-foot{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:16px 24px;border-top:1px solid var(--line)}
+
+.campo{display:grid;grid-template-columns:minmax(0,300px) minmax(0,1fr);gap:24px;align-items:start}
+.campo-g{min-width:0}
+.campo .shots{grid-template-columns:repeat(3,minmax(0,1fr))}
+.me{position:sticky;top:96px;background:var(--surface);border:1px solid var(--line);padding:12px 12px 20px;display:flex;flex-direction:column;gap:14px}
+.me-ph{position:relative;aspect-ratio:4/5;overflow:hidden}
+.me-ph .ph{position:absolute;inset:0;aspect-ratio:auto}
+.me-ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.me-ph .cnr{position:absolute;width:14px;height:14px;border:2px solid var(--accent);z-index:1}
+.me-ph .c1{top:8px;left:8px;border-right:0;border-bottom:0}.me-ph .c2{top:8px;right:8px;border-left:0;border-bottom:0}
+.me-ph .c3{bottom:8px;left:8px;border-right:0;border-top:0}.me-ph .c4{bottom:8px;right:8px;border-left:0;border-top:0}
+.me-id,.me>p{padding:0 8px}
+.me-id{display:flex;flex-direction:column;gap:2px;border-left:2px solid var(--action);padding-left:10px;margin-left:8px}
+@media (max-width:1024px){.campo{grid-template-columns:minmax(0,1fr)}.me{position:relative;top:0;display:grid;grid-template-columns:minmax(0,200px) minmax(0,1fr);align-items:start;gap:12px 20px}.me-ph{grid-row:span 3}}
+@media (max-width:560px){.me{grid-template-columns:minmax(0,1fr)}.me-ph{grid-row:auto;aspect-ratio:1/1}.campo .shots{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* ---------- trajetória horizontal ---------- */
+.tl-tools{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px;margin-bottom:24px}
+.legend{display:flex;flex-wrap:wrap;gap:8px}
+.legend button{display:inline-flex;align-items:center;gap:8px;font-family:var(--font);font-size:12px;line-height:16px;font-weight:500;padding:8px 12px;min-height:36px;background:transparent;border:1px solid var(--line);color:var(--muted);cursor:pointer;transition:all 300ms var(--ease)}
+.legend button::before{content:"";width:8px;height:8px;background:var(--c,var(--fg))}
+.legend button[aria-pressed="true"]{color:var(--fg);border-color:var(--c,var(--fg))}
+[data-tipo="experiencia"]{--c:var(--link)}
+[data-tipo="formacao"]{--c:#34D399}
+[data-tipo="certificacao"]{--c:var(--accent)}
+.tl-nav{display:flex;gap:8px}
+.tlx{overflow-x:auto;scrollbar-width:none;cursor:grab;scroll-snap-type:x proximity;margin:0 calc(max(16px,env(safe-area-inset-left,0px)) * -1);padding:0 max(16px,env(safe-area-inset-left,0px)) 8px;outline-offset:-2px}
+.tlx::-webkit-scrollbar{display:none}
+.tlx.drag{cursor:grabbing;scroll-snap-type:none}
+.tlx.drag *{pointer-events:none}
+.tlx-track{position:relative;display:flex;width:max-content;padding-top:28px}
+.tlx-track::before{content:"";position:absolute;left:0;right:0;top:28px;height:1px;background:var(--fg);transform-origin:0 50%}
+.reveal-ready .tlx-track::before{transform:scaleX(0);transition:transform 1600ms var(--ease)}
+.reveal-ready .tlx.go .tlx-track::before{transform:none}
+.tlx-track li{position:relative;width:236px;flex:none;padding:24px 24px 0 0;display:flex;flex-direction:column;gap:6px;scroll-snap-align:start;transition:opacity 400ms var(--ease)}
+.tlx-track li::before{content:"";position:absolute;left:0;top:-6px;width:11px;height:11px;background:var(--bg);border:2px solid var(--c);transition:transform 300ms var(--ease),background-color 300ms var(--ease)}
+.tlx-track li::after{content:"";position:absolute;left:5px;top:5px;width:1px;height:14px;background:var(--line)}
+.tlx-track li:hover::before,.tlx-track li.now::before{background:var(--c);transform:scale(1.25)}
+.tlx-track li.now .yr{color:var(--accent-text)}
+.tlx-track li.dim{opacity:.22}
+.tlx-card{flex:1;border:1px solid var(--line);background:var(--surface);padding:16px;display:flex;flex-direction:column;gap:6px;min-height:132px;transition:transform 400ms var(--ease),border-color 300ms var(--ease)}
+.tlx-track li:hover .tlx-card{transform:translateY(-4px);border-color:var(--c)}
+.tlx-track li.now .tlx-card{border-top:3px solid var(--accent)}
+.tlx-tag{align-self:flex-start;margin-top:auto;font-family:var(--mono);font-size:10px;line-height:14px;padding:2px 6px;background:var(--c);color:var(--accent-fg)}
+[data-tipo="experiencia"] .tlx-tag{color:#fff;background:var(--action)}
+.reveal-ready .tlx-track li{opacity:0;transform:translateY(12px);transition:opacity 450ms var(--ease),transform 450ms var(--ease);transition-delay:calc(var(--i,0)*110ms + 200ms)}
+.reveal-ready .tlx.go .tlx-track li{opacity:1;transform:none}
+.reveal-ready .tlx.go .tlx-track li.dim{opacity:.22}
+.tlx-bar{height:2px;background:var(--line);margin-top:20px;position:relative;overflow:hidden}
+.tlx-bar i{position:absolute;left:0;top:0;bottom:0;background:var(--accent);width:var(--w,20%);transform:translateX(var(--l,0))}
+
+/* ---------- contato: do que a sua operação precisa ---------- */
+.need{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,460px);gap:48px;align-items:start}
+.need-l{display:flex;flex-direction:column;gap:20px;min-width:0}
+.opts{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;border:0;padding:0;margin:4px 0 0}
+.opt{position:relative;display:flex;align-items:center;gap:12px;padding:12px 14px;min-height:52px;background:var(--surface);border:1px solid var(--line);cursor:pointer;font-size:14px;line-height:20px;transition:border-color 300ms var(--ease),transform 300ms var(--ease),background-color 300ms var(--ease)}
+.opt:hover{border-color:var(--link)}
+.opt input{position:absolute;opacity:0;pointer-events:none}
+.opt .bx{width:18px;height:18px;border:1px solid var(--muted);flex:none;display:flex;align-items:center;justify-content:center;transition:background-color 250ms var(--ease),border-color 250ms var(--ease)}
+.opt .bx svg{width:12px;height:12px;fill:none;stroke:var(--accent-fg);stroke-width:2.5;stroke-dasharray:20;stroke-dashoffset:20;transition:stroke-dashoffset 300ms var(--ease) 60ms}
+.opt input:checked+.bx{background:var(--accent);border-color:var(--accent)}
+.opt input:checked+.bx svg{stroke-dashoffset:0}
+.opt:has(input:checked){border-color:var(--accent);transform:translateY(-2px)}
+.opt input:focus-visible+.bx{outline:2px solid var(--accent);outline-offset:3px}
+.fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.fields label{display:flex;flex-direction:column;gap:6px}
+.fields input{font:inherit;font-size:16px;color:var(--fg);background:var(--bg);border:1px solid var(--line);padding:10px 12px;min-height:44px;border-radius:0}
+.fields input:focus{outline:2px solid var(--accent);outline-offset:0}
+.send{display:flex;flex-wrap:wrap;align-items:center;gap:12px 16px}
+.kbox{position:relative;background:var(--surface);border:1px solid var(--line);display:flex;flex-direction:column;min-width:0}
+.kbox-head{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 16px;border-bottom:1px solid var(--line);background:var(--surface-2)}
+.kst{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:11px;color:var(--muted)}
+.kst::before{content:"";width:7px;height:7px;background:var(--muted);transition:background-color 300ms}
+.kbox.ready .kst{color:var(--fg)}
+.kbox.ready .kst::before{background:var(--accent)}
+.kb-log{display:flex;flex-direction:column;gap:8px;padding:14px 16px;height:200px;overflow-y:auto;scroll-behavior:smooth}
+.kb-log .msg{max-width:100%;font-size:13px;line-height:18px;padding:8px 10px}
+.kb-pre{border-top:1px solid var(--line);padding:12px 16px;font-family:var(--mono);font-size:12px;line-height:18px;color:var(--muted);white-space:pre-wrap;min-height:120px;max-height:200px;overflow:auto;background:var(--bg)}
+.kb-pre .caret::after{height:13px}
+.kb-pre-h{display:flex;justify-content:space-between;padding:10px 16px 0;font-family:var(--mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);border-top:1px solid var(--line);background:var(--bg)}
+.kb-pre-h+.kb-pre{border-top:0}
+.kb-mail{padding:14px 16px;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:8px}
+
+/* ---------- marca: K original ⇄ K de IA ---------- */
+.morph{padding:0;border-bottom:1px solid var(--line);height:260vh;position:relative}
+.morph-stage{position:sticky;top:0;height:100vh;height:100svh;display:flex;align-items:center;overflow:hidden}
+.morph-grid{display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:64px;align-items:center;width:100%}
+.morph-copy{display:flex;flex-direction:column;gap:20px}
+.morph-copy .caption-3{color:var(--accent-text)}
+.morph-read{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border:1px solid var(--line);background:var(--surface-2)}
+.morph-read div{display:flex;flex-direction:column;gap:4px;padding:12px;border-left:1px solid var(--line)}
+.morph-read div:first-child{border-left:0}
+.morph-read span{color:var(--muted)}
+.morph-read b{font-weight:500;color:var(--fg);font-variant-numeric:tabular-nums}
+.morph-sw{display:inline-flex;border:1px solid var(--line);align-self:flex-start;position:relative;isolation:isolate}
+.morph-sw button{font-family:var(--font);font-size:14px;font-weight:600;padding:10px 18px;min-height:44px;background:none;border:0;color:var(--muted);cursor:pointer;transition:color 300ms var(--ease)}
+.morph-sw button[aria-pressed="true"]{color:var(--bg)}
+.morph-sw .find{position:absolute;z-index:-1;top:0;bottom:0;left:0;background:var(--fg);transition:transform 480ms var(--ease),width 480ms var(--ease)}
+.morph-bar{height:2px;background:var(--line);position:relative}
+.morph-bar i{position:absolute;left:0;top:0;bottom:0;width:100%;background:linear-gradient(90deg,var(--accent),var(--ai));transform-origin:0 50%;transform:scaleX(var(--p,0))}
+.morph-fig{position:relative;aspect-ratio:1/1;border:1px solid var(--line);background-color:var(--surface-2);perspective:900px;cursor:pointer;max-height:78vh;justify-self:center;width:100%;max-width:640px}
+.morph-fig svg{position:absolute;inset:0;width:100%;height:100%;transform:rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));transition:transform 500ms var(--ease);color:var(--fg)}
+.morph-fig .cnr{position:absolute;width:16px;height:16px;border:2px solid var(--accent)}
+.morph-fig .c1{top:12px;left:12px;border-right:0;border-bottom:0}.morph-fig .c2{top:12px;right:12px;border-left:0;border-bottom:0}
+.morph-fig .c3{bottom:12px;left:12px;border-right:0;border-top:0}.morph-fig .c4{bottom:12px;right:12px;border-left:0;border-top:0}
+.morph-fig .lbl{position:absolute;font-family:var(--mono);font-size:11px;line-height:14px;color:var(--muted);z-index:1}
+.morph-fig .l1{top:16px;left:40px}.morph-fig .l2{top:16px;right:40px;text-align:right}
+.morph-fig .l3{bottom:16px;left:40px}.morph-fig .l4{bottom:16px;right:40px;color:var(--accent-text)}
+#m-svg .gl{stroke:var(--grid-hi);stroke-width:.008;fill:none}
+#m-svg .dim{stroke:var(--muted);stroke-width:.012;fill:none}
+#m-svg .dimt{font-family:"Geist Mono",monospace;font-size:.13px;fill:var(--muted)}
+#m-svg .bit{fill:var(--ai)}
+#m-svg .scanl{fill:var(--accent)}
+
+@media (max-width:1024px){
+  .doors{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .lab{grid-template-columns:minmax(0,1fr)}
+  .trace{height:auto;max-height:420px}
+  .shots{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .need{grid-template-columns:minmax(0,1fr)}
+  .morph-grid{grid-template-columns:minmax(0,1fr);gap:24px}
+  .morph-fig{max-width:min(520px,58vh)}
+  .morph-copy .body-3{display:none}
+}
+@media (max-width:760px){
+  .doors{grid-template-columns:minmax(0,1fr)}
+  .door{padding:20px}
+  .chat{height:540px}
+  .msg{max-width:94%}
+  .shots{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  .shot:first-child .ph{min-height:200px}
+  .opts,.fields{grid-template-columns:minmax(0,1fr)}
+  .opt{min-height:48px}
+  .tlx-track li{width:212px}
+  .art{height:112px}
+  .proj-body{padding:20px}
+  .morph{height:220vh}
+  .morph-stage{padding-top:64px}
+  .morph-read{display:none}
+  .morph-fig{max-width:min(420px,50vh)}
+  .morph-read div{padding:10px}
+  .morph-copy{gap:14px}
+  .morph-copy h2{font-size:26px;line-height:32px}
+  .fab span{display:none}
+  .fab{padding:14px}
+}
+@media (prefers-reduced-motion:reduce){
+  .morph{height:auto}
+  .morph-stage{position:relative;height:auto;padding-block:64px}
+  .fab::after{display:none}
+  .reveal-ready .tlx-track li{opacity:1;transform:none}
+  .reveal-ready .tlx-track::before{transform:none}
+}
+
+@media (max-width:1024px){.links{display:none}.menu-btn{display:inline-flex}.nav-bar{gap:12px}}
+
+/* ===================== v4 · passe de maturidade =====================
+   Mesma paleta, mesma grade, mesmos cantos retos. Mais hierarquia,
+   mais respiro, menos movimento gratuito. */
+::selection{background:var(--accent);color:var(--accent-fg)}
+html{scroll-padding-top:104px}
+body{line-height:26px;text-rendering:optimizeLegibility}
+
+/* tipografia com mais contraste de escala */
+.heading-1{font-size:clamp(40px,5.7vw,78px);line-height:1;letter-spacing:-.04em}
+.heading-2{font-size:clamp(32px,4.6vw,60px);line-height:1.05;letter-spacing:-.035em}
+.heading-3{font-size:clamp(30px,3.5vw,46px);line-height:1.08;letter-spacing:-.03em}
+.heading-6{font-size:19px;line-height:26px;letter-spacing:-.01em}
+.body-3{line-height:26px}
+.title-1{font-size:clamp(18px,1.5vw,20px);line-height:1.5;font-weight:400}
+.hero h1{background:none;-webkit-background-clip:border-box;background-clip:border-box;color:var(--fg);max-width:none}
+.hero .sub{max-width:560px}
+.caption-3{font-family:var(--mono);font-weight:500;font-size:11px;letter-spacing:.1em}
+
+/* seções: mais respiro e numeração de prancha */
+section{padding-block:128px}
+.tagline{padding-block:128px}
+.sec-head{margin-bottom:56px;gap:20px 64px}
+main{counter-reset:sec}
+main>section .sec-head>.caption-3::before,.need-l>.caption-3::before,.morph-copy>.caption-3::before{counter-increment:sec;content:counter(sec,decimal-leading-zero) "  /  ";color:var(--muted);white-space:pre}
+.sec-head>.caption-3{max-width:none;display:flex;align-items:center;padding-bottom:20px;border-bottom:1px solid var(--line)}
+.sec-head>.caption-3::after{content:"";flex:1;margin-left:16px;height:1px;background:transparent}
+
+/* navegação */
+.nav-bar{gap:20px;padding:6px 6px 6px 16px}
+.links a{padding:8px 10px}
+.nav-cta{min-height:40px}
+.progress{height:2px}
+
+/* botões: uma altura só, movimento contido */
+.btn{min-height:44px;padding:10px 16px;transition:background-color 250ms var(--ease),border-color 250ms var(--ease),color 250ms var(--ease),transform 250ms var(--ease)}
+.btn.button-sm{min-height:36px;padding:6px 12px}
+.btn.button-lg{font-size:16px;line-height:24px}
+.btn:hover{transform:none}
+.btn:active{transform:translateY(1px)}
+.btn-ghost{border-color:var(--muted)}
+.btn-ghost:hover{border-color:var(--fg)}
+.ibtn-lg{padding:10px 12px}
+
+/* cartões: sem "pulo"; o destaque é a borda e as cotas */
+.proj:hover,.case:hover,.num:hover,.benefit:hover,.door:hover,.shot:hover{transform:none}
+.proj,.door,.shot,.step,.cap{transition:border-color 300ms var(--ease),background-color 300ms var(--ease)}
+.tick:hover::before{inset:-6px}
+.chip.prod::before{animation:none}
+.scan::before{display:none}
+.scan{box-shadow:0 0 18px 2px rgba(255,176,32,.18)}
+.fbtn{min-height:40px;padding:8px 14px}
+
+/* hero */
+.hero{padding-top:calc(176px + env(safe-area-inset-top,0px));padding-bottom:112px}
+.hero-grid{grid-template-columns:minmax(0,1.1fr) minmax(0,480px);gap:72px}
+.hero-copy{gap:28px}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));margin:12px 0 0;border-top:1px solid var(--line)}
+.stats div{padding:18px 16px 0;border-left:1px solid var(--line);display:flex;flex-direction:column;gap:6px}
+.stats div:first-child{padding-left:0;border-left:0}
+.stats dt{font-size:clamp(28px,2.6vw,38px);line-height:1;font-weight:600;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.stats dd{font-size:13px;line-height:18px;color:var(--muted);margin:0}
+.hero-note{margin-top:-8px}
+.agent{box-shadow:12px 12px 0 var(--surface-2)}
+
+/* projetos */
+.projs{gap:20px}
+.proj-body{padding:24px 24px 28px}
+.art{height:148px}
+.more{margin-top:56px;padding:28px}
+.more-btn{align-self:flex-start}
+
+/* serviços */
+.doors{gap:20px}
+.door{padding:28px;gap:14px}
+.door-top{margin-bottom:8px}
+.limit{margin-top:20px;padding:24px 28px}
+
+/* tese */
+.tagline p{max-width:1000px}
+
+/* método + agente */
+.steps{gap:20px}
+.lab{gap:20px;margin-top:20px}
+.chat,.trace{height:560px}
+.msg{font-size:15px;line-height:22px}
+.msg.k{border-left-width:2px}
+.chat-note{padding-top:2px}
+
+/* em campo */
+.campo{grid-template-columns:minmax(0,320px) minmax(0,1fr);gap:32px}
+.me{padding:12px 12px 24px;gap:16px}
+.me-ph img{filter:grayscale(1) contrast(1.06);transition:filter 700ms var(--ease)}
+.me:hover .me-ph img{filter:none}
+.campo .shots{grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:20px}
+.shot:first-child{grid-column:auto;grid-row:auto}
+.shot .ph,.shot:first-child .ph{aspect-ratio:auto;height:360px;min-height:0;flex:none}
+.shot{padding:8px 8px 16px}
+.shots-hint{margin-top:12px}
+.reg{margin-top:40px}
+.reg-h{color:var(--muted);padding-bottom:12px;border-bottom:1px solid var(--fg)}
+.reg li{display:grid;grid-template-columns:120px minmax(0,1fr) auto;gap:16px;align-items:baseline;padding:16px 0;border-bottom:1px solid var(--line);transition:padding-left 300ms var(--ease)}
+.reg li:hover{padding-left:8px}
+.reg-t{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent-text)}
+.reg-n{font-size:16px;line-height:24px;font-weight:500}
+.reg-d{font-size:12px;color:var(--muted);text-align:right}
+
+/* trajetória */
+.tlx-track li{width:228px}
+.tlx-card{min-height:120px;padding:18px}
+.tlx-track li:hover .tlx-card{transform:none}
+
+/* faq */
+.faq{max-width:none;display:grid;grid-template-columns:minmax(0,1fr)}
+.faq summary{padding-block:22px}
+.faq details{max-width:920px}
+
+/* contato */
+.need{gap:56px;grid-template-columns:minmax(0,1fr) minmax(0,440px)}
+.need-l{gap:24px}
+.opt{font-size:15px}
+.kb-log{height:148px}
+.send .btn-ghost{font-size:16px}
+
+/* marca */
+.morph{height:230vh}
+
+/* rodapé */
+footer{padding-block:56px;border-top:1px solid var(--line)}
+.foot nav{gap:20px}
+
+/* WhatsApp flutuante: só no celular, sem pulsar */
+.fab::after{display:none}
+@media (min-width:761px){.fab{display:none}}
+
+@media (max-width:1024px){
+  .campo{grid-template-columns:minmax(0,1fr)}
+  .hero-grid{grid-template-columns:minmax(0,1fr)}
+  .need{grid-template-columns:minmax(0,1fr)}
+}
+@media (max-width:760px){
+  section,.tagline{padding-block:72px}
+  .sec-head{margin-bottom:32px}
+  .hero{padding-top:calc(120px + env(safe-area-inset-top,0px));padding-bottom:64px}
+  .hero-copy{gap:22px}
+  .hero-cta{gap:8px}
+  .hero-cta .btn{padding:10px 12px}
+  .hero-cta .btn-primary .ic{display:none}
+  .tagline br{display:none}
+  .stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .stats div{padding:14px 12px 14px 0;border-left:0}
+  .stats div:nth-child(n+3){border-top:1px solid var(--line)}
+  .stats div:nth-child(even){padding-left:14px;border-left:1px solid var(--line)}
+  .agent{box-shadow:6px 6px 0 var(--surface-2)}
+  .art{height:104px}
+  .proj-body{padding:18px 18px 22px;gap:10px}
+  .projs{gap:12px}
+  .more{margin-top:32px;padding:16px}
+  .more.clip tbody tr:nth-of-type(n+5){display:none}
+  .door{padding:20px}
+  .chat{height:500px}
+  .trace{height:auto;max-height:300px}
+  .campo .shots{grid-template-columns:minmax(0,1fr)}
+  .shot .ph,.shot:first-child .ph{height:auto;aspect-ratio:4/3}
+  .me{grid-template-columns:104px minmax(0,1fr)!important;gap:8px 16px!important;padding:12px!important}
+  .me-ph{grid-row:span 2!important;aspect-ratio:1/1!important}
+  .me>p{grid-column:1/-1;padding:0 4px}
+  .me-id{margin:0;align-self:center}
+  .reg li{grid-template-columns:minmax(0,1fr);gap:2px;padding:14px 0}
+  .reg-d{text-align:left}
+  .kb-log{height:120px}
+  .morph{height:200vh}
+  .foot{gap:28px}
+}
+@media (prefers-reduced-motion:reduce){.me-ph img{filter:none}}
+
+</style>
+</head>
+<body>
+
+
+<div class="progress" id="progress" aria-hidden="true"></div>
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+
+<header class="nav">
+  <div class="nav-bar">
+    <a class="brand build title-3" href="#topo" aria-label="Kevin Ribeiro, início">
+      <svg aria-hidden="true" viewBox="0 0 3 3"><rect class="k-p" width="1" height="3" fill="currentColor"></rect><path class="k-v" d="M1 1 2 0h1L1 2z" fill="currentColor"></path><rect class="k-n" x="2" y="2" width="1" height="1" fill="#FFB020"></rect></svg>
+      Kevin Ribeiro
+    </a>
+    <nav class="links title-4" aria-label="Seções">
+      <a href="#projetos">Projetos</a>
+      <a href="#servicos">Serviços</a>
+      <a href="#metodo">Método</a>
+      <a href="#campo">Em campo</a>
+      <a href="#trajetoria">Trajetória</a>
+      <a href="#contato">Contato</a>
+    </nav>
+    <button class="ibtn theme-btn" id="theme" type="button" aria-label="Alternar tema claro ou escuro"><svg aria-hidden="true" viewBox="0 0 20 20"><rect x="2.75" y="2.75" width="14.5" height="14.5" fill="none" stroke="currentColor" stroke-width="1.5"/><path class="t-half" d="M3.5 3.5h13l-13 13z" fill="currentColor"/></svg></button>
+    <a class="btn btn-primary button-sm js-wa nav-cta" href="https://wa.me/5585920020587?text=Ol%C3%A1%2C%20Kevin!%20Vim%20pelo%20seu%20site." target="_blank" rel="noopener">WhatsApp</a>
+    <button class="menu-btn" id="menu-btn" type="button" aria-expanded="false" aria-controls="panel" aria-label="Abrir menu"><i></i><i></i></button>
+  </div>
+</header>
+<div class="panel heading-5" id="panel" hidden>
+  <a href="#projetos">Projetos</a>
+  <a href="#servicos">Serviços</a>
+  <a href="#metodo">Método</a>
+  <a href="#campo">Em campo</a>
+  <a href="#trajetoria">Trajetória</a>
+  <a href="#contato">Contato</a>
+  <a class="btn btn-primary button-lg js-wa" href="https://wa.me/5585920020587?text=Ol%C3%A1%2C%20Kevin!%20Vim%20pelo%20seu%20site." target="_blank" rel="noopener"><svg class="ic" aria-hidden="true" focusable="false" viewBox="0 0 256 256" fill="currentColor"><path d="M187.58,144.84l-32-16a8,8,0,0,0-8,.5l-14.69,9.8a40.55,40.55,0,0,1-16-16l9.8-14.69a8,8,0,0,0,.5-8l-16-32A8,8,0,0,0,104,64a40,40,0,0,0-40,40,88.1,88.1,0,0,0,88,88,40,40,0,0,0,40-40A8,8,0,0,0,187.58,144.84ZM152,176a72.08,72.08,0,0,1-72-72A24,24,0,0,1,99.29,80.46l11.48,23L101,118a8,8,0,0,0-.73,7.51,56.47,56.47,0,0,0,30.15,30.15A8,8,0,0,0,138,155l14.61-9.74,23,11.48A24,24,0,0,1,152,176ZM128,24A104,104,0,0,0,36.18,176.88L24.83,210.93a16,16,0,0,0,20.24,20.24l34.05-11.35A104,104,0,1,0,128,24Zm0,192a87.87,87.87,0,0,1-44.06-11.81,8,8,0,0,0-6.54-.67L40,216,52.47,178.6a8,8,0,0,0-.66-6.54A88,88,0,1,1,128,216Z"/></svg>Chamar no WhatsApp</a>
+</div>
+
+<main id="conteudo">
+  <div id="topo" class="hero grid-bg">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow caption-3">Governança de TI e IA · Fortaleza, CE</p>
+        <h1 class="heading-1">IA com regra,<br>dono e métrica.</h1>
+        <p class="sub title-1">Frameworks de indicadores, agentes de IA e painéis que desenhei para operações de serviços de TI. Do contrato ao agente, com evidência no fim.</p>
+        <div class="hero-cta"><a class="btn btn-primary button-lg mag" href="#projetos">Ver os projetos<svg class="ic" aria-hidden="true" focusable="false" viewBox="0 0 256 256" fill="currentColor"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg></a><a class="btn btn-dark button-lg mag js-wa" href="https://wa.me/5585920020587?text=Ol%C3%A1%2C%20Kevin!%20Vim%20pelo%20seu%20site." target="_blank" rel="noopener"><svg class="ic" aria-hidden="true" focusable="false" viewBox="0 0 256 256" fill="currentColor"><path d="M187.58,144.84l-32-16a8,8,0,0,0-8,.5l-14.69,9.8a40.55,40.55,0,0,1-16-16l9.8-14.69a8,8,0,0,0,.5-8l-16-32A8,8,0,0,0,104,64a40,40,0,0,0-40,40,88.1,88.1,0,0,0,88,88,40,40,0,0,0,40-40A8,8,0,0,0,187.58,144.84ZM152,176a72.08,72.08,0,0,1-72-72A24,24,0,0,1,99.29,80.46l11.48,23L101,118a8,8,0,0,0-.73,7.51,56.47,56.47,0,0,0,30.15,30.15A8,8,0,0,0,138,155l14.61-9.74,23,11.48A24,24,0,0,1,152,176ZM128,24A104,104,0,0,0,36.18,176.88L24.83,210.93a16,16,0,0,0,20.24,20.24l34.05-11.35A104,104,0,1,0,128,24Zm0,192a87.87,87.87,0,0,1-44.06-11.81,8,8,0,0,0-6.54-.67L40,216,52.47,178.6a8,8,0,0,0-.66-6.54A88,88,0,1,1,128,216Z"/></svg>WhatsApp</a><a class="btn btn-dark button-lg ibtn-lg" href="https://www.linkedin.com/in/johnkevinribeiro" target="_blank" rel="noopener" aria-label="LinkedIn"><svg class="ic" aria-hidden="true" focusable="false" viewBox="0 0 256 256" fill="currentColor"><path d="M216,24H40A16,16,0,0,0,24,40V216a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V40A16,16,0,0,0,216,24Zm0,192H40V40H216V216ZM96,112v64a8,8,0,0,1-16,0V112a8,8,0,0,1,16,0Zm88,28v36a8,8,0,0,1-16,0V140a20,20,0,0,0-40,0v36a8,8,0,0,1-16,0V112a8,8,0,0,1,15.79-1.78A36,36,0,0,1,184,140ZM100,84A12,12,0,1,1,88,72,12,12,0,0,1,100,84Z"/></svg></a></div>
+        <dl class="stats">
+          <div><dt>34</dt><dd>entregas desde jun/2025</dd></div>
+          <div><dt>8</dt><dd>agentes de IA desenhados</dd></div>
+          <div><dt>420</dt><dd>KPIs em um framework</dd></div>
+          <div><dt>20</dt><dd>empresas em estudo de mercado</dd></div>
+        </dl>
+        <p class="hero-note caption-5 mono muted">Números com registro. O detalhe de cada um está nos casos abaixo.</p>
+      </div>
+      <figure class="agent demo" id="agent" aria-label="Exemplo ilustrativo da interface de um agente leitor de contrato">
+        
+        <div class="agent-head">
+          <div class="agent-id">
+            <span class="agent-av"><svg aria-hidden="true" viewBox="0 0 3 3"><rect width="1" height="3" fill="currentColor"></rect><path d="M1 1 2 0h1L1 2z" fill="currentColor"></path><rect x="2" y="2" width=".42" height=".42" fill="#6E95FF"></rect><rect x="2.58" y="2" width=".42" height=".42" fill="#6E95FF"></rect><rect x="2" y="2.58" width=".42" height=".42" fill="#6E95FF"></rect><rect x="2.58" y="2.58" width=".42" height=".42" fill="#FFB020"></rect></svg></span>
+            <div><p class="title-4">Agente leitor de contrato</p><p class="caption-5 muted">Dono definido · prompt versionado</p></div>
+          </div>
+          <span class="caption-4 muted">Exemplo ilustrativo</span>
+        </div>
+        <div class="agent-body">
+          <p class="ask body-6" data-s="ask">Gere os KPIs do contrato anexo.</p>
+          <p class="body-6" data-s="ans">Encontrei 3 cláusulas de nível de serviço. Uma não tem fonte de dado.</p>
+          <div style="overflow-x:auto">
+            <table class="tbl caption-5">
+              <thead data-s="head"><tr class="caption-4"><th>Cláusula</th><th>KPI sugerido</th><th class="hide-sm">Fonte</th><th>Evidência</th></tr></thead>
+              <tbody>
+                <tr data-s="row"><td>Resposta P1 em 30 min</td><td>Tempo médio de resposta P1</td><td class="hide-sm">Incidentes</td><td><span class="seal seal-fato">Fato</span></td></tr>
+                <tr data-s="row"><td>Reincidência abaixo de 5%</td><td>Taxa de reincidência</td><td class="hide-sm">Problemas</td><td><span class="seal seal-fato">Fato</span></td></tr>
+                <tr class="flag" data-s="row"><td>Satisfação “adequada”</td><td>CSAT pós atendimento</td><td class="hide-sm">Não definida</td><td><span class="seal seal-inf">Inferência</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="caption-4" data-s="warn" style="color:var(--accent-text);display:flex;gap:8px;align-items:center"><svg class="ic" aria-hidden="true" focusable="false" viewBox="0 0 256 256" fill="currentColor"><path d="M236.8,188.09,149.35,36.22h0a24.76,24.76,0,0,0-42.7,0L19.2,188.09a23.51,23.51,0,0,0,0,23.72A24.35,24.35,0,0,0,40.55,224h174.9a24.35,24.35,0,0,0,21.33-12.19A23.51,23.51,0,0,0,236.8,188.09ZM222.93,203.8a8.5,8.5,0,0,1-7.48,4.2H40.55a8.5,8.5,0,0,1-7.48-4.2,7.59,7.59,0,0,1,0-7.72L120.52,44.21a8.75,8.75,0,0,1,15,0l87.45,151.87A7.59,7.59,0,0,1,222.93,203.8ZM120,144V104a8,8,0,0,1,16,0v40a8,8,0,0,1-16,0Zm20,36a12,12,0,1,1-12-12A12,12,0,0,1,140,180Z"/></svg>Divergência registrada: meta sem medida.</p>
+        </div>
+        <div class="agent-foot"><span class="caption-5 muted" id="agent-note">Feito com IA · revisão humana obrigatória</span><button class="btn btn-primary button-sm" id="validar" type="button">Validar</button></div>
+      </figure>
+    </div>
+  </div>
+
+  <section id="projetos" aria-labelledby="t-proj">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="caption-3">Projetos</p>
+        <h2 class="heading-3 dec" id="t-proj">O que eu construí.</h2>
+        <p class="body-3">Seis casos em detalhe e mais dez entregas do inventário. Clientes e dados internos anonimizados; cada resultado leva um selo de evidência.</p>
+      </div>
+      <div class="filters" id="pfilters" role="group" aria-label="Filtrar projetos por tipo"><span class="find" aria-hidden="true"></span><button class="fbtn caption-4" type="button" data-f="all" aria-pressed="true">Todos</button><button class="fbtn caption-4" type="button" data-f="ind" aria-pressed="false">Indicadores</button><button class="fbtn caption-4" type="button" data-f="age" aria-pressed="false">Agentes de IA</button><button class="fbtn caption-4" type="button" data-f="pai" aria-pressed="false">Painéis</button><button class="fbtn caption-4" type="button" data-f="cap" aria-pressed="false">Capacitação</button><button class="fbtn caption-4" type="button" data-f="art" aria-pressed="false">Articulação e governança</button></div>
+      <div class="fmeta"><p class="caption-5 muted mono" id="fcount" role="status" aria-live="polite"></p><p class="caption-5 muted mono fhint">deslize para o lado para trocar de aba</p></div>
+      <div class="stage"><span class="scan" id="pscan" aria-hidden="true"></span>
+      <div class="projs" id="projs">
+        <article class="proj spot tick reveal" data-cat="ind">
+          <div class="art" aria-hidden="true"><div class="art-bars mono"><span style="flex:160"><b>160</b>operação</span><span style="flex:80"><b>80</b>capacidade</span><span style="flex:180"><b>180</b>governança</span></div></div>
+          <div class="proj-body">
+            <div class="proj-meta"><span class="chip ent caption-4">Desenho concluído</span><span class="caption-5 muted mono">Framework · Indicadores</span></div>
+            <h3 class="heading-6">Framework de indicadores inteligentes</h3>
+            <p class="body-6 muted">420 KPIs em 3 blocos e 4 camadas, apoiados em um estudo de mercado próprio.</p>
+            <button class="btn btn-ghost button-sm proj-open" type="button" data-open="caso-kpis">Ver o caso<svg class="ic" aria-hidden="true" focusable="false" viewBox="0 0 256 256" fill="currentColor"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg></button>
+          </div>
+        </article>
+        <article class="proj spot tick reveal" data-cat="age pai">
+          <div class="art" aria-hidden="true"><div class="art-flow mono"><span>contratos</span><span class="hl">agente</span><span>dados</span><span>painel</span></div></div>
+          <div class="proj-body">
+            <div class="proj-meta"><span class="chip val caption-4">Em validação</span><span class="caption-5 muted mono">Agente de IA · Painel</span></div>
+            <h3 class="heading-6">Gestão contratual com agente leitor de contratos</h3>
+            <p class="body-6 muted">O agente lê lotes de contratos e alimenta um painel com cerca de 30 saídas.</p>
+            <button class="btn btn-ghost button-sm proj-open" type="button" data-open="caso-contratos">Ver o caso<svg class="ic" aria-hidden="true" focusable="false" viewBox="0 0 256 256" fill="currentColor"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg></button>
+          </div>
+        </article>
+        <article class="proj spot tick reveal" data-cat="cap">
+          <div class="art" aria-hidden="true"><div class="art-trail mono"><div class="trail"><i></i><i></i><i></i><i></i><i class="off"></i><i class="off"></i></div><span>trilha · módulo 4 de 6</span></div></div>
+          <div class="proj-body">
+            <div class="proj-meta"><span class="chip ent caption-4">Publicado internamente</span><span class="caption-5 muted mono">Capacitação</span></div>
+            <h3 class="heading-6">Guia, trilha e fórum para criar agentes de IA</h3>
+            <p class="body-6 muted">Um guia de 26 páginas que virou trilha interativa. Outros times já criaram agentes com ele.</p>
+            <button class="btn btn-ghost button-sm proj-open" type="button" data-open="caso-guia">Ver o caso<svg class="ic" aria-hidden="true" focusable="false" viewBox="0 0 256 256" fill="currentColor"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg></button>
+          </div>
+        </article>
+        <article class="proj spot tick reveal" data-cat="age">
+          <div class="art" aria-hidden="true"><div class="art-term mono"><span>chamado fictício · prazo estourado</span><span>causa provável: aguardando terceiro</span><span class="hl">justificativa sugerida · validar</span></div></div>
+          <div class="proj-body">
+            <div class="proj-meta"><span class="chip prod caption-4">Em produção</span><span class="caption-5 muted mono">Agente de IA</span></div>
+            <h3 class="heading-6">Agente analisador de violações de SLA</h3>
+            <p class="body-6 muted">Meu primeiro agente: analisa o chamado com prazo estourado e sugere a justificativa.</p>
+            <button class="btn btn-ghost button-sm proj-open" type="button" data-open="caso-sla">Ver o caso<svg class="ic" aria-hidden="true" focusable="false" viewBox="0 0 256 256" fill="currentColor"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg></button>
+          </div>
+        </article>
+        <article class="proj spot tick reveal" data-cat="pai age">
+          <div class="art" aria-hidden="true"><svg class="art-bub" aria-hidden="true" viewBox="0 0 240 96"><path d="M8 88h224M8 8v80" fill="none" stroke="currentColor" stroke-width="1" opacity=".4"/><circle cx="52" cy="62" r="10" fill="currentColor" opacity=".55"/><circle cx="96" cy="40" r="18" fill="currentColor" opacity=".35"/><circle cx="150" cy="58" r="13" fill="currentColor" opacity=".55"/><circle cx="196" cy="28" r="16" fill="#FFB020"/><circle cx="124" cy="74" r="7" fill="currentColor" opacity=".55"/></svg></div>
+          <div class="proj-body">
+            <div class="proj-meta"><span class="chip ent caption-4">Entregue</span><span class="caption-5 muted mono">Painel · Agente de IA</span></div>
+            <h3 class="heading-6">Painel de portfólio de projetos alimentado por agente</h3>
+            <p class="body-6 muted">Planilhas financeiras de cada projeto viram um painel único em 3 passos.</p>
+            <button class="btn btn-ghost button-sm proj-open" type="button" data-open="caso-portal">Ver o caso<svg class="ic" aria-hidden="true" focusable="false" viewBox="0 0 256 256" fill="currentColor"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg></button>
+          </div>
+        </article>
+        <article class="proj spot tick reveal" data-cat="art">
+          <div class="art" aria-hidden="true"><div class="art-flow mono"><span>ITSM</span><span class="hl">data lake</span><span>BI</span><span>relatório</span></div></div>
+          <div class="proj-body">
+            <div class="proj-meta"><span class="chip ent caption-4">Acesso liberado</span><span class="caption-5 muted mono">Articulação entre áreas</span></div>
+            <h3 class="heading-6">Acesso a dados de ITSM com o time global</h3>
+            <p class="body-6 muted">Do pedido ao acesso liberado: a base que faltava para os indicadores saírem do papel.</p>
+            <button class="btn btn-ghost button-sm proj-open" type="button" data-open="caso-dados">Ver o caso<svg class="ic" aria-hidden="true" focusable="false" viewBox="0 0 256 256" fill="currentColor"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg></button>
+          </div>
+        </article>
+      </div></div>
+      <div class="more reveal">
+        <p class="title-3">Mais entregas do inventário</p>
+        <div style="overflow-x:auto"><table class="tbl body-6" id="more"><thead><tr class="caption-4"><th>Tipo</th><th>Entrega</th><th class="hide-sm">Meu papel</th><th>Status</th></tr></thead><tbody><tr data-cat="age"><td class="caption-5 muted mono">Agente de IA</td><td>Recomendador de KPIs a partir do contrato</td><td class="hide-sm">Autor</td><td>2 versões</td></tr><tr data-cat="art"><td class="caption-5 muted mono">Governança</td><td>Manual de governança de IA v1.0</td><td class="hide-sm">Autor</td><td>Entregue</td></tr><tr data-cat="ind"><td class="caption-5 muted mono">Indicadores</td><td>Índice de saúde operacional</td><td class="hide-sm">Autor</td><td>Em avaliação</td></tr><tr data-cat="age"><td class="caption-5 muted mono">Agente de IA</td><td>Conformidade contratual e recomendações</td><td class="hide-sm">Autor</td><td>Aplicado a múltiplos contratos</td></tr><tr data-cat="age"><td class="caption-5 muted mono">Agente de IA</td><td>Apoio aos relatórios mensais de serviço</td><td class="hide-sm">Autor</td><td>Em uso por parte do time</td></tr><tr data-cat="ind"><td class="caption-5 muted mono">Indicadores</td><td>KPIs de valor: resolução no primeiro contato, reincidência e tempo em pausa</td><td class="hide-sm">Coautor</td><td>Estruturado com o time de BI</td></tr><tr data-cat="pai"><td class="caption-5 muted mono">Painel</td><td>Painel executivo consolidado para a diretoria</td><td class="hide-sm">Autor</td><td>Protótipo</td></tr><tr data-cat="art"><td class="caption-5 muted mono">Governança</td><td>Taxonomia de atividades de IA em 14 categorias</td><td class="hide-sm">Coautor</td><td>Implantado</td></tr><tr data-cat="cap"><td class="caption-5 muted mono">Capacitação</td><td>Palestra “IA aplicada à governança”</td><td class="hide-sm">Autor</td><td>Realizada</td></tr><tr data-cat="cap"><td class="caption-5 muted mono">Capacitação</td><td>Mentoria voluntária de IA em hackathon de sustentabilidade</td><td class="hide-sm">Mentor</td><td>Nov/2026</td></tr></tbody></table></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="servicos" aria-labelledby="t-svc">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="caption-3">Como eu entro no seu projeto</p>
+        <h2 class="heading-3 dec" id="t-svc">Seis portas de entrada.<br>Uma regra: o processo vem antes da ferramenta.</h2>
+        <p class="body-3">Escolha uma porta: ela já entra marcada na sua mensagem de contato. O valor eu passo no WhatsApp, depois de entender o seu caso.</p>
+      </div>
+      <div class="doors" data-seq><a class="door spot tick reveal blue" href="#contato" data-need="agentes"><span class="door-top"><span class="door-n">01</span></span><h3 class="heading-6">Agentes de IA com dono</h3><p class="body-6">Desenho do agente a partir da regra de negócio: escopo, fontes, formato de saída, validação humana e versão.</p><span class="door-out"><span>entrega · agente documentado + manual de uso</span><svg class="ic" aria-hidden="true" focusable="false" viewBox="0 0 256 256" fill="currentColor"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg></span></a><a class="door spot tick reveal" href="#contato" data-need="seguro"><span class="door-top"><span class="door-n">02</span></span><h3 class="heading-6">Implementação segura de processos com IA</h3><p class="body-6">Onde a IA entra, onde não entra, quem responde e que dado ela pode tocar. LGPD e trilha de auditoria desde o começo.</p><span class="door-out"><span>entrega · mapa de processo + política de uso</span><svg class="ic" aria-hidden="true" focusable="false" viewBox="0 0 256 256" fill="currentColor"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg></span></a><a class="door spot tick reveal" href="#contato" data-need="kpis"><span class="door-top"><span class="door-n">03</span></span><h3 class="heading-6">Contrato que vira indicador</h3><p class="body-6">Cada cláusula de nível de serviço vira KPI com fórmula, fonte de dado, meta e responsável.</p><span class="door-out"><span>entrega · catálogo de KPIs por contrato</span><svg class="ic" aria-hidden="true" focusable="false" viewBox="0 0 256 256" fill="currentColor"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg></span></a><a class="door spot tick reveal" href="#contato" data-need="paineis"><span class="door-top"><span class="door-n">04</span></span><h3 class="heading-6">Painéis executivos</h3><p class="body-6">Protótipo navegável do painel antes do BI: a diretoria valida a pergunta antes de alguém construir a resposta.</p><span class="door-out"><span>entrega · painel em HTML + relatório em PDF</span><svg class="ic" aria-hidden="true" focusable="false" viewBox="0 0 256 256" fill="currentColor"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg></span></a><a class="door spot tick reveal" href="#contato" data-need="capacitacao"><span class="door-top"><span class="door-n">05</span></span><h3 class="heading-6">Capacitação e cultura de IA</h3><p class="body-6">Guia, trilha e encontros práticos para times criarem agentes úteis, seguros e auditáveis.</p><span class="door-out"><span>entrega · trilha + encontros de 45 min</span><svg class="ic" aria-hidden="true" focusable="false" viewBox="0 0 256 256" fill="currentColor"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg></span></a><a class="door spot tick reveal" href="#contato" data-need="palestra"><span class="door-top"><span class="door-n">06</span></span><h3 class="heading-6">Palestra e mentoria</h3><p class="body-6">IA aplicada à governança, com caso real e demonstração ao vivo. Para eventos, empresas e hackathons.</p><span class="door-out"><span>entrega · palestra de 30 a 60 min</span><svg class="ic" aria-hidden="true" focusable="false" viewBox="0 0 256 256" fill="currentColor"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg></span></a></div>
+      <p class="limit body-6 reveal"><b>Onde meu papel termina.</b> Eu defino indicador, regra e requisito de dado. A arquitetura física de dados e a construção de BI ficam com os times de dados. Não treino modelos.</p>
+    </div>
+  </section>
+
+  <section class="tagline grid-bg" aria-label="Tese">
+    <div class="wrap">
+      <p class="heading-2" id="tagline">Tecnologia não é só implementação.<br>É estrutura, governança e<br>valor que dá para provar.</p>
+    </div>
+  </section>
+
+  <section id="metodo" aria-labelledby="t-met">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="caption-3">Como eu trabalho</p>
+        <h2 class="heading-3 dec" id="t-met">Antes do agente, a planta.</h2>
+        <p class="body-3">Três etapas, sempre nessa ordem. A IA só entra depois que a regra e o dono existem. Abaixo, um agente de demonstração aplica o método a um contrato fictício.</p>
+      </div>
+      <ol class="steps" data-seq>
+        <li class="step spot reveal"><span class="step-n">01</span><p class="heading-6">Ler o contrato</p><p class="body-6 muted">O que foi prometido, cláusula por cláusula, e quem responde por cada parte.</p></li>
+        <li class="step spot reveal"><span class="step-n">02</span><p class="heading-6">Definir indicador e dono</p><p class="body-6 muted">Cada promessa vira KPI com fórmula, fonte de dado e responsável.</p></li>
+        <li class="step spot reveal"><span class="step-n">03</span><p class="heading-6">Colocar o agente para medir</p><p class="body-6 muted">A IA lê, cruza e marca divergência. Uma pessoa valida e decide.</p></li>
+      </ol>
+      <div class="lab reveal" id="lab">
+        <div class="chat" id="chat" aria-label="Kapi, agente de IA de demonstração">
+          <div class="chat-head">
+            <div class="agent-id"><span class="kav" aria-hidden="true"><svg aria-hidden="true" focusable="false" viewBox="0 0 15 8" shape-rendering="crispEdges" fill="currentColor"><rect x="7" y="0" width="2" height="1"></rect><path fill-rule="evenodd" d="M6 1h6v1h1v3h-2v1h-1v1H0V3h1V2h5zM8 2v1h1V2zM11 3v1h1V3z"></path><rect x="1" y="7" width="2" height="1"></rect><rect x="4" y="7" width="1" height="1"></rect><rect x="6" y="7" width="2" height="1"></rect><rect x="9" y="7" width="1" height="1"></rect><rect x="13" y="6" width="2" height="2" fill="#FFB020"></rect></svg></span><div><p class="title-4">Kapi<span class="ai-tag">IA</span></p><p class="caption-5 muted">Agente de demonstração · dono: Kevin · prompt v3.0</p></div></div>
+            <button class="btn btn-ghost button-sm" id="chat-reset" type="button">Reiniciar</button>
+          </div>
+          <div class="chat-log" id="chat-log" role="log" aria-live="polite"></div>
+          <div class="chat-chips" id="chat-chips" role="group" aria-label="Perguntas sugeridas"></div>
+          <form class="chat-in" id="chat-form" autocomplete="off"><label class="sr" for="chat-q">Pergunte ao Kapi</label><input id="chat-q" type="text" placeholder="Pergunte ao Kapi sobre contrato, KPI, dono, LGPD…" maxlength="160"><button class="btn btn-primary button-sm" type="submit">Enviar</button></form>
+          <p class="chat-note caption-5 muted">Demonstração com respostas roteirizadas. O que você digita não sai do seu navegador.</p>
+        </div>
+        <aside class="trace" aria-label="Trilha de auditoria do Kapi">
+          <div class="trace-head caption-4 mono"><span>trilha de auditoria</span><span id="trace-n">0 eventos</span></div>
+          <ul class="checks" id="checks"><li data-c="regra"><i></i>Regra</li><li data-c="dono"><i></i>Dono</li><li data-c="metrica"><i></i>Métrica</li><li data-c="humano"><i></i>Revisão humana</li></ul>
+          <ol class="trace-log mono caption-5" id="trace-log"><li class="trace-empty">aguardando a primeira pergunta…</li></ol>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <section id="campo" aria-labelledby="t-campo">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="caption-3">Em campo</p>
+        <h2 class="heading-3 dec" id="t-campo">Eventos, telas e certificados.</h2>
+        <p class="body-3">O trabalho fora do documento: eventos de comunidade, mentoria voluntária e as evidências do que foi entregue.</p>
+      </div>
+      <div class="campo">
+      <aside class="me spot tick reveal" aria-label="Sobre Kevin Ribeiro">
+        <div class="me-ph" id="me-ph" data-img="media/kevin-ribeiro-retrato.jpg"><span class="ph x"><span>FOTO · rosto</span></span><i class="cnr c1"></i><i class="cnr c2"></i><i class="cnr c3"></i><i class="cnr c4"></i></div>
+        <div class="me-id"><p class="title-2">Kevin Ribeiro</p><p class="caption-5 muted mono">Governança de TI e IA · Fortaleza, CE</p></div>
+        <p class="body-6 muted">Cheguei à TI pelo negócio: operação comercial, atendimento, treinamento e gestão. Hoje trabalho com governança de TI e IA na NTT DATA, desenhando indicadores, agentes e painéis com regra, dono e métrica.</p>
+        <p class="body-6 muted">Gosto de estar onde a IA é discutida na prática: comunidades de desenvolvedores, hackathons e mentorias.</p>
+      </aside>
+      <div class="campo-g">
+        <div class="shots" id="shots"><button class="shot spot tick reveal" type="button" data-cat="evento" data-img="media/reboot-the-earth-2026.jpg" data-t="Reboot the Earth" data-m="Evento · ONU e NTT DATA Foundation · nov/2026" data-c="Hackathon de sustentabilidade da ONU com a NTT DATA Foundation. Atuei como mentor voluntário de IA."><span class="ph x"><span>FOTO · evento</span></span><span class="shot-t"><span class="title-4">Reboot the Earth</span><span class="caption-5 muted mono">ONU e NTT DATA Foundation · nov/2026</span></span></button><button class="shot spot tick reveal" type="button" data-cat="evento" data-img="media/build-with-ai-2026.jpg" data-t="Build With AI" data-m="Evento · Google Developers · 2026" data-c="Build With AI 2026, evento da comunidade Google Developers."><span class="ph x"><span>FOTO · evento</span></span><span class="shot-t"><span class="title-4">Build With AI</span><span class="caption-5 muted mono">Google Developers · 2026</span></span></button></div>
+        <p class="caption-5 muted mono shots-hint">Clique em uma foto para ampliar.</p>
+        <div class="reg reveal">
+          <p class="caption-3 reg-h">Outros registros</p>
+          <ul>
+            <li><span class="reg-t mono">Evento</span><span class="reg-n">Google DevFest 2026</span><span class="reg-d mono">Google Developers · Fortaleza · nov/2026</span></li>
+            <li><span class="reg-t mono">Evidência</span><span class="reg-n">Painel de portfólio de projetos v3.1</span><span class="reg-d mono">out/2026 · dados fictícios</span></li>
+            <li><span class="reg-t mono">Evidência</span><span class="reg-n">Guia para criar agentes de IA</span><span class="reg-d mono">ago/2026 · 26 páginas</span></li>
+            <li><span class="reg-t mono">Certificado</span><span class="reg-n">ITIL® 4 Foundation</span><span class="reg-d mono">2026</span></li>
+          </ul>
+        </div>
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="trajetoria" aria-labelledby="t-tra">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="caption-3">Trajetória</p>
+        <h2 class="heading-3 dec" id="t-tra">Cheguei à TI pelo negócio.</h2>
+        <p class="body-3">Operação comercial, atendimento, treinamento e gestão antes da governança. Por isso começo pelas pessoas e pelo processo, não pela ferramenta.</p>
+      </div>
+      <div class="tl-tools">
+        <div class="legend" id="legend" role="group" aria-label="Destacar na linha do tempo"><button type="button" data-tipo="todos" aria-pressed="true">Tudo</button><button type="button" data-tipo="experiencia" aria-pressed="false">Experiência</button><button type="button" data-tipo="formacao" aria-pressed="false">Formação</button><button type="button" data-tipo="certificacao" aria-pressed="false">Certificação</button></div>
+        <div class="tl-nav"><button class="ibtn" type="button" id="tl-prev" aria-label="Voltar na linha do tempo"><svg aria-hidden="true" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="square"><path d="M12.5 4.5 7 10l5.5 5.5"/></svg></button><button class="ibtn" type="button" id="tl-next" aria-label="Avançar na linha do tempo"><svg aria-hidden="true" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="square"><path d="M7.5 4.5 13 10l-5.5 5.5"/></svg></button></div>
+      </div>
+      <div class="tlx" id="tlx" tabindex="0" aria-label="Linha do tempo de 2017 até hoje. Arraste ou use as setas.">
+        <ol class="tlx-track" data-seq><li data-tipo="experiencia"><div class="tlx-card"><span class="caption-4 mono muted yr">2017</span><span class="title-3">Operação comercial</span><span class="tlx-tag">experiência</span></div></li><li data-tipo="experiencia"><div class="tlx-card"><span class="caption-4 mono muted yr">2019</span><span class="title-3">Processos e treinamento</span><span class="tlx-tag">experiência</span></div></li><li data-tipo="experiencia"><div class="tlx-card"><span class="caption-4 mono muted yr">2021</span><span class="title-3">Liderança de equipe</span><span class="tlx-tag">experiência</span></div></li><li data-tipo="experiencia"><div class="tlx-card"><span class="caption-4 mono muted yr">2023</span><span class="title-3">Gestão de negócio</span><span class="tlx-tag">experiência</span></div></li><li data-tipo="experiencia"><div class="tlx-card"><span class="caption-4 mono muted yr">2025</span><span class="title-3">Consultoria de governança</span><span class="tlx-tag">experiência</span></div></li><li data-tipo="certificacao"><div class="tlx-card"><span class="caption-4 mono muted yr">2025</span><span class="title-3">Technology Solutions Specialist</span><span class="caption-5 muted">NTT DATA</span><span class="tlx-tag">certificação</span></div></li><li data-tipo="certificacao"><div class="tlx-card"><span class="caption-4 mono muted yr">2026</span><span class="title-3">ITIL® 4 Foundation</span><span class="caption-5 muted">Gestão de serviços de TI</span><span class="tlx-tag">certificação</span></div></li><li data-tipo="experiencia" class="now"><div class="tlx-card"><span class="caption-4 mono muted yr">2026 · hoje</span><span class="title-3">Governança de TI e IA</span><span class="caption-5 muted">NTT DATA</span><span class="tlx-tag">experiência</span></div></li><li data-tipo="formacao"><div class="tlx-card"><span class="caption-4 mono muted yr">em curso</span><span class="title-3">Pós-graduação em Data Science</span><span class="caption-5 muted">Formação em curso</span><span class="tlx-tag">formação</span></div></li><li data-tipo="formacao"><div class="tlx-card"><span class="caption-4 mono muted yr">em curso</span><span class="title-3">Psicologia</span><span class="caption-5 muted">Formação em curso</span><span class="tlx-tag">formação</span></div></li><li data-tipo="formacao"><div class="tlx-card"><span class="caption-4 mono muted yr">em curso</span><span class="title-3">Gestão de Mídias Sociais Digitais</span><span class="caption-5 muted">Formação em curso</span><span class="tlx-tag">formação</span></div></li></ol>
+      </div>
+      <div class="tlx-bar" aria-hidden="true"><i id="tlx-p"></i></div>
+    </div>
+  </section>
+
+  <section id="faq" aria-labelledby="t-faq">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="caption-3">Perguntas</p>
+        <h2 class="heading-3 dec" id="t-faq">Antes de conversar.</h2>
+      </div>
+      <div class="faq">
+        <details><summary class="title-2">Você é desenvolvedor de IA?<svg class="ic" aria-hidden="true" focusable="false" viewBox="0 0 256 256" fill="currentColor"><path d="M224,128a8,8,0,0,1-8,8H136v80a8,8,0,0,1-16,0V136H40a8,8,0,0,1,0-16h80V40a8,8,0,0,1,16,0v80h80A8,8,0,0,1,224,128Z"/></svg></summary><p class="ans body-3">Não. Não treino modelos. Meu trabalho é decidir onde a IA entra no processo, desenhar o agente a partir da regra de negócio e garantir que ele tenha dono, métrica e trilha de auditoria.</p></details>
+        <details><summary class="title-2">Que tipo de empresa se beneficia desse trabalho?<svg class="ic" aria-hidden="true" focusable="false" viewBox="0 0 256 256" fill="currentColor"><path d="M224,128a8,8,0,0,1-8,8H136v80a8,8,0,0,1-16,0V136H40a8,8,0,0,1,0-16h80V40a8,8,0,0,1,16,0v80h80A8,8,0,0,1,224,128Z"/></svg></summary><p class="ans body-3">Operações de serviço com contrato, nível de serviço e indicador: serviços gerenciados de TI, áreas de governança e setores regulados como energia, saúde e financeiro.</p></details>
+        <details><summary class="title-2">Com quais ferramentas você trabalha?<svg class="ic" aria-hidden="true" focusable="false" viewBox="0 0 256 256" fill="currentColor"><path d="M224,128a8,8,0,0,1-8,8H136v80a8,8,0,0,1-16,0V136H40a8,8,0,0,1,0-16h80V40a8,8,0,0,1,16,0v80h80A8,8,0,0,1,224,128Z"/></svg></summary><p class="ans body-3">ServiceNow, Power BI, Copilot Studio, ChatGPT Enterprise, Claude e Microsoft 365. A ferramenta vem depois do processo, nunca antes.</p></details>
+        <details><summary class="title-2">Os números deste site são reais?<svg class="ic" aria-hidden="true" focusable="false" viewBox="0 0 256 256" fill="currentColor"><path d="M224,128a8,8,0,0,1-8,8H136v80a8,8,0,0,1-16,0V136H40a8,8,0,0,1,0-16h80V40a8,8,0,0,1,16,0v80h80A8,8,0,0,1,224,128Z"/></svg></summary><p class="ans body-3">Sim. Cada número leva um selo: Fato quando há registro, Estimativa quando é aproximado. Clientes e dados internos estão anonimizados, e as telas usam dados fictícios.</p></details>
+        <details><summary class="title-2">Você presta consultoria?<svg class="ic" aria-hidden="true" focusable="false" viewBox="0 0 256 256" fill="currentColor"><path d="M224,128a8,8,0,0,1-8,8H136v80a8,8,0,0,1-16,0V136H40a8,8,0,0,1,0-16h80V40a8,8,0,0,1,16,0v80h80A8,8,0,0,1,224,128Z"/></svg></summary><p class="ans body-3">Hoje atuo na NTT DATA. Estou aberto a conversas sobre oportunidades, mentoria e projetos, sempre respeitando meu contrato atual e a confidencialidade dos clientes.</p></details>
+        <details><summary class="title-2">Você usa IA no próprio conteúdo?<svg class="ic" aria-hidden="true" focusable="false" viewBox="0 0 256 256" fill="currentColor"><path d="M224,128a8,8,0,0,1-8,8H136v80a8,8,0,0,1-16,0V136H40a8,8,0,0,1,0-16h80V40a8,8,0,0,1,16,0v80h80A8,8,0,0,1,224,128Z"/></svg></summary><p class="ans body-3">Uso, e declaro. Peças feitas com IA levam o selo “Feito com IA, revisado por mim”. A revisão e a responsabilidade são minhas.</p></details>
+        <details><summary class="title-2">Onde você está?<svg class="ic" aria-hidden="true" focusable="false" viewBox="0 0 256 256" fill="currentColor"><path d="M224,128a8,8,0,0,1-8,8H136v80a8,8,0,0,1-16,0V136H40a8,8,0,0,1,0-16h80V40a8,8,0,0,1,16,0v80h80A8,8,0,0,1,224,128Z"/></svg></summary><p class="ans body-3">Em Fortaleza, Ceará, trabalhando de forma remota com times no Brasil, na Austrália e na África do Sul.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section id="contato" class="final grid-bg" aria-labelledby="t-con">
+    <div class="wrap need">
+      <div class="need-l">
+        <p class="caption-3" style="color:var(--accent-text)">Contato</p>
+        <h2 class="heading-2 dec" id="t-con">Do que a sua operação precisa?</h2>
+        <p class="title-1 muted" style="max-width:560px">Marque o que faz sentido. A mensagem é montada para você; é só enviar.</p>
+        <fieldset class="opts" id="opts"><legend class="sr">Escolha o que você precisa</legend><label class="opt"><input type="checkbox" name="need" value="agentes"><span class="bx"><svg viewBox="0 0 16 16"><path d="M3 8.5l3.2 3L13 4.5"/></svg></span><span>Agentes de IA para a minha operação</span></label><label class="opt"><input type="checkbox" name="need" value="seguro"><span class="bx"><svg viewBox="0 0 16 16"><path d="M3 8.5l3.2 3L13 4.5"/></svg></span><span>Implementar IA nos processos com segurança</span></label><label class="opt"><input type="checkbox" name="need" value="kpis"><span class="bx"><svg viewBox="0 0 16 16"><path d="M3 8.5l3.2 3L13 4.5"/></svg></span><span>Transformar contrato em indicador</span></label><label class="opt"><input type="checkbox" name="need" value="paineis"><span class="bx"><svg viewBox="0 0 16 16"><path d="M3 8.5l3.2 3L13 4.5"/></svg></span><span>Um painel executivo</span></label><label class="opt"><input type="checkbox" name="need" value="capacitacao"><span class="bx"><svg viewBox="0 0 16 16"><path d="M3 8.5l3.2 3L13 4.5"/></svg></span><span>Capacitar o meu time em IA</span></label><label class="opt"><input type="checkbox" name="need" value="palestra"><span class="bx"><svg viewBox="0 0 16 16"><path d="M3 8.5l3.2 3L13 4.5"/></svg></span><span>Palestra ou mentoria</span></label><label class="opt"><input type="checkbox" name="need" value="vaga"><span class="bx"><svg viewBox="0 0 16 16"><path d="M3 8.5l3.2 3L13 4.5"/></svg></span><span>Falar sobre uma vaga</span></label></fieldset>
+        <div class="fields"><label class="caption-4 muted">Seu nome (opcional)<input id="f-nome" type="text" autocomplete="name"></label><label class="caption-4 muted">Empresa ou área (opcional)<input id="f-emp" type="text" autocomplete="organization"></label></div>
+        <div class="send"><a class="btn btn-primary button-lg mag" id="send" href="https://wa.me/5585920020587?text=Ol%C3%A1%2C%20Kevin!%20Vim%20pelo%20seu%20site." target="_blank" rel="noopener"><svg class="ic" aria-hidden="true" focusable="false" viewBox="0 0 256 256" fill="currentColor"><path d="M187.58,144.84l-32-16a8,8,0,0,0-8,.5l-14.69,9.8a40.55,40.55,0,0,1-16-16l9.8-14.69a8,8,0,0,0,.5-8l-16-32A8,8,0,0,0,104,64a40,40,0,0,0-40,40,88.1,88.1,0,0,0,88,88,40,40,0,0,0,40-40A8,8,0,0,0,187.58,144.84ZM152,176a72.08,72.08,0,0,1-72-72A24,24,0,0,1,99.29,80.46l11.48,23L101,118a8,8,0,0,0-.73,7.51,56.47,56.47,0,0,0,30.15,30.15A8,8,0,0,0,138,155l14.61-9.74,23,11.48A24,24,0,0,1,152,176ZM128,24A104,104,0,0,0,36.18,176.88L24.83,210.93a16,16,0,0,0,20.24,20.24l34.05-11.35A104,104,0,1,0,128,24Zm0,192a87.87,87.87,0,0,1-44.06-11.81,8,8,0,0,0-6.54-.67L40,216,52.47,178.6a8,8,0,0,0-.66-6.54A88,88,0,1,1,128,216Z"/></svg>Mandar no WhatsApp</a><a class="btn btn-ghost button-lg" href="kevin-ribeiro.vcf" download="Kevin Ribeiro.vcf">Salvar contato</a><span class="caption-4 mono muted">(85) 92002-0587</span></div>
+        <p class="reassure body-6"><svg class="ic" aria-hidden="true" focusable="false" viewBox="0 0 256 256" fill="currentColor"><path d="M173.66,98.34a8,8,0,0,1,0,11.32l-56,56a8,8,0,0,1-11.32,0l-24-24a8,8,0,0,1,11.32-11.32L112,148.69l50.34-50.35A8,8,0,0,1,173.66,98.34ZM232,128A104,104,0,1,1,128,24,104.11,104.11,0,0,1,232,128Zm-16,0a88,88,0,1,0-88,88A88.1,88.1,0,0,0,216,128Z"/></svg>A mensagem é montada no seu navegador. Nada é enviado antes de você apertar.</p>
+      </div>
+      <div class="kbox" id="kbox">
+        <div class="kapi-rail" data-kapi="contato"><button class="kapi" type="button" aria-label="Kapi, o mascote. Clique para ele falar"><svg aria-hidden="true" focusable="false" viewBox="0 0 15 8" shape-rendering="crispEdges" fill="currentColor"><rect class="k-ear" x="7" y="0" width="2" height="1"></rect><path fill-rule="evenodd" d="M6 1h6v1h1v3h-2v1h-1v1H0V3h1V2h5zM8 2v1h1V2zM11 3v1h1V3z"></path><rect class="k-lid" x="8" y="2" width="1" height="1"></rect><g class="k-legs-a"><rect x="1" y="7" width="2" height="1"></rect><rect x="4" y="7" width="1" height="1"></rect><rect x="6" y="7" width="2" height="1"></rect><rect x="9" y="7" width="1" height="1"></rect></g><g class="k-legs-b"><rect x="1" y="7" width="1" height="1"></rect><rect x="3" y="7" width="2" height="1"></rect><rect x="6" y="7" width="1" height="1"></rect><rect x="8" y="7" width="2" height="1"></rect></g><rect class="k-cur" x="13" y="6" width="2" height="2"></rect></svg></button></div><p class="kapi-say" role="status"></p>
+        <div class="kbox-head"><div class="agent-id"><span class="kav" aria-hidden="true"><svg aria-hidden="true" focusable="false" viewBox="0 0 15 8" shape-rendering="crispEdges" fill="currentColor"><rect x="7" y="0" width="2" height="1"></rect><path fill-rule="evenodd" d="M6 1h6v1h1v3h-2v1h-1v1H0V3h1V2h5zM8 2v1h1V2zM11 3v1h1V3z"></path><rect x="1" y="7" width="2" height="1"></rect><rect x="4" y="7" width="1" height="1"></rect><rect x="6" y="7" width="2" height="1"></rect><rect x="9" y="7" width="1" height="1"></rect><rect x="13" y="6" width="2" height="2" fill="#FFB020"></rect></svg></span><div><p class="title-4">Kapi<span class="ai-tag">IA</span></p><p class="caption-5 muted">montando a sua mensagem</p></div></div><span class="kst" id="kst">rascunho · 0</span></div>
+        <div class="kb-log" id="kb-log" role="log" aria-live="polite"></div>
+        <div class="kb-pre-h"><span>prévia da mensagem</span><span>WhatsApp</span></div>
+        <div class="kb-pre" id="kb-pre"></div>
+        <div class="kb-mail"><p class="caption-4 muted">Prefere email?</p><div class="addr"><code id="email">johnkevinribeiro@gmail.com</code><button class="btn btn-ghost button-sm" id="copy" type="button"><svg class="ic" aria-hidden="true" focusable="false" viewBox="0 0 256 256" fill="currentColor"><path d="M216,32H88a8,8,0,0,0-8,8V80H40a8,8,0,0,0-8,8V216a8,8,0,0,0,8,8H168a8,8,0,0,0,8-8V176h40a8,8,0,0,0,8-8V40A8,8,0,0,0,216,32ZM160,208H48V96H160Zm48-48H176V88a8,8,0,0,0-8-8H96V48H208Z"/></svg><span id="copy-lbl">Copiar</span></button></div><p class="status caption-5 muted" id="status" role="status" aria-live="polite"></p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="morph" id="marca" aria-labelledby="t-marca">
+    <div class="morph-stage">
+      <div class="wrap morph-grid">
+        <div class="morph-copy">
+          <p class="caption-3">Marca</p>
+          <h2 class="heading-3 dec" id="t-marca">Do K ao agente.</h2>
+          <p class="body-3 muted">O mesmo traço, com e sem IA. Role a página: o nó âmbar se divide e vira processamento. Role de volta e ele volta a ser um só.</p>
+          <div class="morph-read mono caption-5"><div><span>modo</span><b id="m-mode">original</b></div><div><span>nó</span><b id="m-node">1 × 1.00</b></div><div><span>processo</span><b id="m-pct">0%</b></div></div>
+          <div class="morph-bar" aria-hidden="true"><i id="m-bar"></i></div>
+          <div class="morph-sw" id="m-sw" role="group" aria-label="Ver logo"><span class="find" aria-hidden="true"></span><button type="button" data-m="0" aria-pressed="true">Original</button><button type="button" data-m="1" aria-pressed="false">IA</button></div>
+        </div>
+        <figure class="morph-fig grid-bg" id="m-fig" aria-label="Animação do logo Kevin Ribeiro se transformando na versão de IA">
+          <i class="cnr c1"></i><i class="cnr c2"></i><i class="cnr c3"></i><i class="cnr c4"></i>
+          <span class="lbl l1">K · <span id="m-lbl">original</span></span><span class="lbl l2" id="m-xy">x 2.00 · y 2.00</span><span class="lbl l3">grade 1:3</span><span class="lbl l4" id="m-st">regra · dono · métrica</span>
+          <svg id="m-svg" viewBox="-0.9 -0.9 4.8 4.8" aria-hidden="true"></svg>
+        </figure>
+      </div>
+    </div>
+  </section>
+</main>
+
+<dialog class="caso" id="caso-kpis" aria-labelledby="h-kpis">
+  <div class="caso-head">
+    <div><p class="caption-5 muted mono">Framework · Indicadores · jun a jul/2026 · Autor</p><h3 class="heading-5" id="h-kpis">Framework de indicadores inteligentes</h3></div>
+    <button class="btn btn-ghost caso-x" type="button" data-close aria-label="Fechar"><svg class="ic" aria-hidden="true" focusable="false" viewBox="0 0 256 256" fill="currentColor"><path d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"/></svg></button>
+  </div>
+  <div class="caso-grid">
+    <div class="caso-col">
+      <div><p class="caption-3">Contexto</p><p class="body-6">Área de governança de serviços de uma multinacional de TI, operação Brasil, que atende vários clientes de serviços gerenciados.</p></div>
+      <div><p class="caption-3">Problema</p><p class="body-6">O cliente recebia um relatório que não falava sobre ele. O contrato era extenso, o layout era o mesmo para todos e o indicador media volume, não desempenho.</p></div>
+      <div><p class="caption-3">O que eu fiz</p><ul class="body-6 dots"><li>Comparei 20 provedores, cataloguei 150 KPIs de mercado e recomendei 39 como base.</li><li>Desenhei o framework em 3 blocos e 4 camadas, do operacional ao executivo.</li><li>Para cada KPI defini lógica, regra de negócio, critério de aplicabilidade e controle de qualidade do dado.</li><li>Deixei o modelo físico de dados com o time global de dados. Meu papel termina na especificação.</li></ul></div>
+      <div><p class="caption-3">Aprendizado</p><p class="body-6">O gargalo não era desenhar indicador, era chegar no dado. Hoje eu começaria por um piloto com poucos KPIs e dado já disponível.</p></div>
+    </div>
+    <div class="caso-col">
+      <div><p class="caption-3">Como funciona</p><ol class="flow body-6"><li><span class="mono">01</span>Contrato e escopo do cliente</li><li><span class="mono">02</span>Agente recomenda os KPIs</li><li><span class="mono">03</span>Pacote de KPIs por contrato</li><li><span class="mono">04</span>Plataforma de ITSM, data lake e BI</li><li><span class="mono">05</span>Relatório mensal e visão executiva</li></ol></div>
+      <div><p class="caption-3">Resultado</p><ul class="res body-6"><li><span><b>420</b> KPIs: 160 de operação, 80 de capacidade e 180 de governança avançada</span><span class="seal seal-fato caption-5">Fato</span></li><li><span><b>20</b> empresas comparadas, <b>150</b> KPIs catalogados, <b>39</b> recomendados</span><span class="seal seal-fato caption-5">Fato</span></li><li><span>Apresentado a cerca de <b>14</b> pessoas do time global de dados</span><span class="seal seal-inf caption-5">Estimativa</span></li></ul></div>
+      <div><p class="caption-3">Status</p><p class="body-6">Desenho concluído. A aplicação completa depende da camada de dados: o acesso foi liberado, a arquitetura técnica ainda está pendente.</p></div>
+      <div><p class="caption-3">Ferramentas e referências</p><ul class="tags"><li class="caption-4">ITIL 4</li><li class="caption-4">ISO/IEC 20000</li><li class="caption-4">COBIT 2019</li><li class="caption-4">SIAM</li><li class="caption-4">Excel</li><li class="caption-4">Agentes de IA generativa</li></ul></div>
+    </div>
+  </div>
+  <p class="caption-5 muted caso-foot">Cliente e dados internos anonimizados. Telas e exemplos usam dados fictícios.</p>
+</dialog>
+<dialog class="caso" id="caso-contratos" aria-labelledby="h-contratos">
+  <div class="caso-head">
+    <div><p class="caption-5 muted mono">Agente de IA · Painel · ago a nov/2026 · Autor</p><h3 class="heading-5" id="h-contratos">Gestão contratual com agente leitor de contratos</h3></div>
+    <button class="btn btn-ghost caso-x" type="button" data-close aria-label="Fechar"><svg class="ic" aria-hidden="true" focusable="false" viewBox="0 0 256 256" fill="currentColor"><path d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"/></svg></button>
+  </div>
+  <div class="caso-grid">
+    <div class="caso-col">
+      <div><p class="caption-3">Contexto</p><p class="body-6">Área interna de contratos de uma multinacional de TI.</p></div>
+      <div><p class="caption-3">Problema</p><p class="body-6">O controle dependia de ler cada contrato e passar as informações principais para a planilha, documento por documento.</p></div>
+      <div><p class="caption-3">O que eu fiz</p><ul class="body-6 dots"><li>Desenhei o agente que lê lotes de contratos e devolve uma planilha de controle e um arquivo de dados.</li><li>Construí o painel que consome esse arquivo: catálogo de indicadores com metodologia de cálculo, modo apresentação e relatórios executivos.</li><li>O agente sinaliza os pontos que exigem validação humana. Nada entra no painel sem conferência.</li><li>Reconstruí a ferramenta em out/2026, depois de uma mudança na plataforma de IA.</li></ul></div>
+      <div><p class="caption-3">Aprendizado</p><p class="body-6">A plataforma de IA mudou no meio do caminho e a ferramenta precisou ser refeita. Regra de negócio não pode morar dentro da ferramenta.</p></div>
+    </div>
+    <div class="caso-col">
+      <div><p class="caption-3">Como funciona</p><ol class="flow body-6"><li><span class="mono">01</span>Lote de contratos</li><li><span class="mono">02</span>Agente lê e extrai</li><li><span class="mono">03</span>Planilha de controle e arquivo de dados</li><li><span class="mono">04</span>Pessoa valida os pontos sinalizados</li><li><span class="mono">05</span>Painel e relatórios executivos</li></ol></div>
+      <div><p class="caption-3">Resultado</p><ul class="res body-6"><li><span>Cerca de <b>30</b> saídas no painel</span><span class="seal seal-inf caption-5">Estimativa</span></li><li><span>Em validação com a área usuária</span><span class="seal seal-fato caption-5">Fato</span></li><li><span>Conversa em andamento para virar sistema online corporativo</span><span class="seal seal-fato caption-5">Fato</span></li></ul></div>
+      <div><p class="caption-3">Status</p><p class="body-6">Em validação. Tempo economizado ainda não medido.</p></div>
+      <div><p class="caption-3">Ferramentas e referências</p><ul class="tags"><li class="caption-4">Assistente corporativo de IA com agentes</li><li class="caption-4">HTML</li><li class="caption-4">JavaScript</li><li class="caption-4">JSON</li><li class="caption-4">Excel</li></ul></div>
+    </div>
+  </div>
+  <p class="caption-5 muted caso-foot">Cliente e dados internos anonimizados. Telas e exemplos usam dados fictícios.</p>
+</dialog>
+<dialog class="caso" id="caso-guia" aria-labelledby="h-guia">
+  <div class="caso-head">
+    <div><p class="caption-5 muted mono">Capacitação · mai a ago/2026 · Autor e facilitador</p><h3 class="heading-5" id="h-guia">Guia, trilha e fórum para criar agentes de IA</h3></div>
+    <button class="btn btn-ghost caso-x" type="button" data-close aria-label="Fechar"><svg class="ic" aria-hidden="true" focusable="false" viewBox="0 0 256 256" fill="currentColor"><path d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"/></svg></button>
+  </div>
+  <div class="caso-grid">
+    <div class="caso-col">
+      <div><p class="caption-3">Contexto</p><p class="body-6">Time de governança de serviços: níveis de serviço, projetos, qualidade e lideranças.</p></div>
+      <div><p class="caption-3">Problema</p><p class="body-6">As pessoas precisavam criar agentes úteis, seguros e auditáveis, e não existia padrão. A maior barreira para usar IA era o preparo de quem usa.</p></div>
+      <div><p class="caption-3">O que eu fiz</p><ul class="body-6 dots"><li>Escrevi o guia em 6 partes: fundamentos, escolha de plataforma, passo a passo, segurança e LGPD, modelos e checklists.</li><li>Transformei o guia em um app com trilha, progresso e certificado.</li><li>Criei um fórum de cultura de IA com encontros de 45 minutos: tendências, caso real e demonstração ao vivo.</li><li>Regra de desenho: o agente nunca decide sozinho. Validação e responsabilidade continuam humanas.</li></ul></div>
+      <div><p class="caption-3">Aprendizado</p><p class="body-6">Material sozinho não gera adoção. Precisa de sessão prática e acompanhamento. E as plataformas mudam rápido: o guia precisa de ciclo de atualização.</p></div>
+    </div>
+    <div class="caso-col">
+      <div><p class="caption-3">Como funciona</p><ol class="flow body-6"><li><span class="mono">01</span>Problema bem definido</li><li><span class="mono">02</span>Finalidade e escopo</li><li><span class="mono">03</span>Fontes e proteções</li><li><span class="mono">04</span>Formato de saída padrão</li><li><span class="mono">05</span>Testes</li><li><span class="mono">06</span>Registro, versão e monitoramento</li></ol></div>
+      <div><p class="caption-3">Resultado</p><ul class="res body-6"><li><span>Pelo menos <b>2</b> outros times criaram agentes com o material</span><span class="seal seal-fato caption-5">Fato</span></li><li><span>Guia de <b>26</b> páginas, com versão em app</span><span class="seal seal-fato caption-5">Fato</span></li><li><span>Cerca de <b>20</b> convidados no primeiro encontro do fórum</span><span class="seal seal-inf caption-5">Estimativa</span></li></ul></div>
+      <div><p class="caption-3">Status</p><p class="body-6">Publicado internamente. Combinado como conteúdo de um programa de estágio, comigo como instrutor voluntário.</p></div>
+      <div><p class="caption-3">Ferramentas e referências</p><ul class="tags"><li class="caption-4">LGPD</li><li class="caption-4">ISO/IEC 42001</li><li class="caption-4">HTML</li><li class="caption-4">Aprendizagem de adultos</li></ul></div>
+    </div>
+  </div>
+  <p class="caption-5 muted caso-foot">Cliente e dados internos anonimizados. Telas e exemplos usam dados fictícios.</p>
+</dialog>
+<dialog class="caso" id="caso-sla" aria-labelledby="h-sla">
+  <div class="caso-head">
+    <div><p class="caption-5 muted mono">Agente de IA · nov/2025 · Autor</p><h3 class="heading-5" id="h-sla">Agente analisador de violações de SLA</h3></div>
+    <button class="btn btn-ghost caso-x" type="button" data-close aria-label="Fechar"><svg class="ic" aria-hidden="true" focusable="false" viewBox="0 0 256 256" fill="currentColor"><path d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"/></svg></button>
+  </div>
+  <div class="caso-grid">
+    <div class="caso-col">
+      <div><p class="caption-3">Contexto</p><p class="body-6">Time de gestão de níveis de serviço de uma multinacional de TI.</p></div>
+      <div><p class="caption-3">Problema</p><p class="body-6">Analisar cada chamado com prazo estourado e escrever a justificativa era trabalho manual, um por um.</p></div>
+      <div><p class="caption-3">O que eu fiz</p><ul class="body-6 dots"><li>Desenhei o agente que lê o chamado, aponta a causa provável e sugere a justificativa.</li><li>Usei a política interna de níveis de serviço como base de conhecimento.</li><li>O analista valida antes de qualquer coisa seguir.</li><li>O caso virou palestra sobre IA aplicada à governança.</li></ul></div>
+      <div><p class="caption-3">Aprendizado</p><p class="body-6">Não medi o antes e o depois. É o dado que mais faz falta neste caso.</p></div>
+    </div>
+    <div class="caso-col">
+      <div><p class="caption-3">Como funciona</p><ol class="flow body-6"><li><span class="mono">01</span>Chamado com prazo estourado</li><li><span class="mono">02</span>Agente lê histórico e política</li><li><span class="mono">03</span>Causa provável</li><li><span class="mono">04</span>Justificativa sugerida</li><li><span class="mono">05</span>Analista valida</li></ol></div>
+      <div><p class="caption-3">Resultado</p><ul class="res body-6"><li><span>Bem recebido pelo time de níveis de serviço</span><span class="seal seal-fato caption-5">Fato</span></li><li><span>Caso de origem dos outros <b>7</b> agentes</span><span class="seal seal-fato caption-5">Fato</span></li></ul></div>
+      <div><p class="caption-3">Status</p><p class="body-6">Em produção. Tempo economizado não foi medido.</p></div>
+      <div><p class="caption-3">Ferramentas e referências</p><ul class="tags"><li class="caption-4">Assistente de IA generativa</li><li class="caption-4">Plataforma de ITSM</li><li class="caption-4">ITIL 4</li></ul></div>
+    </div>
+  </div>
+  <p class="caption-5 muted caso-foot">Cliente e dados internos anonimizados. Telas e exemplos usam dados fictícios.</p>
+</dialog>
+<dialog class="caso" id="caso-portal" aria-labelledby="h-portal">
+  <div class="caso-head">
+    <div><p class="caption-5 muted mono">Painel · Agente de IA · ago a out/2026 · Autor</p><h3 class="heading-5" id="h-portal">Painel de portfólio de projetos alimentado por agente</h3></div>
+    <button class="btn btn-ghost caso-x" type="button" data-close aria-label="Fechar"><svg class="ic" aria-hidden="true" focusable="false" viewBox="0 0 256 256" fill="currentColor"><path d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"/></svg></button>
+  </div>
+  <div class="caso-grid">
+    <div class="caso-col">
+      <div><p class="caption-3">Contexto</p><p class="body-6">Área interna de gestão de projetos, com relatório voltado à diretoria.</p></div>
+      <div><p class="caption-3">Problema</p><p class="body-6">Os dados ficavam em planilhas de resultado financeiro separadas, uma por projeto.</p></div>
+      <div><p class="caption-3">O que eu fiz</p><ul class="body-6 dots"><li>Criei o app web, o agente consolidador e o manual de uso.</li><li>Revisei a parte financeira com uma usuária da área: orçamento, custo realizado, estimativa no término e índice de desempenho de custo.</li><li>Na versão 3.1 entraram as visões por diretoria e por gerente de conta.</li></ul></div>
+      <div><p class="caption-3">Aprendizado</p><p class="body-6">A primeira versão tinha métrica que a área não usava. Validar o indicador com quem usa, antes de construir, teria evitado retrabalho.</p></div>
+    </div>
+    <div class="caso-col">
+      <div><p class="caption-3">Como funciona</p><ol class="flow body-6"><li><span class="mono">01</span>Gerente preenche a planilha pelo checklist</li><li><span class="mono">02</span>Planilhas vão para o agente</li><li><span class="mono">03</span>Agente devolve um arquivo consolidado</li><li><span class="mono">04</span>Pessoa confere e importa</li><li><span class="mono">05</span>Painel, relatório e apresentação em PDF</li></ol></div>
+      <div><p class="caption-3">Resultado</p><ul class="res body-6"><li><span>Painel único, atualizado em <b>3</b> passos a cada fechamento de mês</span><span class="seal seal-fato caption-5">Fato</span></li><li><span>Seção “projetos que exigem decisão da diretoria” avaliada como excelente e objetiva por uma usuária</span><span class="seal seal-fato caption-5">Fato</span></li><li><span><b>3</b> versões registradas, com manual</span><span class="seal seal-fato caption-5">Fato</span></li></ul></div>
+      <div><p class="caption-3">Status</p><p class="body-6">Entregue, com manual. Em conversa para virar sistema online com login corporativo.</p></div>
+      <div><p class="caption-3">Ferramentas e referências</p><ul class="tags"><li class="caption-4">Assistente corporativo de IA com agentes</li><li class="caption-4">HTML</li><li class="caption-4">JavaScript</li><li class="caption-4">JSON</li><li class="caption-4">PDF</li></ul></div>
+    </div>
+  </div>
+  <p class="caption-5 muted caso-foot">Cliente e dados internos anonimizados. Telas e exemplos usam dados fictícios.</p>
+</dialog>
+<dialog class="caso" id="caso-dados" aria-labelledby="h-dados">
+  <div class="caso-head">
+    <div><p class="caption-5 muted mono">Articulação entre áreas · jul a out/2026 · Liderei a articulação</p><h3 class="heading-5" id="h-dados">Acesso a dados de ITSM com o time global</h3></div>
+    <button class="btn btn-ghost caso-x" type="button" data-close aria-label="Fechar"><svg class="ic" aria-hidden="true" focusable="false" viewBox="0 0 256 256" fill="currentColor"><path d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"/></svg></button>
+  </div>
+  <div class="caso-grid">
+    <div class="caso-col">
+      <div><p class="caption-3">Contexto</p><p class="body-6">Governança de serviços da operação Brasil e time global de dados, em outros países.</p></div>
+      <div><p class="caption-3">Problema</p><p class="body-6">O framework de indicadores dependia de um dado que a área não acessava.</p></div>
+      <div><p class="caption-3">O que eu fiz</p><ul class="body-6 dots"><li>Escrevi o pedido e a justificativa de negócio.</li><li>Mapeei as fontes: chaves, filtros, frequência de atualização e restrições de privacidade.</li><li>Conduzi o alinhamento com o time global, em inglês.</li><li>Em outra frente, uma justificativa técnica baseada no contrato liberou o módulo de relatórios da plataforma de um cliente.</li></ul></div>
+      <div><p class="caption-3">Aprendizado</p><p class="body-6">Foram meses de articulação. Acesso a dado é projeto, não detalhe.</p></div>
+    </div>
+    <div class="caso-col">
+      <div><p class="caption-3">Como funciona</p><ol class="flow body-6"><li><span class="mono">01</span>Pedido e justificativa de negócio</li><li><span class="mono">02</span>Mapa de fontes e requisitos</li><li><span class="mono">03</span>Alinhamento com o time global</li><li><span class="mono">04</span>Acesso liberado</li><li><span class="mono">05</span>Arquitetura técnica (pendente)</li></ol></div>
+      <div><p class="caption-3">Resultado</p><ul class="res body-6"><li><span>Acesso ao data lake liberado em <b>out/2026</b></span><span class="seal seal-fato caption-5">Fato</span></li><li><span>Módulo de relatórios de um cliente liberado com a justificativa técnica</span><span class="seal seal-fato caption-5">Fato</span></li><li><span>Framework apresentado a cerca de <b>14</b> pessoas de outros países</span><span class="seal seal-inf caption-5">Estimativa</span></li></ul></div>
+      <div><p class="caption-3">Status</p><p class="body-6">Acesso liberado. Arquitetura técnica ainda pendente, com especialistas de dados.</p></div>
+      <div><p class="caption-3">Ferramentas e referências</p><ul class="tags"><li class="caption-4">Requisitos de dados</li><li class="caption-4">Plataforma de ITSM</li><li class="caption-4">Data lake corporativo</li><li class="caption-4">Inglês</li></ul></div>
+    </div>
+  </div>
+  <p class="caption-5 muted caso-foot">Cliente e dados internos anonimizados. Telas e exemplos usam dados fictícios.</p>
+</dialog>
+
+<dialog class="caso lb" id="lb" aria-labelledby="lb-t">
+  <div class="caso-head">
+    <div><p class="caption-5 muted mono" id="lb-m"></p><h3 class="heading-5" id="lb-t"></h3></div>
+    <button class="btn btn-ghost caso-x" type="button" data-close aria-label="Fechar"><svg class="ic" aria-hidden="true" focusable="false" viewBox="0 0 256 256" fill="currentColor"><path d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"/></svg></button>
+  </div>
+  <div class="lb-img" id="lb-img"></div>
+  <div class="lb-foot"><p class="body-6 muted" id="lb-c"></p><span style="display:flex;gap:8px"><button class="ibtn" type="button" id="lb-prev" aria-label="Anterior"><svg aria-hidden="true" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="square"><path d="M12.5 4.5 7 10l5.5 5.5"/></svg></button><button class="ibtn" type="button" id="lb-next" aria-label="Próxima"><svg aria-hidden="true" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="square"><path d="M7.5 4.5 13 10l-5.5 5.5"/></svg></button></span></div>
+</dialog>
+
+<a class="fab js-wa" id="fab" href="https://wa.me/5585920020587?text=Ol%C3%A1%2C%20Kevin!%20Vim%20pelo%20seu%20site." target="_blank" rel="noopener" aria-label="Conversar no WhatsApp"><svg class="ic" aria-hidden="true" focusable="false" viewBox="0 0 256 256" fill="currentColor"><path d="M187.58,144.84l-32-16a8,8,0,0,0-8,.5l-14.69,9.8a40.55,40.55,0,0,1-16-16l9.8-14.69a8,8,0,0,0,.5-8l-16-32A8,8,0,0,0,104,64a40,40,0,0,0-40,40,88.1,88.1,0,0,0,88,88,40,40,0,0,0,40-40A8,8,0,0,0,187.58,144.84ZM152,176a72.08,72.08,0,0,1-72-72A24,24,0,0,1,99.29,80.46l11.48,23L101,118a8,8,0,0,0-.73,7.51,56.47,56.47,0,0,0,30.15,30.15A8,8,0,0,0,138,155l14.61-9.74,23,11.48A24,24,0,0,1,152,176ZM128,24A104,104,0,0,0,36.18,176.88L24.83,210.93a16,16,0,0,0,20.24,20.24l34.05-11.35A104,104,0,1,0,128,24Zm0,192a87.87,87.87,0,0,1-44.06-11.81,8,8,0,0,0-6.54-.67L40,216,52.47,178.6a8,8,0,0,0-.66-6.54A88,88,0,1,1,128,216Z"/></svg><span>WhatsApp</span></a>
+
+<footer>
+  <div class="wrap foot">
+    <div style="display:flex;flex-direction:column;gap:8px">
+      <span class="brand title-3"><svg aria-hidden="true" viewBox="0 0 3 3"><rect class="k-p" width="1" height="3" fill="currentColor"></rect><path class="k-v" d="M1 1 2 0h1L1 2z" fill="currentColor"></path><rect class="k-n" x="2" y="2" width="1" height="1" fill="#FFB020"></rect></svg>Kevin Ribeiro</span>
+      <span class="caption-5 muted">Feito com IA · revisado por mim · 2026</span>
+    </div>
+    <nav class="caption-4" aria-label="Rodapé">
+      <a href="#topo">Voltar ao topo</a>
+      <a class="js-wa" href="https://wa.me/5585920020587?text=Ol%C3%A1%2C%20Kevin!%20Vim%20pelo%20seu%20site." target="_blank" rel="noopener">WhatsApp</a>
+      <a href="https://www.linkedin.com/in/johnkevinribeiro" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="mailto:johnkevinribeiro@gmail.com">Email</a>
+      <a href="kevin-ribeiro.vcf" download="Kevin Ribeiro.vcf">Salvar contato</a>
+    </nav>
+    <details class="caption-5"><summary>Privacidade</summary><p class="muted">Este site não usa cookies, formulários com envio nem ferramentas de rastreamento. A conversa com o Kapi e a mensagem do contato ficam no seu navegador. As fontes são carregadas do Google Fonts, que recebe o endereço IP de quem visita.</p></details>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var root=document.documentElement, reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // menu
+  var btn=document.getElementById('menu-btn'), panel=document.getElementById('panel');
+  function setMenu(open){
+    btn.setAttribute('aria-expanded',String(open)); btn.setAttribute('aria-label',open?'Fechar menu':'Abrir menu');
+    panel.hidden=!open; panel.classList.toggle('open',open);
+    if(open){Array.prototype.forEach.call(panel.querySelectorAll('a'),function(a,i){a.style.animationDelay=Math.min(i*60,340)+'ms';});}
+  }
+  btn.addEventListener('click',function(){setMenu(btn.getAttribute('aria-expanded')!=='true');});
+  panel.addEventListener('click',function(e){if(e.target.closest('a'))setMenu(false);});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!panel.hidden){setMenu(false);btn.focus();}});
+
+  // current nav item
+  var links=document.querySelectorAll('.links a');
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){links.forEach(function(l){l.toggleAttribute('aria-current',l.getAttribute('href')==='#'+en.target.id);if(l.hasAttribute('aria-current'))l.setAttribute('aria-current','true');});}});},{rootMargin:'-45% 0px -50% 0px'});
+    ['projetos','servicos','metodo','campo','trajetoria','contato'].forEach(function(id){var s=document.getElementById(id);if(s)io.observe(s);});
+  }
+
+  // scroll reveals: only elements below the first screen start hidden
+  if(!reduce&&'IntersectionObserver' in window){
+    var els=[].slice.call(document.querySelectorAll('.reveal')).filter(function(el){return el.getBoundingClientRect().top>window.innerHeight;});
+    els.forEach(function(el){el.classList.add('pending');});
+    root.classList.add('reveal-ready');
+    document.querySelectorAll('.reveal:not(.pending)').forEach(function(el){el.classList.add('in');});
+    var ro=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){
+      var el=en.target, sib=[].slice.call(el.parentNode.children).filter(function(c){return c.classList.contains('reveal');});
+      el.style.transitionDelay=Math.min(sib.indexOf(el),5)*90+'ms';
+      el.addEventListener('transitionend',function done(e){if(e.target===el&&e.propertyName==='transform'){el.style.transitionDelay='';el.removeEventListener('transitionend',done);}});
+      el.classList.add('in');ro.unobserve(el);}});},{rootMargin:'0px 0px -10% 0px'});
+    els.forEach(function(el){ro.observe(el);});
+  }
+
+  // tagline reveal, word by word
+  var tag=document.getElementById('tagline');
+  if(tag){
+    var hl={'estrutura,':1,'governança':1,'provar.':1}, html=[];
+    tag.innerHTML.split(/(<br>)/).forEach(function(part){
+      if(part==='<br>'){html.push(part);return;}
+      part.split(' ').forEach(function(w){if(w)html.push('<span class="w'+(hl[w]?' hl':'')+'">'+w+'</span> ');});
+    });
+    tag.innerHTML=html.join('');
+    var words=tag.querySelectorAll('.w');
+    if(reduce){words.forEach(function(w){w.classList.add('on');});}
+    else{
+      var ticking=false;
+      function update(){
+        ticking=false; var line=window.innerHeight*0.7;
+        words.forEach(function(w){if(w.getBoundingClientRect().top<line)w.classList.add('on');});
+      }
+      window.addEventListener('scroll',function(){if(!ticking){ticking=true;requestAnimationFrame(update);}},{passive:true});
+      update();
+    }
+  }
+
+
+  // ===== interações v2 =====
+  var motion=root.classList.contains('reveal-ready'), hasIO='IntersectionObserver' in window;
+  function each(sel,fn,ctx){[].forEach.call((ctx||document).querySelectorAll(sel),fn);}
+  function seen(sel,fn,th){
+    if(!hasIO){each(sel,fn);return;}
+    var o=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){o.unobserve(en.target);fn(en.target);}});},{threshold:th||0.3});
+    each(sel,function(el){o.observe(el);});
+  }
+
+  // índices para animações em sequência
+  each('[data-seq],.hero-copy,.box ul',function(p){[].forEach.call(p.children,function(c,i){c.style.setProperty('--i',i);});});
+  seen('.steps,.tl',function(el){el.classList.add('go');});
+
+  // barra de progresso de leitura
+  var bar=document.getElementById('progress'), pTick=false;
+  function prog(){pTick=false;var h=document.documentElement.scrollHeight-window.innerHeight;bar.style.setProperty('--p',h>0?Math.min(1,window.scrollY/h):0);}
+  window.addEventListener('scroll',function(){if(!pTick){pTick=true;requestAnimationFrame(prog);}},{passive:true});
+  window.addEventListener('resize',prog); prog();
+
+  // ponteiro: a grade acende e os cartões ganham foco de luz
+  var lit=null, pe=null;
+  function point(){
+    var e=pe; pe=null; if(!e||!e.target.closest)return;
+    var g=e.target.closest('.grid-bg'), c=e.target.closest('.spot'), r;
+    if(lit&&lit!==g)lit.classList.remove('lit');
+    if(g){r=g.getBoundingClientRect();g.style.setProperty('--mx',(e.clientX-r.left)+'px');g.style.setProperty('--my',(e.clientY-r.top)+'px');g.classList.add('lit');}
+    lit=g;
+    if(c){r=c.getBoundingClientRect();c.style.setProperty('--x',(e.clientX-r.left)+'px');c.style.setProperty('--y',(e.clientY-r.top)+'px');}
+  }
+  document.addEventListener('pointermove',function(e){if(e.pointerType==='touch')return;if(!pe)requestAnimationFrame(point);pe=e;},{passive:true});
+  document.documentElement.addEventListener('pointerleave',function(){if(lit){lit.classList.remove('lit');lit=null;}});
+
+  // o K se reconstrói ao passar o ponteiro
+  var brand=document.querySelector('.brand.build');
+  if(brand)brand.addEventListener('pointerenter',function(){brand.classList.remove('build');void brand.offsetWidth;brand.classList.add('build');});
+
+  // números contam até o valor
+  if(motion)seen('.stats dt',function(el){
+    var m=el.textContent.match(/^(\D*)(\d+)(\D*)$/); if(!m)return;
+    var n=+m[2], t0=0;
+    function f(t){t0=t0||t;var p=Math.min(1,(t-t0)/700);el.textContent=m[1]+Math.round(n*(1-Math.pow(1-p,3)))+m[3];if(p<1)requestAnimationFrame(f);}
+    el.textContent=m[1]+'0'+m[3]; requestAnimationFrame(f);
+  },0.6);
+
+  // FAQ abre e fecha com altura animada
+  each('.faq details',function(d){
+    var sm=d.querySelector('summary'), a=d.querySelector('.ans'), an=null;
+    sm.addEventListener('click',function(e){
+      if(reduce||!a.animate)return;
+      e.preventDefault(); if(an)an.cancel();
+      var o={duration:320,easing:'cubic-bezier(0.22,1,0.36,1)'};
+      if(d.open&&!d.classList.contains('closing')){
+        d.classList.add('closing');
+        an=a.animate([{height:a.offsetHeight+'px',paddingBottom:'24px',opacity:1},{height:'0px',paddingBottom:'0px',opacity:0}],o);
+        an.onfinish=function(){d.open=false;d.classList.remove('closing');an=null;};
+      }else{
+        d.classList.remove('closing'); d.open=true;
+        an=a.animate([{height:'0px',paddingBottom:'0px',opacity:0},{height:a.offsetHeight+'px',paddingBottom:'24px',opacity:1}],o);
+        an.onfinish=function(){an=null;};
+      }
+    });
+  });
+
+  // Kapi, o mascote: anda em passos de pixel, pisca e responde ao clique
+  function Kapi(rail,lines){
+    var el=rail.querySelector('.kapi'), say=rail.nextElementSibling, host=rail.parentNode, U=6, W=90, x=0, target=0, walk=null, sayT=0, li=0, self=this, vis=true;
+    function maxX(){return Math.max(0,Math.floor((rail.clientWidth-W)/U)*U);}
+    function set(){el.style.setProperty('--kx',x+'px');}
+    function place(){var w=say.offsetWidth;say.style.setProperty('--sx',Math.max(0,Math.min(host.clientWidth-w,x+W/2-w/2))+'px');}
+    function stop(){clearInterval(walk);walk=null;el.classList.remove('step');}
+    function tick(){var d=target-x;if(Math.abs(d)<U){stop();return;}x+=d>0?U:-U;el.classList.toggle('left',d<0);el.classList.toggle('step');set();place();}
+    x=target=Math.max(0,maxX()-25); rail.classList.add('js'); set();
+    this.go=function(px){target=Math.max(0,Math.min(maxX(),Math.round(px/U)*U));if(!walk&&!reduce&&Math.abs(target-x)>=U)walk=setInterval(tick,80);};
+    this.say=function(html,ms){say.innerHTML=html;place();say.classList.add('on');clearTimeout(sayT);sayT=setTimeout(function(){say.classList.remove('on');},ms||2800);};
+    this.cheer=function(html){
+      self.say(html); if(reduce)return;
+      [0,160,320,480].forEach(function(t,i){setTimeout(function(){el.classList.toggle('hop',i%2===0);},t);});
+    };
+    el.addEventListener('click',function(){self.cheer(lines[li++%lines.length]);});
+    window.addEventListener('resize',function(){x=Math.min(x,maxX());target=x;set();});
+    if(hasIO)new IntersectionObserver(function(es){vis=es[0].isIntersecting;}).observe(rail);
+    var zone=rail.closest('.grid-bg')||host;
+    zone.addEventListener('pointermove',function(e){if(e.pointerType!=='mouse')return;var r=rail.getBoundingClientRect();self.go(e.clientX-r.left-W/2);},{passive:true});
+    if(!reduce){
+      if(!window.matchMedia('(hover:hover)').matches)setInterval(function(){if(vis&&!document.hidden)self.go(Math.random()*maxX());},7000);
+      (function blink(){setTimeout(function(){
+        if(vis&&!document.hidden){el.classList.add('blink');setTimeout(function(){el.classList.remove('blink');},140);
+          if(Math.random()<0.3){el.classList.add('twitch');setTimeout(function(){el.classList.remove('twitch');},220);}}
+        blink();},2400+Math.random()*3200);})();
+    }
+  }
+  var kapis={};
+  each('[data-kapi]',function(r){
+    kapis[r.getAttribute('data-kapi')]=new Kapi(r,r.getAttribute('data-kapi')==='hero'?[
+      '<b>$</b> kapi --status · regra ✓ dono ✓ métrica ✓',
+      'sem fonte de dado, sem KPI.',
+      'inferência não é fato. eu marco.',
+      'sou o Kapi. KPI, lido em voz alta.',
+      'IA sem dono? aqui não passa.'
+    ]:[
+      '<b>$</b> kapi --contato · WhatsApp (85) 92002-0587',
+      'marque o que precisa. eu escrevo.',
+      'sua IA tem dono? a daqui tem.'
+    ]);
+  });
+
+  // demo do agente: pergunta digitada, resposta, linhas, selos e validação humana
+  var agent=document.getElementById('agent'), val=document.getElementById('validar'), note=document.getElementById('agent-note');
+  if(agent&&val){
+    var noteT=note.textContent, timers=[], ask=agent.querySelector('[data-s="ask"]'), ans=agent.querySelector('[data-s="ans"]'), askT=ask.textContent, ansT=ans.textContent;
+    function later(fn,ms){timers.push(setTimeout(fn,ms));}
+    function reset(){val.classList.remove('done');val.textContent='Validar';note.textContent=noteT;}
+    function run(){
+      timers.forEach(clearTimeout); timers=[]; reset(); val.disabled=true;
+      var rest=[].slice.call(agent.querySelectorAll('[data-s]')).filter(function(p){return p!==ask&&p!==ans;});
+      ask.style.minHeight=ask.offsetHeight+'px'; ans.style.minHeight=ans.offsetHeight+'px';
+      each('[data-s]',function(p){p.classList.remove('on');},agent);
+      var i=0; ask.textContent=''; ask.classList.add('on','caret');
+      (function type(){
+        ask.textContent=askT.slice(0,++i);
+        if(i<askT.length){later(type,26);return;}
+        ask.classList.remove('caret');
+        later(function(){ans.innerHTML='<span class="think" aria-hidden="true"><i></i><i></i><i></i></span>';ans.classList.add('on');},260);
+        later(function(){
+          ans.textContent=ansT;
+          rest.forEach(function(p,n){later(function(){
+            p.classList.add('on');
+            if(n===rest.length-1){val.disabled=false;if(kapis.hero)kapis.hero.say('meta sem medida. <b>registrei.</b>');}
+          },260+n*360);});
+        },1400);
+      })();
+    }
+    val.addEventListener('click',function(){
+      if(val.classList.contains('done')){if(motion)run();else reset();return;}
+      val.classList.add('done'); val.textContent='Validado'; note.textContent='Exemplo ilustrativo · revisão humana feita';
+      if(kapis.hero)kapis.hero.cheer('validado por uma pessoa <b>✓</b>');
+      if(motion)later(function(){val.textContent='Rodar de novo';},1800);
+    });
+    if(motion)seen('#agent',run,0.4);
+  }
+
+  if(window.console&&console.log)console.log('%c      ▄██▄▄▄\n▄███████▄██▀█\n███████████▀▀\n▀██▀█▀██▀█   ██\n%cKapi · regra, dono e métrica. Curioso com o código? Bora conversar: linkedin.com/in/johnkevinribeiro','font-family:monospace;line-height:1.1;color:#FFB020','font-family:monospace');
+
+  // (filtro v3 no fim do script)
+  each('dialog.caso .flow',function(f){[].forEach.call(f.children,function(c,i){c.style.setProperty('--i',i);});});
+  function openCase(id){
+    var d=document.getElementById(id); if(!d||!d.showModal)return;
+    d.classList.remove('go'); d.showModal(); d.scrollTop=0;
+    requestAnimationFrame(function(){requestAnimationFrame(function(){d.classList.add('go');});});
+  }
+  document.addEventListener('click',function(e){
+    var o=e.target.closest('[data-open]'), pj;
+    if(o){openCase(o.getAttribute('data-open'));return;}
+    if(e.target.closest('[data-close]')){e.target.closest('dialog').close();return;}
+    if(e.target.tagName==='DIALOG'){e.target.close();return;}
+    pj=e.target.closest('.proj'); if(pj&&pj.querySelector('[data-open]'))openCase(pj.querySelector('[data-open]').getAttribute('data-open'));
+  });
+
+  // copy email
+  var copy=document.getElementById('copy'), out=document.getElementById('status'), em=document.getElementById('email');
+  function sel(){var r=document.createRange();r.selectNodeContents(em);var s=window.getSelection();s.removeAllRanges();s.addRange(r);out.textContent='Email selecionado. Use Ctrl+C ou Cmd+C para copiar.';}
+  var lbl=document.getElementById('copy-lbl'), okT=0;
+  function copied(){
+    out.textContent='Email copiado.'; copy.classList.add('ok'); lbl.textContent='Copiado';
+    if(kapis.contato)kapis.contato.cheer('email copiado <b>✓</b>');
+    clearTimeout(okT); okT=setTimeout(function(){copy.classList.remove('ok');lbl.textContent='Copiar';},2000);
+  }
+  copy.addEventListener('click',function(){
+    var t=em.textContent.trim();
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(copied,sel);}else{sel();}
+  });
+  /* ======================= v3 ======================= */
+  var EASE='cubic-bezier(0.22,1,0.36,1)', WA='5585920020587';
+  function $(s,c){return (c||document).querySelector(s);}
+  function $$(s,c){return [].slice.call((c||document).querySelectorAll(s));}
+  function esc(t){return String(t).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
+  function waURL(t){return 'https://wa.me/'+WA+'?text='+encodeURIComponent(t);}
+  var canAnim=!reduce&&!!document.body.animate;
+
+  // ---------- tema claro/escuro, com varredura ----------
+  var tbtn=$('#theme');
+  if(tbtn)tbtn.addEventListener('click',function(){
+    var cur=root.getAttribute('data-theme')||(matchMedia('(prefers-color-scheme: light)').matches?'light':'dark');
+    var next=cur==='light'?'dark':'light';
+    function apply(){root.setAttribute('data-theme',next);try{localStorage.setItem('kr-theme',next);}catch(e){}}
+    if(document.startViewTransition&&!reduce){root.classList.add('vt-scan');var vt=document.startViewTransition(apply);vt.finished.then(function(){root.classList.remove('vt-scan');placeAll();});}
+    else{apply();placeAll();}
+    if(kapis.hero)kapis.hero.say(next==='light'?'modo claro <b>✓</b>':'modo escuro <b>✓</b>',1600);
+  });
+
+  // ---------- WhatsApp flutuante ----------
+  var fab=$('#fab'), heroEl=$('#topo'), conEl=$('#contato'), fTick=false;
+  function fabUpd(){fTick=false;var h=heroEl.getBoundingClientRect().bottom, c=conEl.getBoundingClientRect();fab.classList.toggle('show',h<0&&(c.top>innerHeight*.75||c.bottom<0));}
+  addEventListener('scroll',function(){if(!fTick){fTick=true;requestAnimationFrame(fabUpd);}},{passive:true}); fabUpd();
+
+  // ---------- botões magnéticos ----------
+  if(!reduce&&matchMedia('(hover:hover)').matches)$$('.mag').forEach(function(b){
+    b.addEventListener('pointermove',function(e){var r=b.getBoundingClientRect();b.style.transform='translate('+((e.clientX-r.left-r.width/2)*.15)+'px,'+((e.clientY-r.top-r.height/2)*.25)+'px)';});
+    b.addEventListener('pointerleave',function(){b.style.transform='';});
+  });
+
+  // ---------- títulos que decodificam ao aparecer ----------
+  var GLY='01<>/{}[]#=+*KPI', decT=0;
+  if(false)seen('.dec',function(h){
+    h.setAttribute('aria-label',h.textContent.replace(/\s+/g,' ').trim());
+    var nodes=[];(function walk(n){[].forEach.call(n.childNodes,function(c){if(c.nodeType===3&&c.nodeValue.trim())nodes.push({n:c,t:c.nodeValue});else if(c.nodeType===1)walk(c);});})(h);
+    var total=nodes.reduce(function(a,o){return a+o.t.length;},0), t0=0, dur=Math.min(900,280+total*14);
+    function frame(t){
+      t0=t0||t; var p=Math.min(1,(t-t0)/dur), k=Math.floor(p*total), seenN=0;
+      nodes.forEach(function(o){var out='';for(var i=0;i<o.t.length;i++,seenN++){var ch=o.t[i];out+=(seenN<k||ch===' '||ch==='\n')?ch:GLY[(Math.random()*GLY.length)|0];}o.n.nodeValue=out;});
+      if(p<1)requestAnimationFrame(frame);else nodes.forEach(function(o){o.n.nodeValue=o.t;});
+    }
+    setTimeout(function(){requestAnimationFrame(frame);},(decT++%2)*60);
+  },0.5);
+
+  // ---------- motor de filtro: marcador deslizante + FLIP direcional + varredura ----------
+  var placers=[];
+  function placeAll(){placers.forEach(function(f){f();});}
+  addEventListener('resize',placeAll);
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(placeAll);
+  function Filter(o){
+    var bar=o.bar, grid=o.grid, scan=o.scan, find=$('.find',bar), btns=$$('.fbtn',bar), cur='all';
+    bar.classList.add('js');
+    btns.forEach(function(b){var n=o.count(b.getAttribute('data-f'));b.insertAdjacentHTML('beforeend','<span class="n">'+n+'</span>');});
+    function idx(f){for(var i=0;i<btns.length;i++)if(btns[i].getAttribute('data-f')===f)return i;return 0;}
+    function place(){var b=btns[idx(cur)];find.style.width=b.offsetWidth+'px';find.style.height=b.offsetHeight+'px';find.style.transform='translate('+b.offsetLeft+'px,'+b.offsetTop+'px)';}
+    placers.push(place);
+    function match(el,f){return f==='all'||(' '+el.getAttribute('data-cat')+' ').indexOf(' '+f+' ')>-1;}
+    function items(){return [].slice.call(grid.children);}
+    function go(f,anim){
+      var dir=idx(f)>=idx(cur)?1:-1; cur=f;
+      btns.forEach(function(b){b.setAttribute('aria-pressed',String(b.getAttribute('data-f')===f));});
+      bar.classList.add('moving'); place(); setTimeout(function(){bar.classList.remove('moving');},20);
+      var els=items();
+      els.forEach(function(el){if(el._leave)el._leave();el.getAnimations&&el.getAnimations().forEach(function(a){a.finish();});});
+      if(!anim||!canAnim){els.forEach(function(el){var m=match(el,f);el.hidden=!m;if(m)el.classList.add('in');});o.after&&o.after(f,els.filter(function(e){return !e.hidden;}).length,false);return;}
+      var gR=grid.getBoundingClientRect(), h0=grid.offsetHeight, first=new Map();
+      els.forEach(function(el){if(!el.hidden)first.set(el,el.getBoundingClientRect());});
+      var leaving=els.filter(function(el){return !el.hidden&&!match(el,f);}), entering=els.filter(function(el){return el.hidden&&match(el,f);}), staying=els.filter(function(el){return !el.hidden&&match(el,f);});
+      leaving.forEach(function(el){var r=first.get(el);el.style.cssText+=';position:absolute;margin:0;z-index:0;left:'+(r.left-gR.left)+'px;top:'+(r.top-gR.top)+'px;width:'+r.width+'px;height:'+r.height+'px';});
+      entering.forEach(function(el){el.hidden=false;el.classList.add('in');});
+      var h1=grid.offsetHeight;
+      staying.forEach(function(el){var a=first.get(el),b=el.getBoundingClientRect(),dx=a.left-b.left,dy=a.top-b.top;if(Math.abs(dx)+Math.abs(dy)<1)return;
+        el.animate([{transform:'translate('+dx+'px,'+dy+'px)'},{transform:'none'}],{duration:620,easing:EASE});});
+      leaving.forEach(function(el){
+        var an=el.animate([{opacity:1,transform:'none',clipPath:'inset(0 0 0 0)'},{opacity:0,transform:'translateX('+(-dir*48)+'px)',clipPath:dir>0?'inset(0 100% 0 0)':'inset(0 0 0 100%)'}],{duration:320,easing:'cubic-bezier(.55,0,1,.45)',fill:'forwards'});
+        el._leave=function(){el._leave=null;el.hidden=true;['position','margin','zIndex','left','top','width','height'].forEach(function(p){el.style[p]='';});an.cancel();};
+        an.onfinish=function(){if(el._leave)el._leave();};
+      });
+      var vis=staying.concat(entering).sort(function(a,b){return els.indexOf(a)-els.indexOf(b);});
+      entering.forEach(function(el){
+        el.animate([{opacity:0,transform:'translateX('+(dir*64)+'px)',clipPath:dir>0?'inset(0 0 0 100%)':'inset(0 100% 0 0)'},{opacity:1,transform:'none',clipPath:'inset(0 0 0 0)'}],{duration:640,delay:140+vis.indexOf(el)*70,easing:EASE,fill:'backwards'});
+      });
+      if(h0!==h1)grid.animate([{height:h0+'px'},{height:h1+'px'}],{duration:620,easing:EASE});
+      if(scan){scan.setAttribute('data-label','> filtro: '+btns[idx(f)].firstChild.textContent.trim().toLowerCase());
+        scan.animate([{opacity:0,transform:'translateY(0)'},{opacity:1,offset:.1},{opacity:1,offset:.85},{opacity:0,transform:'translateY('+Math.max(h0,h1)+'px)'}],{duration:820,easing:'cubic-bezier(.45,0,.2,1)'});}
+      o.after&&o.after(f,vis.length,true);
+    }
+    bar.addEventListener('click',function(e){var b=e.target.closest('.fbtn');if(b&&b.getAttribute('data-f')!==cur)go(b.getAttribute('data-f'),true);});
+    bar.addEventListener('keydown',function(e){if(e.key!=='ArrowRight'&&e.key!=='ArrowLeft')return;var i=btns.indexOf(document.activeElement);if(i<0)return;var n=btns[(i+(e.key==='ArrowRight'?1:btns.length-1))%btns.length];n.focus();n.click();e.preventDefault();});
+    // deslizar o dedo sobre os cartões troca de aba
+    var sx=0,sy=0,st=0;
+    grid.addEventListener('touchstart',function(e){var t=e.touches[0];sx=t.clientX;sy=t.clientY;st=Date.now();},{passive:true});
+    grid.addEventListener('touchend',function(e){var t=e.changedTouches[0],dx=t.clientX-sx,dy=t.clientY-sy;if(Date.now()-st<700&&Math.abs(dx)>60&&Math.abs(dx)>Math.abs(dy)*1.6){var i=idx(cur)+(dx<0?1:-1);if(i>=0&&i<btns.length)go(btns[i].getAttribute('data-f'),true);}},{passive:true});
+    go('all',false); place();
+    return {go:go};
+  }
+  var more=$('#more'), moreBox=$('.more');
+  if($('#pfilters'))Filter({bar:$('#pfilters'),grid:$('#projs'),scan:$('#pscan'),
+    count:function(f){return $$('#projs .proj').filter(function(p){return f==='all'||(' '+p.getAttribute('data-cat')+' ').indexOf(' '+f+' ')>-1;}).length+$$('#more tbody tr').filter(function(r){return f==='all'||r.getAttribute('data-cat')===f;}).length;},
+    after:function(f,nc,anim){
+      var nm=0;
+      $$('#more tbody tr').forEach(function(r,i){var on=f==='all'||r.getAttribute('data-cat')===f;if(on){nm++;if(r.hidden&&anim&&canAnim){r.hidden=false;r.animate([{opacity:0,transform:'translateX(-16px)'},{opacity:1,transform:'none'}],{duration:420,delay:120+nm*50,easing:EASE,fill:'backwards'});}else r.hidden=false;}else r.hidden=true;});
+      moreBox.hidden=!nm;
+      $('#fcount').textContent=nc+(nc===1?' caso':' casos')+' em detalhe · '+nm+(nm===1?' entrega':' entregas')+' na lista';
+    }});
+
+  // ---------- em campo: filtro + ampliação ----------
+  var shotsEl=$('#shots'), lb=$('#lb'), lbList=[], lbI=0;
+  if(shotsEl){
+    $$('.shot',shotsEl).forEach(function(s){var im=s.getAttribute('data-img');if(im){var ph=$('.ph',s);ph.classList.remove('x');ph.innerHTML='<img src="'+esc(im)+'" alt="'+esc(s.getAttribute('data-t'))+'" loading="lazy">';}});
+    var meph=$('#me-ph');if(meph&&meph.getAttribute('data-img')){meph.querySelector('.ph').outerHTML='<img src="'+esc(meph.getAttribute('data-img'))+'" alt="Kevin Ribeiro">';}
+    function lbShow(){var s=lbList[lbI];if(!s)return;$('#lb-m').textContent=s.getAttribute('data-m');$('#lb-t').textContent=s.getAttribute('data-t');$('#lb-c').textContent=s.getAttribute('data-c');var im=s.getAttribute('data-img');
+      $('#lb-img').innerHTML=im?'<img src="'+esc(im)+'" alt="'+esc(s.getAttribute('data-t'))+'">':'<span class="ph x"><span>espaço reservado para a foto</span></span>';
+      if(canAnim)$('#lb-img').firstChild.animate([{opacity:0,clipPath:'inset(0 0 100% 0)'},{opacity:1,clipPath:'inset(0 0 0 0)'}],{duration:500,easing:EASE});}
+    shotsEl.addEventListener('click',function(e){var s=e.target.closest('.shot');if(!s||!lb.showModal)return;lbList=$$('.shot',shotsEl).filter(function(x){return !x.hidden;});lbI=lbList.indexOf(s);lbShow();lb.showModal();});
+    $('#lb-prev').addEventListener('click',function(){lbI=(lbI+lbList.length-1)%lbList.length;lbShow();});
+    $('#lb-next').addEventListener('click',function(){lbI=(lbI+1)%lbList.length;lbShow();});
+    lb.addEventListener('keydown',function(e){if(e.key==='ArrowLeft')$('#lb-prev').click();if(e.key==='ArrowRight')$('#lb-next').click();});
+  }
+
+  // ---------- inventário recolhido no celular ----------
+  if(moreBox&&matchMedia('(max-width:760px)').matches){
+    var mBtn=document.createElement('button'), mOpen=false;
+    mBtn.type='button';mBtn.className='btn btn-ghost button-sm more-btn';mBtn.textContent='Ver as 10 entregas';moreBox.appendChild(mBtn);
+    function mClip(){var a=$('#pfilters .fbtn[aria-pressed="true"]'),all=a&&a.getAttribute('data-f')==='all';moreBox.classList.toggle('clip',!mOpen&&all);mBtn.hidden=mOpen||!all;}
+    mBtn.addEventListener('click',function(){mOpen=true;mClip();});
+    new MutationObserver(mClip).observe($('#pfilters'),{attributes:true,subtree:true,attributeFilter:['aria-pressed']});
+    mClip();
+  }
+
+  // ---------- portas de serviço: marcam o item no contato ----------
+  $$('.door').forEach(function(d){d.addEventListener('click',function(){var c=$('#opts input[value="'+d.getAttribute('data-need')+'"]');if(c&&!c.checked){c.checked=true;c.dispatchEvent(new Event('change',{bubbles:true}));}});});
+
+  // ---------- Kapi: agente de IA em conversa ----------
+  var log=$('#chat-log'), chips=$('#chat-chips'), form=$('#chat-form'), q=$('#chat-q'), tlog=$('#trace-log'), tn=$('#trace-n'), busy=false, evN=0, chatT=[];
+  function tm(){var d=new Date();return [d.getHours(),d.getMinutes(),d.getSeconds()].map(function(n){return ('0'+n).slice(-2);}).join(':');}
+  function trace(txt,cls){var e=$('.trace-empty',tlog);if(e)e.remove();tlog.insertAdjacentHTML('beforeend','<li><time>'+tm()+'</time><span class="'+(cls||'')+'">'+txt+'</span></li>');tlog.scrollTop=tlog.scrollHeight;evN++;tn.textContent=evN+(evN===1?' evento':' eventos');}
+  function check(c){var li=$('#checks [data-c="'+c+'"]');if(li&&!li.classList.contains('on')){li.classList.add('on');trace('✓ '+li.textContent.toLowerCase(),'ok');}}
+  function chatLater(fn,ms){chatT.push(setTimeout(fn,ms));}
+  function scrollLog(){log.scrollTop=log.scrollHeight;}
+  function add(who,html){var m=document.createElement('div');m.className='msg '+who;m.innerHTML='<span class="who">'+(who==='k'?'KAPI · agente de IA':'VOCÊ')+'</span>'+html;log.appendChild(m);scrollLog();return m;}
+  function kapiSay(html,done,extra){
+    var m=add('k','<span class="think" aria-hidden="true"><i></i><i></i><i></i></span>'), wait=reduce?0:520+Math.min(900,html.length*4);
+    chatLater(function(){
+      var who=m.firstChild.outerHTML;
+      if(reduce){m.innerHTML=who+html+(extra||'');scrollLog();done&&done(m);return;}
+      // texto aparece em fluxo, como resposta de IA
+      var tmp=document.createElement('div');tmp.innerHTML=html;var plain=tmp.textContent,i=0;
+      m.innerHTML=who+'<span class="caret"></span>';var sp=m.lastChild;
+      (function type(){i+=3;sp.textContent=plain.slice(0,i);scrollLog();if(i<plain.length)chatLater(type,16);else{m.innerHTML=who+html+(extra||'');scrollLog();done&&done(m);}})();
+    },wait);
+  }
+  var steps=$$('#metodo .step');
+  function light(n){steps.forEach(function(s,i){s.classList.toggle('live',i===n);});}
+  var A={
+    intro:function(){trace('sessão iniciada · dono: Kevin');check('dono');
+      kapiSay('Sou o <b>Kapi</b>, o agente de demonstração do Kevin. Leio contrato, transformo cada promessa em KPI e sinalizo o que não tem fonte de dado.',function(){
+        kapiSay('Uma regra vale para tudo: eu não decido sozinho. Toda saída passa pela validação de uma pessoa. Quer ver o método aplicado a um contrato de exemplo?',function(){check('regra');setChips(['rodar','dono','nao','lgpd','kevin']);});});},
+    rodar:function(){
+      trace('› abrindo contrato_exemplo.pdf (fictício)');light(0);
+      kapiSay('Etapa <b>01 · Ler o contrato</b>. Encontrei 3 cláusulas de nível de serviço.',function(){
+        trace('› 3 cláusulas de SLA extraídas');light(1);
+        kapiSay('Etapa <b>02 · Indicador e dono</b>. Cada promessa virou KPI com fonte:',function(){
+          trace('› KPI sugerido para cada cláusula');check('metrica');light(2);
+          kapiSay('Etapa <b>03 · Medir</b>. Uma cláusula promete satisfação “adequada”, mas não existe fonte de dado. Registrei a divergência. Você valida?',function(m){
+            trace('⚠ divergência: meta sem medida','hl');
+            var a=document.createElement('div');a.className='acts';a.innerHTML='<button class="btn btn-primary button-sm" type="button" data-v="1">Validar</button><button class="btn btn-ghost button-sm" type="button" data-v="0">Pedir ajuste</button>';m.appendChild(a);scrollLog();
+            a.addEventListener('click',function(e){var b=e.target.closest('[data-v]');if(!b)return;a.remove();
+              if(b.getAttribute('data-v')==='1'){add('u','Validado.');check('humano');trace('✓ validado por uma pessoa','ok');light(-1);
+                kapiSay('Concluído: <b>regra, dono e métrica</b>, com revisão humana. É assim que o Kevin leva IA para produção.',function(){if(kapis.hero)kapis.hero.cheer('validado por uma pessoa <b>✓</b>');setChips(['kevin','dono','nao','lgpd']);});}
+              else{add('u','Peça um ajuste.');trace('↺ ajuste solicitado · nada publicado');light(-1);
+                kapiSay('Anotado. Nada sai sem aprovação: eu volto a cláusula para o dono definir a fonte. Errar com trilha é melhor que acertar sem ela.',function(){check('humano');setChips(['rodar','kevin','nao']);});}
+            });
+          },'');
+        },'<table class="tbl caption-5"><thead><tr><th>Cláusula</th><th>KPI</th><th>Selo</th></tr></thead><tbody><tr><td>Resposta P1 em 30 min</td><td>Tempo médio de resposta P1</td><td><span class="seal seal-fato">Fato</span></td></tr><tr><td>Reincidência &lt; 5%</td><td>Taxa de reincidência</td><td><span class="seal seal-fato">Fato</span></td></tr><tr class="flag"><td>Satisfação “adequada”</td><td>CSAT pós atendimento</td><td><span class="seal seal-inf">Inferência</span></td></tr></tbody></table>');
+      });},
+    dono:function(){trace('› consulta: papel do dono');check('dono');kapiSay('Todo agente tem um <b>dono com nome</b>: quem responde quando ele erra, aprova mudança no prompt e acompanha a métrica. “A culpa é da IA” não existe aqui.',function(){setChips(['rodar','nao','lgpd','kevin']);});},
+    nao:function(){trace('› consulta: limites do agente');check('regra');kapiSay('Eu <b>não</b> treino modelos, <b>não</b> decido sozinho e <b>não</b> toco em dado que não foi liberado. O Kevin define regra, indicador e requisito de dado; a arquitetura física fica com o time de dados.',function(){setChips(['rodar','dono','lgpd','kevin']);});},
+    lgpd:function(){trace('› consulta: privacidade e LGPD');check('regra');kapiSay('Dado mínimo, canal aprovado e trilha de auditoria. Cliente e dado interno ficam anonimizados, e cada saída diz se é <b>Fato</b> ou <b>Inferência</b>.',function(){setChips(['rodar','dono','kevin']);});},
+    kevin:function(){trace('› encaminhando para o Kevin');kapiSay('Certo. Posso montar a mensagem na seção de contato, ou você fala com o Kevin direto pelo WhatsApp.',function(){setChips(['rodar','dono','nao']);},'<div class="acts"><a class="btn btn-primary button-sm" target="_blank" rel="noopener" href="'+waURL('Olá, Kevin! Conversei com o Kapi no seu site e quero falar sobre IA na minha operação.')+'">WhatsApp</a><a class="btn btn-ghost button-sm" href="#contato">Montar mensagem</a></div>');},
+    preco:function(){trace('› consulta: valores');kapiSay('O valor depende do escopo, então o Kevin passa no WhatsApp depois de entender o seu caso.',function(){setChips(['kevin','rodar']);});},
+    quem:function(){trace('› consulta: identidade');kapiSay('Sou o Kapi, o agente de demonstração do Kevin. Meu nome vem de <b>KPI</b> lido em voz alta. Aqui eu respondo com regras fixas, de propósito: previsível, com dono e auditável.',function(){setChips(['rodar','dono','kevin']);});},
+    fallback:function(){trace('› sem regra para a pergunta · resposta padrão','hl');kapiSay('Essa eu não tenho regra para responder, e prefiro dizer isso a inventar. Posso rodar o método num contrato ou chamar o Kevin.',function(){setChips(['rodar','kevin','dono']);});}
+  };
+  var LBL={rodar:'Aplicar o método a um contrato',dono:'Quem é o dono do agente?',nao:'O que você não faz?',lgpd:'E a LGPD?',kevin:'Quero falar com o Kevin'};
+  function setChips(ks){chips.innerHTML=ks.map(function(k){return '<button class="chip-q" type="button" data-k="'+k+'">'+LBL[k]+'</button>';}).join('');busy=false;
+    if(canAnim)$$('.chip-q',chips).forEach(function(c,i){c.animate([{opacity:0,transform:'translateY(8px)'},{opacity:1,transform:'none'}],{duration:360,delay:i*60,easing:EASE,fill:'backwards'});});}
+  function askKapi(k,text){if(busy)return;busy=true;chips.innerHTML='';add('u',esc(text));A[k]();}
+  if(log){
+    chips.addEventListener('click',function(e){var b=e.target.closest('[data-k]');if(b)askKapi(b.getAttribute('data-k'),b.textContent);});
+    form.addEventListener('submit',function(e){e.preventDefault();var t=q.value.trim();if(!t||busy)return;q.value='';var l=t.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'');
+      var k=/contrato|rodar|metodo|exemplo|demo|kpi|indicador|sla/.test(l)?'rodar':/dono|respons|culpa/.test(l)?'dono':/lgpd|privacid|seguran|dado pessoal/.test(l)?'lgpd':/nao faz|limite|treina|modelo/.test(l)?'nao':/preco|valor|quanto|custo|orcamento/.test(l)?'preco':/quem e voce|seu nome|kapi|voce e/.test(l)?'quem':/kevin|contato|whats|falar|conversar|ligar/.test(l)?'kevin':'fallback';
+      askKapi(k,t);});
+    $('#chat-reset').addEventListener('click',function(){chatT.forEach(clearTimeout);chatT=[];log.innerHTML='';chips.innerHTML='';tlog.innerHTML='<li class="trace-empty">sessão reiniciada…</li>';evN=0;tn.textContent='0 eventos';$$('#checks li').forEach(function(l){l.classList.remove('on');});light(-1);busy=true;A.intro();});
+    var started=false;seen('#lab',function(){if(!started){started=true;busy=true;A.intro();}},0.35);
+  }
+
+  // ---------- trajetória horizontal: arrastar, setas, legenda ----------
+  var tlx=$('#tlx');
+  if(tlx){
+    var bar2=$('#tlx-p');
+    function tprog(){var m=tlx.scrollWidth-tlx.clientWidth, w=tlx.clientWidth/tlx.scrollWidth;bar2.style.setProperty('--w',(w*100)+'%');bar2.style.setProperty('--l',(m>0?(tlx.scrollLeft/m)*(1/w-1)*100:0)+'%');}
+    tlx.addEventListener('scroll',function(){requestAnimationFrame(tprog);},{passive:true});addEventListener('resize',tprog);tprog();
+    function step(d){var li=$('.tlx-track li',tlx);tlx.scrollBy({left:d*(li?li.offsetWidth*2:400),behavior:reduce?'auto':'smooth'});}
+    $('#tl-prev').addEventListener('click',function(){step(-1);});$('#tl-next').addEventListener('click',function(){step(1);});
+    tlx.addEventListener('keydown',function(e){if(e.key==='ArrowRight'){step(1);e.preventDefault();}if(e.key==='ArrowLeft'){step(-1);e.preventDefault();}});
+    var dragX=0,dragL=0,dragging=false,moved=0;
+    tlx.addEventListener('pointerdown',function(e){if(e.pointerType!=='mouse')return;dragging=true;moved=0;dragX=e.clientX;dragL=tlx.scrollLeft;tlx.setPointerCapture(e.pointerId);});
+    tlx.addEventListener('pointermove',function(e){if(!dragging)return;var d=e.clientX-dragX;moved=Math.max(moved,Math.abs(d));if(moved>4)tlx.classList.add('drag');tlx.scrollLeft=dragL-d;});
+    function endDrag(){dragging=false;tlx.classList.remove('drag');}
+    tlx.addEventListener('pointerup',endDrag);tlx.addEventListener('pointercancel',endDrag);
+    $('#legend').addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;var t=b.getAttribute('data-tipo'),firstHit=null;
+      $$('#legend button').forEach(function(x){x.setAttribute('aria-pressed',String(x===b));});
+      $$('.tlx-track li',tlx).forEach(function(li){var on=t==='todos'||li.getAttribute('data-tipo')===t;li.classList.toggle('dim',!on);if(on&&!firstHit)firstHit=li;});
+      if(firstHit&&t!=='todos')tlx.scrollTo({left:firstHit.offsetLeft-16,behavior:reduce?'auto':'smooth'});});
+    seen('#tlx',function(el){el.classList.add('go');},0.2);
+    // começa mostrando o presente
+    seen('#tlx',function(){setTimeout(function(){var now=$('.tlx-track li.now',tlx);if(now&&tlx.scrollWidth>tlx.clientWidth)tlx.scrollTo({left:Math.max(0,now.offsetLeft-tlx.clientWidth*.35),behavior:reduce?'auto':'smooth'});},reduce?0:1500);},0.4);
+  }
+
+  // ---------- contato: Kapi monta a mensagem ----------
+  var opts=$('#opts');
+  if(opts){
+    var kblog=$('#kb-log'), pre=$('#kb-pre'), kst=$('#kst'), kbox=$('#kbox'), send=$('#send'), typer=0;
+    var R={agentes:'agentes de IA. Vou lembrar o Kevin de perguntar quem vai ser o dono.',seguro:'IA nos processos com segurança. Regra antes da ferramenta.',kpis:'contrato em indicador. Ele vai pedir o contrato, cláusula por cláusula.',paineis:'painel executivo. Primeiro a pergunta, depois o gráfico.',capacitacao:'capacitação do time. Trilha prática, não só material.',palestra:'palestra ou mentoria. Vou incluir a data do evento, se você colocar.',vaga:'conversa sobre vaga. Anotado com prioridade.'};
+    function kmsg(t){var m=document.createElement('div');m.className='msg k';m.innerHTML='<span class="who">KAPI</span>'+t;kblog.appendChild(m);kblog.scrollTop=kblog.scrollHeight;while(kblog.children.length>8)kblog.removeChild(kblog.firstChild);}
+    function compose(){
+      var sel=$$('input:checked',opts).map(function(i){return i.value;}), lab={};$$('.opt',opts).forEach(function(l){lab[$('input',l).value]=l.textContent.trim();});
+      var nome=$('#f-nome').value.trim(), emp=$('#f-emp').value.trim(), t='Olá, Kevin! Vim pelo seu site.';
+      if(nome)t+=' Aqui é '+nome+(emp?', de '+emp:'')+'.';else if(emp)t+=' Falo de '+emp+'.';
+      t+=sel.length?'\n\nQuero conversar sobre:\n'+sel.map(function(s){return '• '+lab[s];}).join('\n')+'\n\nPodemos marcar uma conversa?':' Quero conversar.';
+      return {t:t,n:sel.length};
+    }
+    function upd(anim){
+      var c=compose();send.href=waURL(c.t);kst.textContent=(c.n?'pronto · ':'rascunho · ')+c.n;kbox.classList.toggle('ready',c.n>0);
+      clearTimeout(typer);
+      if(!anim||reduce){pre.innerHTML=esc(c.t)+'<span class="caret"></span>';return;}
+      var prev=pre.textContent,k=0;while(k<prev.length&&prev[k]===c.t[k])k++;
+      (function ty(){pre.innerHTML=esc(c.t.slice(0,k))+'<span class="caret"></span>';pre.scrollTop=pre.scrollHeight;if(k<c.t.length){k+=2;typer=setTimeout(ty,12);}})();
+    }
+    opts.addEventListener('change',function(e){var i=e.target;if(!i||i.name!=='need')return;
+      kmsg(i.checked?'Anotado: <b>'+R[i.value]+'</b>':'Removido: '+esc(i.parentNode.textContent.trim().toLowerCase())+'.');
+      var n=$$('input:checked',opts).length;
+      if(kapis.contato)kapis.contato.cheer(n?'<b>'+n+'</b> '+(n===1?'item':'itens')+' na mensagem':'nada marcado ainda');
+      upd(true);});
+    var nameT=0;
+    $('#f-nome').addEventListener('input',function(){upd(false);clearTimeout(nameT);var v=this.value.trim();nameT=setTimeout(function(){if(v)kmsg('Prazer, <b>'+esc(v.split(' ')[0])+'</b>. Incluí o seu nome na mensagem.');},900);});
+    $('#f-emp').addEventListener('input',function(){upd(false);});
+    send.addEventListener('click',function(){if(kapis.contato)kapis.contato.cheer('abrindo o WhatsApp <b>→</b>');});
+    kmsg('Marque o que a sua operação precisa. Eu redijo a mensagem para o Kevin conforme você escolhe.');
+    upd(false);
+  }
+
+  // ---------- marca: K original ⇄ K de IA, guiado pela rolagem ----------
+  var msvg=$('#m-svg');
+  if(msvg){
+    var NS='http://www.w3.org/2000/svg';
+    function el(tag,at,parent){var e=document.createElementNS(NS,tag);for(var k in at)e.setAttribute(k,at[k]);(parent||msvg).appendChild(e);return e;}
+    var gGrid=el('g',{'class':'gridg'});
+    for(var g=0;g<=3.001;g+=0.5){el('line',{x1:g,y1:-0.6,x2:g,y2:3.6,'class':'gl'},gGrid);el('line',{x1:-0.6,y1:g,x2:3.6,y2:g,'class':'gl'},gGrid);}
+    var pil=el('rect',{x:0,y:0,width:1,height:3,fill:'currentColor'}), vec=el('path',{d:'M1 1 2 0h1L1 2z',fill:'currentColor'});
+    // 4 quadrantes do nó: juntos formam o quadrado âmbar; separados, o nó de IA
+    var bits=el('g',{}), bitEls=[];
+    for(var by=0;by<6;by++)for(var bx=0;bx<6;bx++)bitEls.push(el('rect',{x:2+bx/6+.03,y:2+by/6+.03,width:1/6-.06,height:1/6-.06,'class':'bit',opacity:0},bits));
+    var Q0=[[2,2],[2.5,2],[2,2.5],[2.5,2.5]], Q1=[[2,2],[2.58,2],[2,2.58],[2.58,2.58]], qs=Q0.map(function(p){return el('rect',{x:p[0],y:p[1],width:.505,height:.505});});
+    var dimG=el('g',{});el('path',{d:'M2 3.22v.12M3 3.22v.12M2 3.28h1','class':'dim'},dimG);var dimT=el('text',{x:2.5,y:3.52,'text-anchor':'middle','class':'dimt'},dimG);dimT.textContent='1.00';
+    var dimG2=el('g',{});el('path',{d:'M3.22 2v.12M3.22 2.42v-.12M3.28 2v.42','class':'dim'},dimG2);var dimT2=el('text',{x:3.36,y:2.25,'class':'dimt'},dimG2);
+    var scanL=el('rect',{x:-0.6,y:0,width:4.2,height:.012,'class':'scanl',opacity:0});
+    var AMB=[255,176,32];
+    function aiRGB(){var c=getComputedStyle(root).getPropertyValue('--ai').trim()||'#6E95FF';var m=c.match(/^#(..)(..)(..)$/);return m?[parseInt(m[1],16),parseInt(m[2],16),parseInt(m[3],16)]:[110,149,255];}
+    var AI=aiRGB();
+    function mix(a,b,t){return 'rgb('+a.map(function(v,i){return Math.round(v+(b[i]-v)*t);}).join(',')+')';}
+    function ss(a,b,x){x=Math.max(0,Math.min(1,(x-a)/(b-a)));return x*x*(3-2*x);}
+    var mT=0, mTarget=0, mCur=-1, mode=$('#m-mode'), nodeTx=$('#m-node'), pct=$('#m-pct'), mbar=$('#m-bar'), mlbl=$('#m-lbl'), mxy=$('#m-xy'), mst=$('#m-st'), sw=$('#m-sw'), swF=$('.find',sw), swB=$$('button',sw);
+    function render(t){
+      AI=aiRGB();
+      qs.forEach(function(r,i){
+        var k=ss(i*.08,.62+i*.08,t);
+        r.setAttribute('x',(Q0[i][0]+(Q1[i][0]-Q0[i][0])*k).toFixed(4));r.setAttribute('y',(Q0[i][1]+(Q1[i][1]-Q0[i][1])*k).toFixed(4));
+        var sz=.505+(.42-.505)*k;r.setAttribute('width',sz.toFixed(4));r.setAttribute('height',sz.toFixed(4));
+        var th=.32+i*.1, d=t-th, fl=Math.abs(d)<.05&&((Math.floor(t*120)+i)%2===0);
+        r.setAttribute('fill',i===3?mix(AMB,AMB,0):((d>0)!==fl?mix(AI,AI,0):mix(AMB,AMB,0)));
+      });
+      var mid=Math.sin(Math.PI*Math.max(0,Math.min(1,t)));
+      gGrid.setAttribute('opacity',(.25+.75*mid).toFixed(3));
+      bitEls.forEach(function(b,i){b.setAttribute('opacity',(mid>.35&&((i*7919+Math.floor(t*60))%7)<2?mid*.55:0).toFixed(2));});
+      scanL.setAttribute('opacity',(mid>.05?mid:0).toFixed(2));scanL.setAttribute('y',(-0.5+4*t).toFixed(3));
+      dimG.setAttribute('opacity',(1-ss(0,.35,t)).toFixed(2));dimG2.setAttribute('opacity',ss(.65,1,t).toFixed(2));dimT2.textContent='0.42';
+      pil.setAttribute('opacity',(1-.1*mid).toFixed(2));vec.setAttribute('opacity',(1-.1*mid).toFixed(2));
+      var ai=t>.5;
+      mode.textContent=t<.04?'original':t>.96?'IA':'processando';mlbl.textContent=ai?'IA':'original';
+      nodeTx.textContent=t<.5?'1 × '+(1-.5*ss(0,1,t)).toFixed(2):'4 × '+(.42+.08*(1-ss(0,1,t))).toFixed(2);
+      pct.textContent=Math.round(t*100)+'%';mbar.style.setProperty('--p',t.toFixed(3));
+      mxy.textContent=t<.04?'x 2.00 · y 2.00':t>.96?'nó 2×2 · 3 + 1':'subdividindo '+Math.round(t*100)+'%';
+      mst.textContent=t>.96?'agente com dono':t<.04?'regra · dono · métrica':'processando';
+      var on=ai?1:0;swB.forEach(function(b,i){b.setAttribute('aria-pressed',String(i===on));});swF.style.width=swB[on].offsetWidth+'px';swF.style.transform='translateX('+swB[on].offsetLeft+'px)';
+    }
+    var sec=$('#marca'), sticky=!reduce&&getComputedStyle(sec).height!=='auto';
+    function fromScroll(){var r=sec.getBoundingClientRect(),span=sec.offsetHeight-innerHeight;if(span<=0)return mTarget;return ss(.12,.78,Math.max(0,Math.min(1,-r.top/span)));}
+    function loop(){mTarget=reduce?mTarget:fromScroll();mT+=(mTarget-mT)*.12;if(Math.abs(mTarget-mT)<.0005)mT=mTarget;if(mT!==mCur){render(mT);mCur=mT;}requestAnimationFrame(loop);}
+    if(reduce){render(0);}else requestAnimationFrame(loop);
+    function goMode(m){if(reduce){mTarget=m;render(m);return;}var span=sec.offsetHeight-innerHeight, top=sec.getBoundingClientRect().top+scrollY;scrollTo({top:top+span*(m?.86:.04),behavior:'smooth'});}
+    swB.forEach(function(b){b.addEventListener('click',function(){goMode(+b.getAttribute('data-m'));});});
+    var fig=$('#m-fig');
+    fig.addEventListener('click',function(){goMode(mT>.5?0:1);});
+    if(!reduce)fig.addEventListener('pointermove',function(e){if(e.pointerType!=='mouse')return;var r=fig.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;fig.style.setProperty('--ry',(x*10).toFixed(2)+'deg');fig.style.setProperty('--rx',(-y*10).toFixed(2)+'deg');});
+    fig.addEventListener('pointerleave',function(){fig.style.setProperty('--ry','0deg');fig.style.setProperty('--rx','0deg');});
+    placers.push(function(){render(mT);});
+  }
+
+})();
+</script>
+
+</body>
+</html>
